@@ -1,0 +1,293 @@
+//MUSICA
+.contenedor,
+.header-music,
+.header-pag {
+    nav {
+        ul {
+            div {
+                .a-music {
+                    color: $gris-oscuro;
+
+                    &:hover {
+                        color: $gris-claro;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* discos */
+main {
+    div {
+        img {
+            width: 100%;
+            object-fit: cover;
+            padding: 2rem;
+            background-position: center;
+            margin-top: 0.3rem;
+        }
+    }
+
+    div {
+        .descripcion {
+            padding-left: 0;
+            padding-right: 0;
+
+            .z-index {
+                z-index: 3;
+            }
+
+            .border-accordion {
+                border: 1px solid $gris-claro;
+
+            }
+
+            .boton-accordion {
+                font-weight: bold;
+                font-size: 1.3rem;
+            }
+
+            .lista-accordion {
+                font-size: 1.3rem;
+                text-shadow: 0 0 0 $gris-oscuro;
+
+                li {
+                    font-size: 1.3rem;
+                }
+
+            }
+
+            .descripcion-album {
+                color: $azul-claro;
+                font-weight: bold;
+                text-transform: uppercase;
+                padding-bottom: 1rem;
+                font-family: 'Quicksand', sans-serif;
+            }
+
+            .descripcion-ep {
+                color: $violeta-claro;
+                font-weight: bold;
+                padding: 0 0 1rem;
+            }
+
+            .lista-padding {
+                padding-top: 2rem;
+            }
+        }
+
+        .canciones {
+            padding: 4rem 6rem;
+            font-size: 4rem;
+
+            .h2-music {
+                padding: 2rem 0;
+                @include estilos(2rem, $azul-claro);
+                padding-bottom: 0;
+            }
+
+            .ep {
+                @include estilos(2rem, $violeta-claro);
+
+            }
+
+            .h3-music {
+                text-align: start;
+                color: $violeta-claro;
+                font-weight: bold;
+                padding-bottom: 1.5rem;
+            }
+
+            .h3-album {
+                color: $azul-claro;
+            }
+
+            .lista-music {
+                font-family: Arial, Helvetica, sans-serif;
+                letter-spacing: 0.2px;
+                font-size: 2.7rem;
+
+                .li-pad {
+                    padding: 0.3rem 0.5rem;
+                    font-size: 1.5rem;
+
+                    &:hover {
+                        color: rgb(255, 245, 231);
+                        background-color: $gris-oscuro;
+                        border-radius: 8px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:320px) {
+    .header-pag {
+        display: none;
+    }
+
+    .play-music {
+        position: fixed;
+        left: 80%;
+        top: 18rem;
+        z-index: 0;
+
+        a {
+            .play-img {
+                width: 40%;
+            }
+        }
+    }
+
+    main {
+        #discos {
+            display: grid;
+            grid-template-columns: 1fr;
+            @include margin-mobile;
+        }
+
+        div {
+            .canciones {
+                padding: 0;
+
+                .lista-music {
+                    padding-bottom: 0;
+                }
+            }
+
+            .img-album {
+                text-align: center;
+                position: relative;
+                z-index: 1;
+            }
+
+            .img-position {
+                z-index: 0;
+            }
+
+            .descripcion {
+                padding-bottom: 7rem;
+
+                .parrafo {
+                    display: none;
+                }
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:600px) {
+    main {
+        div {
+            img {
+                width: 100%;
+            }
+        }
+
+        #discos {
+            margin-top: 2rem;
+            @include margin-tablet;
+        }
+    }
+
+    .play-music {
+        left: 75%;
+        top: 18rem;
+        position: absolute;
+
+        a {
+            .play-img {
+                width: 20%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .header-pag {
+        display: flex;
+    }
+
+    main {
+        #discos {
+            @include grid(30% 40% 30%, repeat(4, 1fr));
+            @include margin-desktop;
+            row-gap: 25rem;
+            margin-bottom: 30rem;
+        }
+
+        div {
+            img {
+                width: 100%;
+                margin-top: 0;
+            }
+
+            .descripcion {
+                padding-left: 2rem;
+                z-index: 2;
+
+                .parrafo {
+                    display: block;
+                    font-size: 1.6rem;
+
+                    ul {
+                        li {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+
+                .descripcion-album,
+                .descripcion-ep {
+                    padding-top: 2rem;
+                    font-size: 2rem;
+                }
+            }
+
+            .canciones {
+                padding-right: 2rem;
+
+                .h3-music {
+                    padding-left: 0;
+                }
+
+                .ep {
+                    padding-top: 2rem;
+                    padding-left: 0;
+                }
+
+                .lista-music {
+                    font-size: 2.9rem;
+                    padding: 0;
+                    padding-bottom: 2rem;
+
+                    .li-pad {
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
+
+        .play-music {
+            left: 87%;
+            top: 20rem;
+
+            a {
+                .play-img {
+                    width: 20%;
+                }
+            }
+        }
+    }
+
+
+
+
+}

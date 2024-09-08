@@ -1,0 +1,120 @@
+
+// GALERIA 
+main {
+    .h2-galeria {
+        text-align: center;
+        letter-spacing: 1.6px;
+        padding-bottom: 0.5rem;
+        margin-bottom: 0;
+        color: $gris-oscuro;
+    }
+    div {
+        .h3-gal {
+            letter-spacing: 1px;
+            padding-top: 0.3rem;
+            color: $azul-oscuro;
+        }
+        .img-bt {
+            padding: 0;
+        }
+    }
+}
+
+.play-music {
+    a {
+        .play-ig {
+            width: 20%;
+        }
+    }
+}
+
+@media screen and (min-width:320px) {
+    main {
+        .gal-container {
+            @include flex;
+            margin-bottom: 7rem;
+            gap: 0;
+            padding: 1rem 2rem;
+        }
+
+        div {
+            .img-bt {
+                width: 95%;
+            }
+            .img-vertical {
+                width: 70%;
+            }
+            .boton-prev {
+                left: 2%;
+                margin-right: 0;
+                justify-content: flex-start;
+            }
+            .boton-next {
+                right: 2%;
+                margin: 0;
+                justify-content: end;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:600px) {
+    main {
+        .gal-container {
+            @include margin-tablet;
+            margin-bottom: 10rem;
+        }
+        div {
+            .img-bt {
+                width: 90%;
+            }
+            .img-vertical {
+                width: 70%;
+            }
+        }
+    }
+
+    .play-music {
+        a {
+            .play-ig {
+                width: 13%;
+                left: 10%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px) {
+    main {
+        .gal-container {
+            @include flex;
+            margin: 0;
+            margin-bottom: 15rem;
+        }
+        div {            
+            .img-bt {
+                width: 55%;
+            }
+            .img-vertical {
+                width: 30%;
+            }
+            .boton-prev {
+                left: 20%;
+            }
+            .boton-next {
+                right: 20%;
+            }
+        }
+    }
+
+    .play-music {
+
+        a {
+            .play-ig {
+                width: 15%;
+                top: 2rem;
+                left: 0%;
+            }
+        }
+    }
+}

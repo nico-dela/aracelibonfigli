@@ -1,0 +1,25 @@
+@import "utilidades/variables";
+@import "utilidades/mixin";
+@import "utilidades/extend";
+@import "base/reset";
+
+@import "layout/globales";
+@import "layout/footer";
+@import "layout/index-dos";
+@import "layout/musica";
+@import "layout/videos";
+@import "layout/libros";
+@import "layout/galeria";
+@import "layout/contacto";
+@import "layout/sobremi";
+@import "layout/index";
+@import "layout/reproductor";
+
+
+
+
+// para llamar mixin 
+// @include 
+
+//para llamar extend
+// @extend %
