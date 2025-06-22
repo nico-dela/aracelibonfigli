@@ -2,7 +2,7 @@ class MusicPlayer {
   constructor() {
     this.audio = document.getElementById("audio")
     this.currentSongTitle = document.getElementById("currentSongTitle")
-    this.currentSongAuthor = document.getElementById("currentSongAuthor")
+    // this.currentSongAuthor = document.getElementById("currentSongAuthor")
     this.currentSongAlbum = document.getElementById("currentSongAlbum")
     this.currentAlbumArt = document.getElementById("currentAlbumArt")
     this.playlistItems = document.querySelectorAll(".playlist-item")
@@ -99,7 +99,7 @@ class MusicPlayer {
     const currentSong = this.playlist[index]
     this.audio.src = currentSong.src
     this.currentSongTitle.textContent = currentSong.title
-    this.currentSongAuthor.textContent = currentSong.author
+    // this.currentSongAuthor.textContent = currentSong.author
     this.currentSongAlbum.textContent = currentSong.album || "El Degradé Del Atardecer"
 
     // Update album art based on song
@@ -115,13 +115,13 @@ class MusicPlayer {
 
   updateAlbumArt(song) {
     const albumArtMap = {
-      "El Degradé Del Atardecer": "../multimedia/eldegradedelatardecer.webp",
-      Fluir: "../multimedia/fluir.webp",
-      "El Degradé Del Atardecer - Lado B": "../multimedia/ladob.webp",
-      "El Degradé Del Atardecer - Lado A": "../multimedia/ladoa.webp",
+      "El Degradé Del Atardecer": "../media/images/eldegradedelatardecer.webp",
+      Fluir: "../media/images/fluir.webp",
+      "El Degradé Del Atardecer - Lado B": "../media/images/ladob.webp",
+      "El Degradé Del Atardecer - Lado A": "../media/images/ladoa.webp",
     }
 
-    const artSrc = albumArtMap[song.album] || "../multimedia/eldegradedelatardecer.webp"
+    const artSrc = albumArtMap[song.album] || "../media/images/eldegradedelatardecer.webp"
     this.currentAlbumArt.src = artSrc
   }
 
@@ -132,7 +132,7 @@ class MusicPlayer {
       this.audio
         .play()
         .then(() => {
-          playPauseBtn.src = "../multimedia/png/pause.svg"
+          playPauseBtn.src = "../media/images/pause.svg"
           playPauseBtn.title = "Pausar"
           this.showNotification(`Reproduciendo: ${this.currentSongTitle.textContent}`)
         })
@@ -142,7 +142,7 @@ class MusicPlayer {
         })
     } else {
       this.audio.pause()
-      playPauseBtn.src = "../multimedia/png/Play.svg"
+      playPauseBtn.src = "../media/images/Play.svg"
       playPauseBtn.title = "Reproducir"
     }
   }
@@ -176,11 +176,11 @@ class MusicPlayer {
     const volume = this.audio.volume * 100
 
     if (volume === 0) {
-      volumeIcon.src = "../multimedia/png/Volume-Mute.svg"
+      volumeIcon.src = "../media/images/Volume-Mute.svg"
     } else if (volume < 50) {
-      volumeIcon.src = "../multimedia/png/Volume-Low.svg"
+      volumeIcon.src = "../media/images/Volume-Low.svg"
     } else {
-      volumeIcon.src = "../multimedia/png/Volume.svg"
+      volumeIcon.src = "../media/images/Volume.svg"
     }
   }
 
@@ -216,7 +216,7 @@ class MusicPlayer {
   playSongByIndex(index) {
     this.loadSong(index)
     this.audio.play().then(() => {
-      document.getElementById("PlayPause").src = "../multimedia/png/pause.svg"
+      document.getElementById("PlayPause").src = "../media/images/pause.svg"
     })
   }
 
@@ -323,61 +323,61 @@ class MusicPlayer {
     {
       title: "Mi Despertar",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/00-MIDESPERTAR.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/00-MIDESPERTAR.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
       title: "Si Querés La Verdad",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/01-SIQUERESLAVERDAD.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/01-SIQUERESLAVERDAD.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
       title: "Desordenada",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/02-DESORDENADA.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/02-DESORDENADA.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
       title: "Oda Al Otoño Por Venir",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/03-ODAALOTONOPORVENIR.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/03-ODAALOTONOPORVENIR.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
       title: "Tu Luz Sin Fin",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/04-TULUZSINFIN.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/04-TULUZSINFIN.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
       title: "Levitar",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/05-LEVITAR.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/05-LEVITAR.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
       title: "El Mar Volar",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/06-ELMARVOLAR.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/06-ELMARVOLAR.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
       title: "Dibujando El Cielo",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/07-DIBUJANDOELCIELO.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/07-DIBUJANDOELCIELO.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
       title: "Aire",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/08-AIRE.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/08-AIRE.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
       title: "Suelto Los Tientos",
       author: "Araceli Bonfigli",
-      src: "../multimedia/canciones/2023-ElDegrade-Vivo/09-SUELTOLOSTIENTOS.mp3",
+      src: "../media/songs/2023-ElDegrade-Vivo/09-SUELTOLOSTIENTOS.mp3",
       album: "El Degradé Del Atardecer",
     },
     {
