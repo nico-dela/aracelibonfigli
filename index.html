@@ -2,25 +2,285 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Araceli Bonfigli</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/estilos.css" />
-  <link rel="icon" type="image/png" href="./media/images/favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Araceli Bonfigli - Compositora, cantante y escritora argentina. Descubre su música, libros y trayectoria artística. Explora universos sonoros y poéticos únicos.">
+  <meta name="keywords"
+    content="Araceli Bonfigli, música argentina, compositora, cantante, escritora, El Degradé del Atardecer, Fluir, música independiente">
+  <title>Araceli Bonfigli - Compositora y Artista</title>
+  <link rel="icon" type="image/png" href="./media/images/favicon.png">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Quicksand:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body class="bg-body">
-  <script>
-    // Redirección automática a la página de música
-    window.location.href = './pages/musica.html';
-  </script>
 
-  <!-- Fallback para usuarios con JavaScript deshabilitado -->
-  <div
-    style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; font-family: Arial, sans-serif;">
-    <h1>Redirigiendo...</h1>
-    <p>Si no eres redirigido automáticamente, <a href="./pages/musica.html">haz clic aquí</a></p>
+  <!-- Header Navigation -->
+  <!-- <header class="contenedor header-pag">
+    <div class="index-nombre">
+      <a class="index-pag araceli" href="index.html">ARACELI BONFIGLI</a>
+    </div>
+
+    <nav class="navegacion">
+      <ul>
+        <div class="nav-uno">
+          <li><a class="a-pag" href="pages/musica.html">Música</a></li>
+          <li><a class="a-pag" href="pages/videos.html">Videos</a></li>
+          <li><a class="a-pag" href="pages/libros.html">Libros</a></li>
+        </div>
+        <div class="nav-dos">
+          <li><a class="a-pag" href="pages/galeria.html">Galería</a></li>
+          <li><a class="a-pag" href="pages/sobre_mi.html">Biografía</a></li>
+        </div>
+      </ul>
+    </nav>
+  </header> -->
+
+  <!-- Mobile Bootstrap Menu -->
+  <div id="bootstrap">
+    <nav class="navbar bg-body-tertiary fixed-top header-bt">
+      <div class="container-fluid container-bt">
+        <a class="navbar-brand araceli-bt" href="index.html">ARACELI BONFIGLI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon navbar-icon-bt"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end bg-bt" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <a class="offcanvas-title araceli-bt" id="offcanvasNavbarLabel" href="index.html">ARACELI BONFIGLI</a>
+            <button type="button" class="btn-close boton-close-bt" data-bs-dismiss="offcanvas" aria-label="Close">
+              <img class="img-close" src="media/images/cerrar.png" alt="img-cerrar">
+            </button>
+          </div>
+
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 lista-bt">
+              <li class="nav-item">
+                <a class="nav-link" href="pages/musica.html">Música</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/videos.html">Videos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/libros.html">Libros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/galeria.html">Galería</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/sobre_mi.html">Biografía</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
   </div>
+
+  <!-- Main Content -->
+  <main class="landing-main">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">ARACELI BONFIGLI</h1>
+        <p class="hero-subtitle">Compositora • Cantante • Escritora</p>
+        <p class="hero-description">
+          Universos sonoros y poéticos que dialogan con situaciones cotidianas:
+          desde el amor, las búsquedas incesantes de uno mismo, hasta el incendio
+          del poniente como muerte del ciclo circular de transitar los días de la vida.
+        </p>
+        <div class="hero-buttons">
+          <a href="pages/musica.html" class="btn-primary-custom">
+            Escuchar Música
+          </a>
+          <a href="pages/sobre_mi.html" class="btn-secondary-custom">Conocer Más</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="media/images/eldegradedelatardecer.webp" alt="Araceli Bonfigli" class="hero-album-art">
+      </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured-section">
+      <div class="container">
+        <h2 class="section-title">Últimos Trabajos</h2>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="featured-card">
+              <img src="media/images/eldegradedelatardecer.webp" alt="El Degradé del Atardecer" class="featured-image">
+              <div class="featured-content">
+                <h3 class="featured-title">El Degradé Del Atardecer</h3>
+                <p class="featured-subtitle">Full Album En Vivo • 2023</p>
+                <p class="featured-description">
+                  Grabado en vivo con banda completa, este disco reúne las canciones
+                  de los EP anteriores en una sonoridad más potente y contrapuntística.
+                </p>
+                <a href="pages/musica.html" class="featured-link">Escuchar →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="featured-card">
+              <img src="media/images/fluir.webp" alt="Fluir" class="featured-image">
+              <div class="featured-content">
+                <h3 class="featured-title">Fluir</h3>
+                <p class="featured-subtitle">Álbum • 2017</p>
+                <p class="featured-description">
+                  Doce canciones que intentan contar sensaciones y estados,
+                  ires y venires en el movimiento constante de la existencia.
+                </p>
+                <a href="pages/musica.html" class="featured-link">Escuchar →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="featured-card">
+              <img src="media/images/losviajesdelsilencio.png" alt="Los Viajes del Silencio" class="featured-image">
+              <div class="featured-content">
+                <h3 class="featured-title">Los Viajes Del Silencio</h3>
+                <p class="featured-subtitle">Poemario • 2018</p>
+                <p class="featured-description">
+                  Poemas que surgen como subjetividades inevitables tras meses
+                  de investigación sobre memorias de la resistencia.
+                </p>
+                <a href="pages/libros.html" class="featured-link">Leer →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section class="navigation-section">
+      <div class="container">
+        <h2 class="section-title">Explorar</h2>
+        <div class="row">
+          <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <a href="pages/musica.html" class="nav-card">
+              <div class="nav-icon">🎵</div>
+              <h3 class="nav-title">Música</h3>
+              <p class="nav-description">Discografía completa</p>
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <a href="pages/videos.html" class="nav-card">
+              <div class="nav-icon">🎬</div>
+              <h3 class="nav-title">Videos</h3>
+              <p class="nav-description">Actuaciones en vivo</p>
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <a href="pages/libros.html" class="nav-card">
+              <div class="nav-icon">📚</div>
+              <h3 class="nav-title">Libros</h3>
+              <p class="nav-description">Poemarios publicados</p>
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <a href="pages/galeria.html" class="nav-card">
+              <div class="nav-icon">📸</div>
+              <h3 class="nav-title">Galería</h3>
+              <p class="nav-description">Fotos de conciertos</p>
+            </a>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <a href="pages/sobre_mi.html" class="nav-card">
+              <div class="nav-icon">👤</div>
+              <h3 class="nav-title">Biografía</h3>
+              <p class="nav-description">Historia y trayectoria</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating PNG Elements -->
+    <div class="contenedor-png">
+      <img class="png-uno png" src="media/images/nube.png" alt="imagendefondo-nube">
+      <img class="png-dos png" src="media/images/sol.png" alt="imagendefondo-sol">
+      <img class="png-cuatro png" src="media/images/bici2.png" alt="imagendefondo-bicicleta">
+      <img class="png-cinco png" src="media/images/aviondepapel2.png" alt="imagendefondo-aviondepapel">
+      <img class="png-seis png-cont" src="media/images/mate.png" alt="imagendefondo-mate">
+      <img class="png-siete png" src="media/images/lapiz.png" alt="imagendefondo-lapiz">
+      <img class="png-ocho png" src="media/images/espiral.png" alt="imagendefondo-espiral">
+      <img class="png-nueve png" src="media/images/calzado.png" alt="imagendefondo-calzado">
+      <img class="png-diez png-cont" src="media/images/lapiz.png" alt="imagendefondo-crayon">
+      <img class="png-once png" src="media/images/nube.png" alt="imagendefondo-nube2">
+      <img class="png-doce png-cont" src="media/images/mate.png" alt="imagendefondo-aviondepapel">
+      <img class="png-trece png" src="media/images/calzado.png" alt="imagendefondo-calzado">
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-footer">
+    <div class="iconos-info">
+      <ul>
+        <li class="info num-pad">
+          <a class="info num-pad" href="https://wa.me/543572543468" target="_blank">
+            <img class="icon-dos" src="media/images/socialgris.png" alt=""> +54 9 3572 54 3468
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <div class="iconos-music">
+          <li>
+            <a href="https://open.spotify.com/artist/6bj6JfRNNwpb3gpYDXEm2F?si=3SVL4trvQFaK5MLyZVpoAw" target="_blank">
+              <img src="media/images/spotifygris.png" alt="img-spoty">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@AraceliBonfigli" target="_blank">
+              <img src="media/images/youtubegris.png" alt="img-youtube">
+            </a>
+          </li>
+        </div>
+
+        <div class="iconos-redes">
+          <li>
+            <a href="https://www.facebook.com/aracelibonfigli" target="_blank">
+              <img src="media/images/facebookgris.png" alt="img-facebook">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/aracelibonfigli" target="_blank">
+              <img src="media/images/instagramgris.png" alt="img-instagram">
+            </a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
