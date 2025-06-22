@@ -2292,9 +2292,8 @@ body {
 .hero-section {
   display: flex;
   align-items: center;
-  min-height: 80vh;
-  padding: 8rem 4rem 4rem;
-  gap: 4rem;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .hero-content {
@@ -2520,7 +2519,7 @@ body {
   .hero-section {
     flex-direction: column;
     text-align: center;
-    padding: 6rem 2rem 4rem;
+    padding: 15rem 2rem 4rem;
   }
 
   .hero-title {
@@ -2571,7 +2570,9 @@ body {
 
 @media screen and (max-width: 480px) {
   .hero-section {
-    padding: 4rem 1rem 2rem;
+    align-content: center;
+    justify-content: center;
+    /* padding: 4rem 1rem 2rem; */
   }
 
   .hero-title {
