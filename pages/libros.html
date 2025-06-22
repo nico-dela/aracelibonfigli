@@ -2,223 +2,215 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Conoce los libros escritos por la talentosa Araceli Bonfigli. Descubre su faceta como autora a través de obras literarias que te transportarán al mundo de la creatividad y la poesía.">
-    <meta name="keywords"
-        content="libros, poesía, jugar, explorar, creatividad, paisajes, niñez, amor, el devenir de los días, los viajes del silencio.">
-    <title>Libros</title>
-    <link rel="shortcut icon" href="" type="image/x-icon"> <!-- Favicon (Imagen en la pestaña) -->
-    <!-- link boot -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/estilos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Conoce los libros escritos por la talentosa Araceli Bonfigli. Descubre su faceta como autora a través de obras literarias que te transportarán al mundo de la creatividad y la poesía.">
+  <meta name="keywords"
+    content="libros, poesía, jugar, explorar, creatividad, paisajes, niñez, amor, el devenir de los días, los viajes del silencio.">
+  <title>Libros</title>
+  <link rel="shortcut icon" href="" type="image/x-icon"> <!-- Favicon (Imagen en la pestaña) -->
+  <!-- link boot -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/estilos.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&family=Quicksand:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
-    <link rel="icon" type="image/png" href="../media/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&family=Quicksand:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="../media/images/favicon.png">
 </head>
 
 <body class="body-libros bg-body">
 
-    <header class="contenedor header-pag">
-        <div class="index-nombre">
-            <a class="index-pag araceli" href="../index.html">ARACELI BONFIGLI</a>
-        </div>
-
-        <nav class="navegacion"> <!-- Menú de navegación -->
-            <ul> <!-- Lista no ordenada -->
-                <div class="nav-uno">
-                    <!-- <li><a class="a-pag" href="../pages/musica.html">Música</a></li> -->
-                    <li><a class="a-pag" href="../pages/videos.html">Videos</a></li>
-                    <li><a class="a-pag" href="../pages/libros.html">Libros</a></li>
-                </div>
-                <div class="nav-dos">
-                    <li><a class="a-pag" href="../pages/galeria.html">Galería</a></li>
-                    <li><a class="a-pag" href="../pages/sobre_mi.html">Biografía</a></li>
-                </div>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- menu bootstrap dispositivo mobile -->
-    <div id="bootstrap">
-        <nav class="navbar bg-body-tertiary fixed-top header-bt">
-            <div class="container-fluid container-bt bg-lib">
-                <a class="navbar-brand araceli-bt" href="../index.html">ARACELI BONFIGLI</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon navbar-icon-bt"></span>
-                </button>
-
-                <div class="offcanvas offcanvas-end bg-bt" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <a class="offcanvas-title araceli-bt" id="offcanvasNavbarLabel" href="">ARACELI BONFIGLI</a>
-                        <button type="button" class="btn-close boton-close-bt" data-bs-dismiss="offcanvas"
-                            aria-label="Close">
-                            <img class="img-close" src="../media/images/cerrar.png" alt="img-cerrar">
-                        </button>
-                    </div>
-
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 lista-bt">
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="../pages/musica.html">Música</a>
-                            </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="../pages/videos.html">Videos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../pages/libros.html">Libros</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../pages/galeria.html">Galería</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../pages/sobre_mi.html">Biografía</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+  <header class="contenedor header-pag">
+    <div class="index-nombre">
+      <a class="index-pag araceli" href="../index.html">ARACELI BONFIGLI</a>
     </div>
 
-
-    <main>
-        <h1>LIBROS</h1>
-
-        <div class="contenedor-libros">
-            <div class="img-libros img-libro-uno">
-                <img class="img-border libro-portada" src="../media/images/losviajesdelsilencio.png"
-                    alt="img-portada-libro1">
-                <img class="img-border" src="../media/images/losviajesatras.png" alt="img-portada-libro1">
-            </div>
-
-            <h2 class="h2-libro-uno">Los Viajes Del Silencio</h2>
-            <div class="descripcion-libro-uno">
-                <p class="prologo-uno padding-libro text-shadow">El presente poemario, fue elaborado en el marco del
-                    Proyecto de Investigación “Memorias de la resistencia. Estrategias de sobrevivencia de las mujeres
-                    detenidas por razones políticas en argentina, durante el período 1976/1983”, aprobado y financiado
-                    por la Universidad Nacional de Villa María, durante el período 2016/2017. Estos poemas surgen tras
-                    meses de trabajo y visitas a los Centros de Detención Clandestina, surgen de las charlas con los
-                    sobrevivientes, surgen de la lectura de los libros y materiales de consulta utilizados durante el
-                    proceso de Investigación, y surgen, finalmente, como subjetividades inevitables.</p>
-            </div>
-            <div class="lista-libros">
-                <ul>
-                    <li>Prólogo: Liliana Guillot</li>
-                    <li>Diseño: Laura Bonfigli</li>
-                    <li>Dibujos: Georgina Cittadini</li>
-                </ul>
-                <p class="fecha">Año: 2018</p>
-            </div>
-
-            <div class="boton-libro-uno">
-                <img class="img-nube" src="../media/images/boton-nube.png" alt="">
-                <a class="boton-libro" href="../media/libros/LosViajesDelSilencio-2018.pdf"
-                    download="Los viajes del silencio">DESCARGAR</a>
-            </div>
-
-
-            <div class="img-libros img-libro-dos">
-                <img class="img-border libro-portada" src="../media/images/eldevenirdelosdias.png"
-                    alt="img-portada-libro2">
-                <img class="img-border" src="../media/images/eldeveniratras.png" alt="img-portada-libro2">
-            </div>
-
-            <h2 class="h2-libro-dos">El Devenir De Los Días</h2>
-            <div class="descripcion-libro-dos">
-                <p class="prologo-dos text-shadow">Uno deviene, transcurre en algo; sobre y desde algo, quizás difícil
-                    de poner en términos conceptuales. Sabemos que somos habitantes de un tiempo y un lugar, sin
-                    –quizás- tener una total o acabada comprensión de lo que ello implica. Nos sabemos parte de algo,
-                    pero la incertidumbre nos atraviesa la existencia como una daga. Nos envolvemos en preguntas, que a
-                    veces suelen atosigarnos; nos perdemos y nos encontramos con una frecuencia de periodicidad
-                    inconclusa, pero constante. Nos sabemos cambiando, en movimiento, quizás sin certeza real de un
-                    destino certero. Devenimos en los días, como parte del fluir coetáneo de la existencia que se nos
-                    viene asignada cuando nos mandan a nacer sin preguntarnos. Y en ese trajín del día a día, algunos
-                    quizás nos perdemos como en la caracola de una espiral, sin certezas. Y allí sin más, descubriendo
-                    el día de cada día, me encontré analizando (me), y relatando (lo). Casi como una pequeña bitácora
-                    del viaje de la vida que nos toca, elegimos y construimos
-                </p>
-            </div>
-            <div class="lista-libros lista-libro-dos">
-                <ul>
-                    <li>Prólogo: Omar Alejandro A. Cortés</li>
-                    <li>Diseño: Darío Falconi</li>
-                    <li>Dibujos: Georgina Cittadini</li>
-                </ul>
-                <p class="fecha fecha-dos">Año: 2016</p>
-            </div>
-            <div class="boton-libro-dos">
-                <img class="img-nube" src="../media/images/boton-nube.png" alt="">
-                <a class="boton-libro" href="../media/libros/ElDevenirDeLosDias-2016.pdf"
-                    download="El devenir de los días">DESCARGAR</a>
-            </div>
+    <nav class="navegacion"> <!-- Menú de navegación -->
+      <ul> <!-- Lista no ordenada -->
+        <div class="nav-uno">
+          <!-- <li><a class="a-pag" href="../pages/musica.html">Música</a></li> -->
+          <li><a class="a-pag" href="../pages/videos.html">Videos</a></li>
+          <li><a class="a-pag" href="../pages/libros.html">Libros</a></li>
         </div>
-
-        <div class="contenedor-png">
-            <img class="png-diez png-cont" src="../media/images/lapiz.png" alt="imagendefondo-crayon">
-            <img class="png-ocho png-cont" src="../media/images/espiral.png" alt="imagendefondo-espiral">
-            <img class="png-trece png" src="../media/images/calzado.png" alt="imagendefondo-calzado">
-            <img class="png-doce png-cont" src="../media/images/mate.png" alt="imagendefondo-aviondepapel">
+        <div class="nav-dos">
+          <li><a class="a-pag" href="../pages/galeria.html">Galería</a></li>
+          <li><a class="a-pag" href="../pages/sobre_mi.html">Biografía</a></li>
         </div>
-    </main>
+      </ul>
+    </nav>
+  </header>
 
+  <!-- menu bootstrap dispositivo mobile -->
+  <div id="bootstrap">
+    <nav class="navbar bg-body-tertiary fixed-top header-bt">
+      <div class="container-fluid container-bt bg-lib">
+        <a class="navbar-brand araceli-bt" href="../index.html">ARACELI BONFIGLI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon navbar-icon-bt"></span>
+        </button>
 
+        <div class="offcanvas offcanvas-end bg-bt" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <a class="offcanvas-title araceli-bt" id="offcanvasNavbarLabel" href="">ARACELI BONFIGLI</a>
+            <button type="button" class="btn-close boton-close-bt" data-bs-dismiss="offcanvas" aria-label="Close">
+              <img class="img-close" src="../media/images/cerrar.png" alt="img-cerrar">
+            </button>
+          </div>
 
-    <footer class="footer bg-footer">
-        <div class="iconos-info">
-            <ul>
-                <li class="info num-pad">
-                    <a class="info num-pad" href="https://wa.me/543572543468" target="_blank">
-                        <img class="icon-dos" src="../media/images/socialgris.png" alt=""> +54 9 3572 54 3468
-                    </a>
-                </li>
-
-                <li class="info">
-                    <img class="icon-tres" src="../media/images/alfilergris1.png" alt="">Córdoba, Argentina
-                </li>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 lista-bt">
+              <!-- <li class="nav-item">
+                                <a class="nav-link" href="../pages/musica.html">Música</a>
+                            </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/videos.html">Videos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/libros.html">Libros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/galeria.html">Galería</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/sobre_mi.html">Biografía</a>
+              </li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <main>
+    <h1>LIBROS</h1>
+
+    <div class="contenedor-libros">
+      <div class="img-libros img-libro-uno">
+        <img class="img-border libro-portada" src="../media/images/losviajesdelsilencio.png" alt="img-portada-libro1">
+        <img class="img-border" src="../media/images/losviajesatras.png" alt="img-portada-libro1">
+      </div>
+
+      <h2 class="h2-libro-uno">Los Viajes Del Silencio</h2>
+      <div class="descripcion-libro-uno">
+        <p class="prologo-uno padding-libro text-shadow">El presente poemario, fue elaborado en el marco del
+          Proyecto de Investigación “Memorias de la resistencia. Estrategias de sobrevivencia de las mujeres
+          detenidas por razones políticas en argentina, durante el período 1976/1983”, aprobado y financiado
+          por la Universidad Nacional de Villa María, durante el período 2016/2017. Estos poemas surgen tras
+          meses de trabajo y visitas a los Centros de Detención Clandestina, surgen de las charlas con los
+          sobrevivientes, surgen de la lectura de los libros y materiales de consulta utilizados durante el
+          proceso de Investigación, y surgen, finalmente, como subjetividades inevitables.</p>
+      </div>
+      <div class="lista-libros">
+        <ul>
+          <li>Prólogo: Liliana Guillot</li>
+          <li>Diseño: Laura Bonfigli</li>
+          <li>Dibujos: Georgina Cittadini</li>
+        </ul>
+        <p class="fecha">Año: 2018</p>
+      </div>
+
+      <div class="boton-libro-uno">
+        <img class="img-nube" src="../media/images/boton-nube.png" alt="">
+        <a class="boton-libro" href="../media/libros/LosViajesDelSilencio-2018.pdf"
+          download="Los viajes del silencio">DESCARGAR</a>
+      </div>
+
+
+      <div class="img-libros img-libro-dos">
+        <img class="img-border libro-portada" src="../media/images/eldevenirdelosdias.png" alt="img-portada-libro2">
+        <img class="img-border" src="../media/images/eldeveniratras.png" alt="img-portada-libro2">
+      </div>
+
+      <h2 class="h2-libro-dos">El Devenir De Los Días</h2>
+      <div class="descripcion-libro-dos">
+        <p class="prologo-dos text-shadow">Uno deviene, transcurre en algo; sobre y desde algo, quizás difícil
+          de poner en términos conceptuales. Sabemos que somos habitantes de un tiempo y un lugar, sin
+          –quizás- tener una total o acabada comprensión de lo que ello implica. Nos sabemos parte de algo,
+          pero la incertidumbre nos atraviesa la existencia como una daga. Nos envolvemos en preguntas, que a
+          veces suelen atosigarnos; nos perdemos y nos encontramos con una frecuencia de periodicidad
+          inconclusa, pero constante. Nos sabemos cambiando, en movimiento, quizás sin certeza real de un
+          destino certero. Devenimos en los días, como parte del fluir coetáneo de la existencia que se nos
+          viene asignada cuando nos mandan a nacer sin preguntarnos. Y en ese trajín del día a día, algunos
+          quizás nos perdemos como en la caracola de una espiral, sin certezas. Y allí sin más, descubriendo
+          el día de cada día, me encontré analizando (me), y relatando (lo). Casi como una pequeña bitácora
+          del viaje de la vida que nos toca, elegimos y construimos
+        </p>
+      </div>
+      <div class="lista-libros lista-libro-dos">
+        <ul>
+          <li>Prólogo: Omar Alejandro A. Cortés</li>
+          <li>Diseño: Darío Falconi</li>
+          <li>Dibujos: Georgina Cittadini</li>
+        </ul>
+        <p class="fecha fecha-dos">Año: 2016</p>
+      </div>
+      <div class="boton-libro-dos">
+        <img class="img-nube" src="../media/images/boton-nube.png" alt="">
+        <a class="boton-libro" href="../media/libros/ElDevenirDeLosDias-2016.pdf"
+          download="El devenir de los días">DESCARGAR</a>
+      </div>
+    </div>
+
+    <div class="contenedor-png">
+      <img class="png-diez png-cont" src="../media/images/lapiz.png" alt="imagendefondo-crayon">
+      <img class="png-ocho png-cont" src="../media/images/espiral.png" alt="imagendefondo-espiral">
+      <img class="png-trece png" src="../media/images/calzado.png" alt="imagendefondo-calzado">
+      <img class="png-doce png-cont" src="../media/images/mate.png" alt="imagendefondo-aviondepapel">
+    </div>
+  </main>
+
+
+
+  <footer class="footer bg-footer">
+    <div class="iconos-info">
+      <ul>
+        <li class="info num-pad">
+          <a class="info num-pad" href="https://wa.me/543572543468" target="_blank">
+            <img class="icon-dos" src="../media/images/socialgris.png" alt=""> +54 9 3572 54 3468
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <div class="iconos-music">
+          <li>
+            <a href="https://open.spotify.com/artist/6bj6JfRNNwpb3gpYDXEm2F?si=3SVL4trvQFaK5MLyZVpoAw" target="_blank">
+              <img class="-icon-hover" src="../media/images/spotifygris.png" alt="img-spoty"></a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com/@AraceliBonfigli" class="iconos-padding" target="_blank">
+              <img src="../media/images/youtubegris.png" alt="img-youtube"></a>
+          </li>
         </div>
 
-        <nav>
-            <ul>
-                <div class="iconos-music">
-                    <li>
-                        <a href="https://open.spotify.com/artist/6bj6JfRNNwpb3gpYDXEm2F?si=3SVL4trvQFaK5MLyZVpoAw"
-                            target="_blank">
-                            <img class="-icon-hover" src="../media/images/spotifygris.png" alt="img-spoty"></a>
-                    </li>
+        <div class="iconos-redes">
+          <li><a href="https://www.facebook.com/aracelibonfigli" class="iconos-padding" target="_blank">
+              <img src="../media/images/facebookgris.png" alt="img-facebook"></a>
+          </li>
 
-                    <li>
-                        <a href="https://www.youtube.com/@AraceliBonfigli" class="iconos-padding" target="_blank">
-                            <img src="../media/images/youtubegris.png" alt="img-youtube"></a>
-                    </li>
-                </div>
-
-                <div class="iconos-redes">
-                    <li><a href="https://www.facebook.com/aracelibonfigli" class="iconos-padding" target="_blank">
-                            <img src="../media/images/facebookgris.png" alt="img-facebook"></a>
-                    </li>
-
-                    <li><a href="https://www.instagram.com/aracelibonfigli" class="iconos-padding" target="_blank">
-                            <img src="../media/images/instagramgris.png" alt="img-instagram"></a>
-                    </li>
-                </div>
-            </ul>
-        </nav>
-    </footer>
+          <li><a href="https://www.instagram.com/aracelibonfigli" class="iconos-padding" target="_blank">
+              <img src="../media/images/instagramgris.png" alt="img-instagram"></a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
