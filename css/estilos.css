@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .bg-body,
 .imagen-body {
   background-repeat: no-repeat;
@@ -15,33 +16,43 @@ main .contenedor-png .png-dos {
   0% {
     transform: rotate(32deg);
   }
+
   10% {
     transform: rotate(64deg);
   }
+
   20% {
     transform: rotate(96deg);
   }
+
   30% {
     transform: rotate(128deg);
   }
+
   40% {
     transform: rotate(160deg);
   }
+
   50% {
     transform: rotate(192deg);
   }
+
   60% {
     transform: rotate(224deg);
   }
+
   70% {
     transform: rotate(256deg);
   }
+
   80% {
     transform: rotate(288deg);
   }
+
   90% {
     transform: rotate(320deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -51,51 +62,62 @@ main .contenedor-png .png-dos {
   main .contenedor-png .png {
     width: 30%;
   }
+
   main .contenedor-png .png-uno {
     width: 33%;
     right: -0.2rem;
     top: 13rem;
   }
+
   main .contenedor-png .png-dos {
     top: 5rem;
     left: 0;
   }
+
   main .contenedor-png .png-cuatro {
     right: 3rem;
     bottom: 6rem;
   }
+
   main .contenedor-png .png-cinco {
     right: 35%;
     top: 41%;
   }
+
   main .contenedor-png .png-seis {
     right: 10rem;
     bottom: -2rem;
     position: relative;
   }
+
   main .contenedor-png .png-ocho {
     width: 24%;
     right: 0rem;
     top: 7rem;
   }
+
   main .contenedor-png .png-diez {
     left: 1rem;
     top: 15rem;
   }
+
   main .contenedor-png .png-doce {
     right: 8rem;
     top: 30rem;
   }
+
   main .contenedor-png .png-trece {
     width: 2%;
     left: 20rem;
     bottom: 10rem;
   }
+
   main .contenedor-png .png-cont {
     width: 27%;
     position: fixed;
     z-index: 0;
   }
+
   main .contenedor-png .png-siete,
   main .contenedor-png .png-nueve,
   main .contenedor-png .png-once {
@@ -107,18 +129,22 @@ main .contenedor-png .png-dos {
   main .contenedor-png .png {
     width: 22%;
   }
+
   main .contenedor-png .png-seis {
     right: 10rem;
     bottom: -2rem;
     position: relative;
   }
+
   main .contenedor-png .png-cont {
     width: 15%;
   }
+
   main .contenedor-png .png-diez {
     left: 10rem;
     top: 10rem;
   }
+
   main .contenedor-png .png-doce {
     right: 10rem;
     top: 40rem;
@@ -129,59 +155,73 @@ main .contenedor-png .png-dos {
   main .contenedor-png .png {
     width: 12%;
   }
+
   main .contenedor-png .png-uno {
     right: 15rem;
     top: 15rem;
   }
+
   main .contenedor-png .png-dos {
     top: 9rem;
     left: 20rem;
   }
+
   main .contenedor-png .png-cuatro {
     width: 10%;
   }
+
   main .contenedor-png .png-cinco {
     width: 10%;
     left: 90rem;
   }
+
   main .contenedor-png .png-seis {
     left: 10rem;
     bottom: -2rem;
   }
+
   main .contenedor-png .png-cont {
     width: 8%;
   }
+
   main .contenedor-png .png-siete,
   main .contenedor-png .png-nueve,
   main .contenedor-png .png-once {
     display: block;
   }
+
   main .contenedor-png .png-siete {
     left: 10rem;
     top: 12rem;
   }
+
   main .contenedor-png .png-ocho {
     right: 7rem;
     top: 15rem;
     width: 8%;
   }
+
   main .contenedor-png .png-nueve {
     right: 30rem;
     top: 50rem;
   }
+
   main .contenedor-png .png-diez {
     left: 63rem;
     top: 23rem;
     width: 7.3%;
   }
+
   main .contenedor-png .png-once {
     left: 30rem;
     bottom: 3rem;
   }
+
   main .contenedor-png .png-doce {
     right: 60rem;
     top: 50rem;
   }
+
   main .contenedor-png .png-trece {
     width: 2%;
     left: 30rem;
@@ -200,29 +240,36 @@ body {
   font-family: "Quicksand", sans-serif;
   color: #ffffff;
 }
+
 body ul {
   padding: 0;
   margin: 0;
 }
+
 body ul li {
   font-size: 1.5rem;
   list-style-type: none;
   text-shadow: 0 0 0 #474544;
 }
+
 body ul li a {
   text-shadow: none;
 }
+
 body span {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
 body p {
   text-align: justify;
 }
+
 body strong {
   font-size: 1.3rem;
   color: #474544;
 }
+
 body .img-border {
   padding: 0;
   border: #797979 solid 2px;
@@ -230,11 +277,7 @@ body .img-border {
 
 .bg-body {
   background: #f7dbc1;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 228, 204, 0.947) 34%,
-    rgba(206, 211, 255, 0.932) 100%
-  );
+  background: linear-gradient(180deg, rgba(255, 228, 204, 0.947) 34%, rgba(206, 211, 255, 0.932) 100%);
   background-attachment: fixed;
   color: #474544;
 }
@@ -251,16 +294,20 @@ body .img-border {
   z-index: 3;
   padding: 2rem 4rem;
 }
+
 .header-pag div .index-pag {
   color: #474544;
 }
+
 .header-pag div .index-pag:hover {
   color: #797979;
 }
+
 .header-pag nav ul div .a-pag {
   color: #474544;
   font-size: 1.7rem;
 }
+
 .header-pag nav ul div .a-pag:hover {
   color: #797979;
 }
@@ -303,6 +350,7 @@ main div p {
     font-size: 3rem;
     color: #474544;
   }
+
   main h2 {
     font-size: 2rem;
     color: #46669c;
@@ -318,14 +366,12 @@ main div p {
   border-bottom: #929292 solid 0.5px;
   box-shadow: 0 0 5px #929292;
 }
+
 #bootstrap nav .container-bt .bg-bt {
   background: #ffe9d6;
-  background: linear-gradient(
-    180deg,
-    rgba(253, 236, 221, 0.947) 34%,
-    rgba(207, 226, 254, 0.932) 100%
-  );
+  background: linear-gradient(180deg, rgba(253, 236, 221, 0.947) 34%, rgba(207, 226, 254, 0.932) 100%);
 }
+
 #bootstrap nav .container-bt .araceli-bt {
   font-size: 2rem;
   color: #474544;
@@ -337,26 +383,32 @@ main div p {
   margin: 0;
   text-decoration: none;
 }
+
 #bootstrap nav .container-bt .araceli-bt:hover {
   color: #797979;
 }
+
 #bootstrap nav .container-bt div .lista-bt {
   font-size: 0.5rem;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   border-bottom: none;
 }
+
 #bootstrap nav .container-bt div div .boton-close-bt {
   width: 3rem;
   height: 3rem;
 }
+
 #bootstrap nav .container-bt button .navbar-icon-bt {
   width: 1.7rem;
   height: 1.7rem;
 }
+
 #bootstrap nav .container-bt button .img-close {
   width: 50%;
 }
+
 #bootstrap nav .container-bt ul li .nav-link {
   font-size: 1.7rem;
 }
@@ -365,13 +417,16 @@ main div p {
   .header-bt {
     display: none;
   }
+
   main h1 {
     font-size: 4rem;
     margin: 6rem;
   }
+
   main h2 {
     font-size: 2.3rem;
   }
+
   main h3 {
     font-size: 1.8rem;
   }
@@ -388,6 +443,7 @@ footer,
   border-top: #929292 solid 1.5px;
   box-shadow: 0 0 5px 1px #797979;
 }
+
 footer div ul .info,
 .footer div ul .info {
   font-weight: bold;
@@ -395,24 +451,29 @@ footer div ul .info,
   text-decoration: none;
   color: #474544;
 }
+
 footer div ul .info:hover,
 .footer div ul .info:hover {
   font-size: 1.5rem;
   color: #797979;
 }
+
 footer div ul .info .icon-dos,
 .footer div ul .info .icon-dos {
   width: 10%;
 }
+
 footer div ul .info .icon-tres,
 .footer div ul .info .icon-tres {
   width: 12%;
 }
+
 footer div ul .num-pad,
 .footer div ul .num-pad {
   font-size: 1.2rem;
   padding-bottom: 1rem;
 }
+
 footer nav ul li,
 .footer nav ul li {
   text-align: right;
@@ -433,12 +494,14 @@ footer,
 }
 
 @media screen and (min-width: 320px) {
+
   footer nav ul,
   .footer nav ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
   footer nav ul .iconos-music,
   .footer nav ul .iconos-music {
     display: flex;
@@ -446,19 +509,23 @@ footer,
     padding-bottom: 1rem;
     justify-content: right;
   }
+
   footer nav ul .iconos-redes,
   .footer nav ul .iconos-redes {
     display: flex;
     flex-direction: row;
   }
+
   footer nav ul div li a img,
   .footer nav ul div li a img {
     width: 35%;
   }
+
   footer nav ul div li a img:hover,
   .footer nav ul div li a img:hover {
     width: 45%;
   }
+
   footer div ul .info,
   .footer div ul .info {
     font-size: 1.3rem;
@@ -466,10 +533,12 @@ footer,
 }
 
 @media screen and (min-width: 600px) {
+
   footer nav ul div li img,
   .footer nav ul div li img {
     width: 40%;
   }
+
   footer div ul .info,
   .footer div ul .info {
     font-size: 1.6rem;
@@ -477,11 +546,13 @@ footer,
 }
 
 @media screen and (min-width: 1024px) {
+
   footer,
   .index-footer,
   .footer {
     padding: 2rem 4rem;
   }
+
   footer nav ul,
   .index-footer nav ul,
   .footer nav ul {
@@ -511,6 +582,7 @@ header div a {
   text-decoration: none;
   font-weight: bold;
 }
+
 header div a:hover {
   color: #ff9f4c;
 }
@@ -534,6 +606,7 @@ header div a:hover {
 } */
 
 @media screen and (min-width: 320px) {
+
   header,
   .contenedor {
     display: flex;
@@ -542,6 +615,7 @@ header div a:hover {
     align-items: center;
     padding: 2rem 1rem;
   }
+
   header .index-nombre,
   .contenedor .index-nombre {
     font-size: 2rem;
@@ -550,16 +624,19 @@ header div a:hover {
     margin: 0 0.7rem;
     border-bottom: #797979 solid 2px;
   }
+
   header .navegacion,
   .contenedor .navegacion {
     padding-top: 1rem;
   }
+
   header nav ul,
   .contenedor nav ul {
     font-size: 7rem;
     display: flex;
     flex-direction: column;
   }
+
   header nav ul .nav-uno,
   .contenedor nav ul .nav-uno {
     display: flex;
@@ -569,6 +646,7 @@ header div a:hover {
     padding-bottom: 1rem;
     border-bottom: #797979 solid 2px;
   }
+
   header nav ul .nav-dos,
   .contenedor nav ul .nav-dos {
     display: flex;
@@ -576,19 +654,23 @@ header div a:hover {
     gap: 2rem;
     padding-top: 1rem;
   }
+
   header div .araceli,
   .contenedor div .araceli {
     font-size: 2.3rem;
   }
+
   header div a,
   .contenedor div a {
     font-size: 1.5rem;
   }
+
   .play {
     position: absolute;
     left: 10%;
     top: 20rem;
   }
+
   .play .play-img {
     width: 15%;
   }
@@ -599,22 +681,27 @@ header div a:hover {
   .imagen-body {
     background-image: url(../multimedia/8.webp);
   }
+
   header .index-nombre,
   .contenedor-index .index-nombre {
     font-size: 5rem;
   }
+
   header div .araceli,
   .contenedor-index div .araceli {
     font-size: 3rem;
   }
+
   header div a,
   .contenedor-index div a {
     font-size: 1.7rem;
   }
+
   .play {
     left: 8%;
     top: 20rem;
   }
+
   .play .play-img {
     width: 22%;
   }
@@ -629,27 +716,33 @@ header div a:hover {
     border-bottom: #797979 solid 1.5px;
     padding: 0.5rem 4rem;
   }
+
   .contenedor .index-nombre {
     border-bottom: none;
     letter-spacing: 7px;
   }
+
   .contenedor-index {
     padding: 2rem 4rem;
   }
+
   header,
   .contenedor {
     padding: 1.5rem 3rem;
   }
+
   header nav ul,
   .contenedor nav ul {
     display: flex;
     flex-direction: row;
   }
+
   header nav ul .nav-uno,
   .contenedor nav ul .nav-uno {
     border-bottom: none;
     padding: 0rem 2rem;
   }
+
   header nav ul .nav-uno,
   header nav ul .nav-dos,
   .contenedor nav ul .nav-uno,
@@ -660,10 +753,12 @@ header div a:hover {
     align-items: flex-end;
     border-bottom: none;
   }
+
   .play {
     left: 13%;
     top: 18rem;
   }
+
   .play .play-img {
     width: 25%;
   }
@@ -671,8 +766,7 @@ header div a:hover {
 
 @media screen and (min-width: 1600px) {
   .imagen-body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
-      url(../multimedia/12.webp);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../multimedia/12.webp);
   }
 }
 
@@ -681,6 +775,7 @@ header div a:hover {
 .header-pag nav ul div .a-music {
   color: #474544;
 }
+
 .contenedor nav ul div .a-music:hover,
 .header-music nav ul div .a-music:hover,
 .header-pag nav ul div .a-music:hover {
@@ -700,23 +795,29 @@ main div .descripcion {
   padding-left: 0;
   padding-right: 0;
 }
+
 main div .descripcion .z-index {
   z-index: 3;
 }
+
 main div .descripcion .border-accordion {
   border: 1px solid #797979;
 }
+
 main div .descripcion .boton-accordion {
   font-weight: bold;
   font-size: 1.3rem;
 }
+
 main div .descripcion .lista-accordion {
   font-size: 1.3rem;
   text-shadow: 0 0 0 #474544;
 }
+
 main div .descripcion .lista-accordion li {
   font-size: 1.3rem;
 }
+
 main div .descripcion .descripcion-album {
   color: #46669c;
   font-weight: bold;
@@ -724,11 +825,13 @@ main div .descripcion .descripcion-album {
   padding-bottom: 1rem;
   font-family: "Quicksand", sans-serif;
 }
+
 main div .descripcion .descripcion-ep {
   color: #6f5a96;
   font-weight: bold;
   padding: 0 0 1rem;
 }
+
 main div .descripcion .lista-padding {
   padding-top: 2rem;
 }
@@ -737,34 +840,41 @@ main div .canciones {
   padding: 4rem 6rem;
   font-size: 4rem;
 }
+
 main div .canciones .h2-music {
   padding: 2rem 0;
   font-size: 2rem;
   color: #46669c;
   padding-bottom: 0;
 }
+
 main div .canciones .ep {
   font-size: 2rem;
   color: #6f5a96;
 }
+
 main div .canciones .h3-music {
   text-align: start;
   color: #6f5a96;
   font-weight: bold;
   padding-bottom: 1.5rem;
 }
+
 main div .canciones .h3-album {
   color: #46669c;
 }
+
 main div .canciones .lista-music {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0.2px;
   font-size: 2.7rem;
 }
+
 main div .canciones .lista-music .li-pad {
   padding: 0.3rem 0.5rem;
   font-size: 1.5rem;
 }
+
 main div .canciones .lista-music .li-pad:hover {
   color: #fff5e7;
   background-color: #474544;
@@ -776,6 +886,7 @@ main div .canciones .lista-music .li-pad:hover {
   .header-pag {
     display: none;
   }
+
   /* .play-music {
     position: fixed;
     left: 80%;
@@ -790,26 +901,33 @@ main div .canciones .lista-music .li-pad:hover {
     grid-template-columns: 1fr;
     margin: 0 2rem;
   }
+
   main div .canciones {
     padding: 0;
   }
+
   main div .canciones .lista-music {
     padding-bottom: 0;
   }
+
   main div .img-album {
     text-align: center;
     position: relative;
     z-index: 1;
   }
+
   main div .img-position {
     z-index: 0;
   }
+
   main div .descripcion {
     padding-bottom: 7rem;
   }
+
   main div .descripcion .parrafo {
     display: none;
   }
+
   main div img {
     width: 100%;
   }
@@ -819,10 +937,12 @@ main div .canciones .lista-music .li-pad:hover {
   main div img {
     width: 100%;
   }
+
   main #discos {
     margin-top: 2rem;
     margin: 0 8rem;
   }
+
   /* .play-music {
     left: 75%;
     top: 18rem;
@@ -837,6 +957,7 @@ main div .canciones .lista-music .li-pad:hover {
   .header-pag {
     display: flex;
   }
+
   main #discos {
     display: grid;
     grid-template-columns: 30% 40% 30%;
@@ -845,44 +966,55 @@ main div .canciones .lista-music .li-pad:hover {
     row-gap: 25rem;
     margin-bottom: 30rem;
   }
+
   main div img {
     width: 100%;
     margin-top: 0;
   }
+
   main div .descripcion {
     padding-left: 2rem;
     z-index: 2;
   }
+
   main div .descripcion .parrafo {
     display: block;
     font-size: 1.6rem;
   }
+
   main div .descripcion .parrafo ul li {
     font-size: 1.5rem;
   }
+
   main div .descripcion .descripcion-album,
   main div .descripcion .descripcion-ep {
     padding-top: 2rem;
     font-size: 2rem;
   }
+
   main div .canciones {
     padding-right: 2rem;
   }
+
   main div .canciones .h3-music {
     padding-left: 0;
   }
+
   main div .canciones .ep {
     padding-top: 2rem;
     padding-left: 0;
   }
+
   main div .canciones .lista-music {
     font-size: 2.9rem;
     padding: 0;
     padding-bottom: 2rem;
   }
+
   main div .canciones .lista-music .li-pad {
     font-size: 1.7rem;
   }
+
   /* main .play-music {
     left: 87%;
     top: 20rem;
@@ -900,6 +1032,7 @@ main #contenedor-videos .info-vid {
   font-size: 0.7rem;
   overflow: auto;
 }
+
 main div .info-vid .lista-videos,
 main #contenedor-videos .info-vid .lista-videos {
   font-size: 18px;
@@ -907,15 +1040,18 @@ main #contenedor-videos .info-vid .lista-videos {
   text-shadow: 0 0 0 #474544;
   letter-spacing: 0.3px;
 }
+
 main div .info-vid .degrade,
 main #contenedor-videos .info-vid .degrade {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 main div .info-vid .info-video-uno,
 main #contenedor-videos .info-vid .info-video-uno {
   padding-top: 1.5rem;
   margin-bottom: 0;
 }
+
 main div .info-vid .info-video,
 main #contenedor-videos .info-vid .info-video {
   padding-bottom: 2rem;
@@ -953,12 +1089,15 @@ main #contenedor-videos ul li .span-vid {
     flex-direction: column;
     margin: 0 2rem;
   }
+
   main div .info-vid {
     display: none;
   }
+
   main div .h2-videos {
     margin-top: 0;
   }
+
   main div iframe {
     width: 100%;
     height: 50vw;
@@ -984,44 +1123,55 @@ main #contenedor-videos ul li .span-vid {
     max-height: 100%;
     margin-bottom: 70rem;
   }
+
   main div .h2-videos {
     margin-top: 4rem;
   }
+
   main div .info-uno {
     grid-row: 1;
     grid-column: 2;
   }
+
   main div .video-uno {
     grid-row: 1;
     grid-column: 1;
   }
+
   main div .info-dos {
     grid-row: 2;
     grid-column: 2;
   }
+
   main div .video-dos {
     grid-row: 2;
     grid-column: 1;
   }
+
   main div .info-tres {
     grid-row: 3;
     grid-column: 2;
   }
+
   main div .video-tres {
     grid-row: 3;
     grid-column: 1;
   }
+
   main div .video-seis {
     margin-bottom: 70rem;
   }
+
   main div .info-vid {
     display: block;
     width: 100%;
     height: 74%;
   }
+
   main div .info-vid .lista-videos {
     font-size: 2.6rem;
   }
+
   main div iframe {
     width: 100%;
     height: 32vw;
@@ -1034,12 +1184,14 @@ main div .img-libros,
 main .contenedor-libros .img-libros {
   position: relative;
 }
+
 main div .img-libros .libro-portada,
 main .contenedor-libros .img-libros .libro-portada {
   position: absolute;
   transition: opacity 1.8s;
   left: 0;
 }
+
 main div .img-libros .libro-portada:hover,
 main .contenedor-libros .img-libros .libro-portada:hover {
   opacity: 0;
@@ -1080,6 +1232,7 @@ main .boton-libro-dos .boton-libro {
   display: block;
   padding-top: 0.5rem;
 }
+
 main .boton-libro-uno .boton-libro:hover,
 main .boton-libro-dos .boton-libro:hover {
   background-color: #b7bac4;
@@ -1091,27 +1244,33 @@ main .boton-libro-dos .boton-libro:hover {
     flex-direction: column;
     margin: 0 2rem;
   }
+
   main .contenedor-libros .h2-libro-uno {
     color: #2b4d7a;
   }
+
   main .contenedor-libros .h2-libro-dos {
     color: #643e8c;
   }
+
   main .contenedor-libros .h2-libro-uno,
   main .contenedor-libros .h2-libro-dos {
     padding: 1.5rem 0rem;
     margin: 0;
     letter-spacing: 2px;
   }
+
   main .contenedor-libros .img-libros {
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
     object-fit: cover;
   }
+
   main .contenedor-libros .lista-libros {
     padding-bottom: 1rem;
   }
+
   main .contenedor-libros .boton-libro-uno,
   main .contenedor-libros .boton-libro-dos {
     padding: 0 5rem 13rem;
@@ -1119,11 +1278,13 @@ main .boton-libro-dos .boton-libro:hover {
     text-align: center;
     margin-left: 0;
   }
+
   main .contenedor-libros .boton-libro-uno .img-nube,
   main .contenedor-libros .boton-libro-dos .img-nube {
     padding: 0;
     width: 50%;
   }
+
   main .contenedor-libros .boton-libro-uno .boton-libro,
   main .contenedor-libros .boton-libro-dos .boton-libro {
     font-size: 1.3rem;
@@ -1135,9 +1296,11 @@ main .boton-libro-dos .boton-libro:hover {
   main .contenedor-libros {
     margin: 0 8rem;
   }
+
   main .contenedor-libros .img-libros {
     width: 70%;
   }
+
   main .contenedor-libros .boton-libro-uno,
   main .contenedor-libros .boton-libro-dos {
     justify-content: center;
@@ -1153,6 +1316,7 @@ main .boton-libro-dos .boton-libro:hover {
     grid-template-rows: 4% 12% 30% 4% 18% 20%;
     row-gap: 2rem;
   }
+
   main .contenedor-libros .boton-libro-uno,
   main .contenedor-libros .boton-libro-dos {
     right: 20%;
@@ -1160,61 +1324,74 @@ main .boton-libro-dos .boton-libro:hover {
     margin: 2rem 0;
     justify-self: center;
   }
+
   main .contenedor-libros .boton-libro-uno .img-nube,
   main .contenedor-libros .boton-libro-dos .img-nube {
     padding: 0;
     width: 60%;
   }
+
   main .contenedor-libros .h2-libro-uno,
   main .contenedor-libros .h2-libro-dos {
     font-size: 2.5rem;
     letter-spacing: 3px;
   }
+
   main .contenedor-libros .h2-libro-uno {
     grid-column: 2 / 4;
     grid-row-start: 1;
   }
+
   main .contenedor-libros .h2-libro-dos {
-    grid-column: 2/4;
+    grid-column: 2 / 4;
     grid-row-start: 4;
     padding-top: 4rem;
   }
+
   main .contenedor-libros .img-libros {
     width: 93%;
     background-size: cover;
     background-position: center;
     padding-bottom: 2rem;
   }
+
   main .contenedor-libros .img-libro-uno {
     grid-column-start: 1;
     grid-row: 1 / 3;
   }
+
   main .contenedor-libros .img-libro-dos {
     grid-row-start: 4;
   }
+
   main .contenedor-libros .descripcion-libro-uno {
-    grid-column: 2/4;
+    grid-column: 2 / 4;
     grid-row-start: 2;
     overflow: auto;
   }
+
   main .contenedor-libros .descripcion-libro-dos {
-    grid-column: 2/4;
+    grid-column: 2 / 4;
     grid-row-start: 5;
     overflow: auto;
   }
+
   main .contenedor-libros .boton-libro-uno {
     grid-column: 3 / 4;
     grid-row: 3;
   }
+
   main .contenedor-libros .boton-libro-dos {
     grid-column: 3;
     grid-row: 6;
   }
+
   main .contenedor-libros .lista-libros {
     margin-top: 2rem;
     grid-column: 2;
     grid-row: 3;
   }
+
   main .contenedor-libros .lista-libro-dos {
     grid-column: 2;
     grid-row: 6;
@@ -1251,17 +1428,21 @@ main div .img-bt {
     gap: 0;
     padding: 1rem 2rem;
   }
+
   main div .img-bt {
     width: 95%;
   }
+
   main div .img-vertical {
     width: 70%;
   }
+
   main div .boton-prev {
     left: 2%;
     margin-right: 0;
     justify-content: flex-start;
   }
+
   main div .boton-next {
     right: 2%;
     margin: 0;
@@ -1274,12 +1455,15 @@ main div .img-bt {
     margin: 0 8rem;
     margin-bottom: 10rem;
   }
+
   main div .img-bt {
     width: 90%;
   }
+
   main div .img-vertical {
     width: 70%;
   }
+
   /* .play-music a .play-ig {
     width: 13%;
     left: 10%;
@@ -1293,18 +1477,23 @@ main div .img-bt {
     margin: 0;
     margin-bottom: 15rem;
   }
+
   main div .img-bt {
     width: 55%;
   }
+
   main div .img-vertical {
     width: 30%;
   }
+
   main div .boton-prev {
     left: 20%;
   }
+
   main div .boton-next {
     right: 20%;
   }
+
   /* .play-music a .play-ig {
     width: 15%;
     top: 2rem;
@@ -1325,6 +1514,7 @@ main #container {
   position: relative;
   background-color: #eaeaea;
 }
+
 main #container .h2-contacto {
   font-size: 2.8rem;
   color: #474544;
@@ -1334,6 +1524,7 @@ main #container .h2-contacto {
   text-transform: uppercase;
   padding-top: 1rem;
 }
+
 main #container .h3-contacto {
   font-size: 2.5rem;
   color: #474544;
@@ -1342,19 +1533,23 @@ main #container .h3-contacto {
   text-align: center;
   padding-top: 1rem;
 }
+
 main #container .underline {
   border-bottom: solid 2px #474544;
   margin: 1rem auto;
   width: 20rem;
   margin-bottom: 8rem;
 }
+
 main #container form div button {
   overflow: visible;
 }
+
 main #container form div button,
 main #container form div select {
   text-transform: none;
 }
+
 main #container form div button,
 main #container form div input,
 main #container form div select,
@@ -1363,10 +1558,12 @@ main #container form div textarea {
   font: inherit;
   margin: 0;
 }
+
 main #container form div input {
   line-height: normal;
   /* Altura de los casilleros, distancia entre las lineas */
 }
+
 main #container form div textarea {
   overflow: auto;
   line-height: 150%;
@@ -1375,6 +1572,7 @@ main #container form div textarea {
   width: 100%;
   height: 150px;
 }
+
 main #container form div input[type="text"],
 main #container form div [type="email"],
 main #container form div select,
@@ -1392,6 +1590,7 @@ main #container form div textarea {
   width: 100%;
   box-sizing: border-box;
 }
+
 main #container form div input[type="text"]:focus,
 main #container form div [type="email"]:focus,
 main #container form div textarea:focus {
@@ -1399,6 +1598,7 @@ main #container form div textarea:focus {
   outline: none;
   padding: 0 0 1.5rem 0;
 }
+
 main #container form div #form_button {
   /* BOTÓN DEL FORMULARIO, ENVIAR */
   background: none;
@@ -1413,6 +1613,7 @@ main #container form div #form_button {
   padding: 20px 35px;
   text-transform: uppercase;
 }
+
 main #container form div #form_button:hover {
   background: #474544;
   color: #fcdfc4;
@@ -1424,21 +1625,26 @@ main #container form div #form_button:hover {
     margin-bottom: 10rem;
     max-width: 100%;
   }
+
   main #container .h2-contacto {
     font-size: 1.7rem;
     padding: 0.5rem;
     padding-top: 1rem;
   }
+
   main #container .h3-contacto {
     font-size: 1.5rem;
   }
+
   main #container .underline {
     margin-bottom: 5rem;
   }
+
   main #container form {
     padding: 0 2rem;
     margin: 4rem 0 2rem 0;
   }
+
   main #container form .nombre,
   main #container form .apellido,
   main #container form .telefono,
@@ -1460,37 +1666,44 @@ main #container form div #form_button:hover {
     max-width: 768px;
     margin: 9rem auto 20rem;
   }
+
   main #container .h2-contacto {
     font-size: 2.8rem;
     padding-top: 2rem;
   }
+
   main #container .h3-contacto {
     font-size: 2.5rem;
   }
+
   main #container .underline {
     margin-bottom: 8rem;
   }
+
   main #container form {
     padding: 38px;
     margin: 5rem 0 0 0;
   }
+
   main #container form .nombre,
   main #container form .telefono {
     float: left;
     width: 45%;
   }
+
   main #container form .apellido,
   main #container form .email {
     float: right;
     width: 45%;
   }
+
   main #container form .mensaje {
     float: none;
     /* Ubicación del Elemento */
   }
 }
 
-main .contenedor-png .png {
+main .contenedor-png {
   position: fixed;
   z-index: -1;
 }
@@ -1508,6 +1721,7 @@ main .contenedor-sm div ul .lista-sm {
 }
 
 @media screen and (min-width: 320px) {
+
   main article,
   main .contenedor-sm {
     display: flex;
@@ -1515,6 +1729,7 @@ main .contenedor-sm div ul .lista-sm {
     margin: 0 2rem;
     margin-bottom: 10rem;
   }
+
   main article .img-sm,
   main .contenedor-sm .img-sm {
     width: 100%;
@@ -1522,18 +1737,21 @@ main .contenedor-sm div ul .lista-sm {
     margin-right: 0;
     position: relative;
   }
+
   main article .img-right,
   main article .mobile,
   main .contenedor-sm .img-right,
   main .contenedor-sm .mobile {
     display: none;
   }
+
   main article .p-sm,
   main .contenedor-sm .p-sm {
     margin-top: 2rem;
     position: relative;
     font-size: 1.5rem;
   }
+
   main article div .ul-pad,
   main article div .lista-sm,
   main .contenedor-sm div .ul-pad,
@@ -1544,6 +1762,7 @@ main .contenedor-sm div ul .lista-sm {
 }
 
 @media screen and (min-width: 600px) {
+
   main article,
   main .contenedor-sm {
     display: flex;
@@ -1554,6 +1773,7 @@ main .contenedor-sm div ul .lista-sm {
 }
 
 @media screen and (min-width: 1024px) {
+
   main article,
   main .contenedor-sm {
     display: grid;
@@ -1564,6 +1784,7 @@ main .contenedor-sm div ul .lista-sm {
     row-gap: 10rem;
     padding: 0;
   }
+
   main article .p-right,
   main .contenedor-sm .p-right {
     grid-column: 2;
@@ -1572,6 +1793,7 @@ main .contenedor-sm div ul .lista-sm {
     margin: 0;
     padding-left: 2rem;
   }
+
   main article .p-left,
   main .contenedor-sm .p-left {
     padding-right: 2rem;
@@ -1579,11 +1801,13 @@ main .contenedor-sm div ul .lista-sm {
     grid-row: 2;
     margin: 0;
   }
+
   main article .img-sm,
   main .contenedor-sm .img-sm {
     width: 97%;
     padding-left: 0;
   }
+
   main article .img-right,
   main .contenedor-sm .img-right {
     display: grid;
@@ -1591,14 +1815,17 @@ main .contenedor-sm div ul .lista-sm {
     grid-column: 2;
     padding-left: 2rem;
   }
+
   main article .p-sm,
   main .contenedor-sm .p-sm {
     text-shadow: 0 0 0 #474544;
   }
+
   main article .mobile,
   main .contenedor-sm .mobile {
     display: grid;
   }
+
   main article div span,
   main article div .lista-sm,
   main .contenedor-sm div span,
@@ -1612,6 +1839,18 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+#body-index {
+  display: flex;
+  justify-content: center;
+  /* Centramos horizontalmente */
+  align-items: center;
+  /* Centramos verticalmente */
+  height: 100vh;
+  /* La altura del body ocupa toda la ventana */
+  margin: 0;
+  /* Elimina cualquier margen por defecto */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -1644,8 +1883,30 @@ svg {
   z-index: 0;
 }
 
+#btn-entrar a {
+  padding: 15px 30px;
+  /* Ajusta el tamaño del botón */
+  font-size: 18px;
+  /* Ajusta el tamaño de la fuente */
+  background-color: #000;
+  /* Color de fondo del botón */
+  color: #fff;
+  /* Color del texto */
+  text-decoration: none;
+  /* Elimina el subrayado del enlace */
+  border-radius: 5px;
+  /* Esquinas redondeadas */
+  transition: background-color 0.3s ease;
+  /* Animación suave al pasar el cursor */
+}
+
+#btn-entrar a:hover {
+  background-color: #333;
+  /* Cambia el color de fondo al pasar el cursor */
+}
+
 .btn {
-  position: fixed;
+  /* position: fixed; */
   bottom: 85%;
   right: 0px;
   transform: translateX(-50%);
@@ -1654,20 +1915,21 @@ svg {
   font-size: 0.9rem;
   padding: 0.5rem 0.7em;
   background-color: transparent;
-  color: #ffffff;
+  /* color: #ffffff; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
   transition: all 0.3s;
   z-index: 11;
 }
+
 .btn:hover {
-  background: #ffffff;
+  /* background: #ffffff; */
   color: #1b1734;
 }
 
 .btn_works {
-  left: 37%;
+  /* left: 37%; */
   right: unset;
   text-decoration: none;
   font-size: 2rem;
@@ -1681,197 +1943,340 @@ svg {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.5);
   }
+
   100% {
     transform: scale(1);
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .btn {
+  /* .btn {
     position: fixed;
     bottom: 5%;
   }
   .btn_works {
     left: 100px;
-  }
+  } */
+}
+
+/* REPRODUCTOR DE MÚSICA COMPACTO */
+.body {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  width: 320px;
+  max-width: calc(100vw - 40px);
 }
 
 .body .music-player-container {
-  background: linear-gradient(30deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85));
-  backdrop-filter: blur(10px);
-  height: fit-content;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.35);
+  gap: 8px;
+  transition: all 0.3s ease;
 }
-.body .music-player-container .title-music-container {
-  width: 80%;
-  height: 80%;
-  width: fit-content;
-  color: white;
-  margin-right: auto;
-  margin-left: 10%;
+
+.body .music-player-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
-.body .music-player-container .title-music-container .song-title {
+
+/* Header con info de la canción */
+.player-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.album-art-container {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.album-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title-music-container {
+  flex: 1;
+  min-width: 0;
+}
+
+.song-title {
+  font-size: 13px;
   font-weight: 600;
-  font-size: 17px;
-  letter-spacing: 0.5px;
+  color: white;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.body .music-player-container .title-music-container .song-author {
-  margin-top: 0.1rem;
-  font-size: 12px;
+
+.song-author {
+  font-size: 11px;
   color: #a7a7a7;
-  letter-spacing: 0.1px;
+  margin: 2px 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.body .music-player-container .controls-music-container {
-  width: 80%;
-  height: fit-content;
+
+.song-album {
+  font-size: 10px;
+  color: #888;
+  margin: 1px 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Controles principales */
+.main-song-controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  gap: 15px;
+  margin: 5px 0;
 }
-.body
-  .music-player-container
-  .controls-music-container
-  .progress-song-container {
-  margin-top: 0.6rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+
+.main-song-controls .icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  filter: invert(0.4);
 }
-.body
-  .music-player-container
-  .controls-music-container
-  .progress-song-container
-  .progress-bar {
-  height: 3px;
-  border-radius: 3px;
-  width: 100%;
-  background-color: #666666;
+
+.main-song-controls .icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.main-song-controls .icon:active {
+  transform: scale(0.95);
+}
+
+/* Progress bar */
+.progress-song-container {
+  margin: 5px 0;
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: height 0.2s ease;
+}
+
+.progress-bar:hover {
+  height: 6px;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #46669c, #6f5a96);
+  border-radius: 2px;
+  transition: width 0.1s ease;
   position: relative;
 }
-.body
-  .music-player-container
-  .controls-music-container
-  .progress-song-container
-  .progress-bar
-  .progress {
+
+.progress::after {
+  content: "";
   position: absolute;
-  height: 100%;
-  width: 0%;
-  border-radius: 3px;
-  background-color: white;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-.body .music-player-container .controls-music-container .time-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #a7a7a7;
-  font-size: 12px;
-}
-.body
-  .music-player-container
-  .controls-music-container
-  .time-container
-  .time-left {
-  margin-top: 0.3rem;
-}
-.body .music-player-container .main-song-controls {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.body .music-player-container .main-song-controls .icon {
-  height: 100%;
-  width: auto;
-  opacity: 0.6;
-  cursor: pointer;
-}
-.body .music-player-container .main-song-controls .icon:hover {
+
+.progress-bar:hover .progress::after {
   opacity: 1;
 }
+
+/* Time display */
+.time-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #a7a7a7;
+  margin-top: 4px;
+}
+
+/* Controles adicionales (ocultos por defecto, se muestran al expandir) */
+.additional-controls {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 5px;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.volume-icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+  filter: invert(0.4);
+}
+
+.volume-slider {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.speed-select {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Botón para expandir/contraer */
+.expand-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.expand-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Estado expandido */
+.music-player-container.expanded {
+  width: 335px;
+}
+
+.music-player-container.expanded .additional-controls {
+  display: flex;
+}
+
+/* Audio element oculto */
 .body .music-player-container audio {
   display: none;
 }
 
-@media screen and (min-width: 320px) {
+/* Responsive */
+@media screen and (max-width: 768px) {
   .body {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    position: fixed;
-    bottom: 0%;
-    z-index: 1;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-width: none;
   }
+
   .body .music-player-container {
     width: 100%;
-    margin: 0;
-    padding: 1rem 0;
-    border-radius: 0px;
+    max-width: none;
   }
-  .body .music-player-container .main-song-controls {
+
+  .music-player-container.expanded {
+    width: 100%;
+  }
+
+  .song-title {
+    font-size: 12px;
+  }
+
+  .song-author {
+    font-size: 10px;
+  }
+
+  .main-song-controls .icon {
+    width: 20px;
     height: 20px;
-    margin-top: 0.2rem;
-  }
-  .body .music-player-container .title-music-container .song-title {
-    font-size: 13px;
-    margin-bottom: 3px;
-  }
-  .body .music-player-container .title-music-container .song-author {
-    display: none;
-  }
-  .body
-    .music-player-container
-    .controls-music-container
-    .time-container
-    .time-left {
-    font-size: 1rem;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .body {
-    /* height: 22vh; */
-    /* height: 20%; */
-    display: flex;
-    justify-content: left;
-    /* align-items: center; */
-    position: fixed;
-    z-index: 9999;
-    /* margin: 1rem; */
+@media screen and (max-width: 480px) {
+  .album-art-container {
+    width: 40px;
+    height: 40px;
   }
-  .body .music-player-container {
-    /* width: 31vw; */
-    /* padding: 2rem 0; */
-    /* border-radius: 10px; */
+
+  .main-song-controls {
+    gap: 12px;
   }
-  .body .music-player-container .main-song-controls {
-    height: 30px;
+
+  .main-song-controls .icon {
+    width: 18px;
+    height: 18px;
   }
-  .body .music-player-container .title-music-container .song-title {
-    font-size: 15px;
-    margin-bottom: p5x;
-  }
-  .body .music-player-container .title-music-container .song-author {
-    display: flex;
-    font-size: 13px;
-  }
-  .body
-    .music-player-container
-    .controls-music-container
-    .time-container
-    .time-left {
-    font-size: 1.5rem;
+}
+
+/* Asegurar que esté visible en todas las páginas */
+body {
+  padding-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding-bottom: 120px;
   }
 }
