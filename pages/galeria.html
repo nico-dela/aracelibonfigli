@@ -1,471 +1,659 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explora nuestra galería de imágenes de Araceli Bonfigli y su talentoso equipo de músicos en diversos conciertos. Revive momentos memorables y captura la esencia de sus actuaciones en vivo. Descubre la energía y la pasión detrás de su música."
+    />
+    <meta
+      name="keywords"
+      content="galería de imágenes, artista musical, músicos, conciertos en vivo, actuaciones en directo, música en escena, fotos de conciertos"
+    />
+    <title>Galería De Imágenes</title>
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <!-- Favicon (Imagen en la pestaña) -->
+    <!-- link boot -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Explora nuestra galería de imágenes de Araceli Bonfigli y su talentoso equipo de músicos en diversos conciertos. Revive momentos memorables y captura la esencia de sus actuaciones en vivo. Descubre la energía y la pasión detrás de su música.">
-  <meta name="keywords"
-    content="galería de imágenes, artista musical, músicos, conciertos en vivo, actuaciones en directo, música en escena, fotos de conciertos">
-  <title>Galería De Imágenes</title>
-  <link rel="shortcut icon" href="" type="image/x-icon"> <!-- Favicon (Imagen en la pestaña) -->
-  <!-- link boot -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&family=Quicksand:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="../media/images/favicon.ico" />
+  </head>
 
-  <link rel="stylesheet" href="../css/estilos.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&family=Quicksand:wght@300;400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="../media/images/favicon.ico">
-</head>
+  <body class="body-galeria bg-body">
+    <header class="contenedor header-galeria header-pag">
+      <div class="index-nombre">
+        <a class="index-pag araceli" href="../index.html">ARACELI BONFIGLI</a>
+      </div>
 
+      <nav class="navegacion">
+        <!-- Menú de navegación -->
+        <ul>
+          <!-- Lista no ordenada -->
+          <div class="nav-uno">
+            <li><a class="a-pag" href="../pages/musica.html">Música</a></li>
+            <li><a class="a-pag" href="../pages/videos.html">Videos</a></li>
+            <li><a class="a-pag" href="../pages/libros.html">Libros</a></li>
+          </div>
+          <div class="nav-dos">
+            <li><a class="a-pag" href="../pages/galeria.html">Galería</a></li>
+            <li>
+              <a class="a-pag" href="../pages/sobre_mi.html">Biografía</a>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </header>
 
-<body class="body-galeria bg-body">
+    <!-- menu bootstrap dispositivo mobile -->
+    <div id="bootstrap">
+      <nav class="navbar bg-body-tertiary fixed-top header-bt">
+        <div class="container-fluid container-bt">
+          <a class="navbar-brand araceli-bt" href="../index.html"
+            >ARACELI BONFIGLI</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon navbar-icon-bt"></span>
+          </button>
 
-  <header class="contenedor header-galeria header-pag">
-    <div class="index-nombre">
-      <a class="index-pag araceli" href="../index.html">ARACELI BONFIGLI</a>
+          <div
+            class="offcanvas offcanvas-end bg-bt"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <a
+                class="offcanvas-title araceli-bt"
+                id="offcanvasNavbarLabel"
+                href=""
+                >ARACELI BONFIGLI</a
+              >
+              <button
+                type="button"
+                class="btn-close boton-close-bt"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              >
+                <img
+                  class="img-close"
+                  src="../media/images/cerrar.webp"
+                  alt="img-cerrar"
+                />
+              </button>
+            </div>
+
+            <div class="offcanvas-body">
+              <ul
+                class="navbar-nav justify-content-end flex-grow-1 pe-3 lista-bt"
+              >
+                <li class="nav-item">
+                  <a class="nav-link" href="../pages/musica.html">Música</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../pages/videos.html">Videos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../pages/libros.html">Libros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../pages/galeria.html">Galería</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../pages/sobre_mi.html"
+                    >Biografía</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
 
-    <nav class="navegacion"> <!-- Menú de navegación -->
-      <ul> <!-- Lista no ordenada -->
-        <div class="nav-uno">
-          <li><a class="a-pag" href="../pages/musica.html">Música</a></li>
-          <li><a class="a-pag" href="../pages/videos.html">Videos</a></li>
-          <li><a class="a-pag" href="../pages/libros.html">Libros</a></li>
-        </div>
-        <div class="nav-dos">
-          <li><a class="a-pag" href="../pages/galeria.html">Galería</a></li>
-          <li><a class="a-pag" href="../pages/sobre_mi.html">Biografía</a></li>
-        </div>
-      </ul>
-    </nav>
-  </header>
+    <main>
+      <h1>Galería de imágenes</h1>
 
-  <!-- menu bootstrap dispositivo mobile -->
-  <div id="bootstrap">
-    <nav class="navbar bg-body-tertiary fixed-top header-bt">
-      <div class="container-fluid container-bt">
-        <a class="navbar-brand araceli-bt" href="../index.html">ARACELI BONFIGLI</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon navbar-icon-bt"></span>
+      <div
+        id="carouselExampleDark"
+        class="carousel carousel-dark slide gal-container"
+      >
+        <h2 class="h2-galeria">El degradé del atardecer</h2>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135994/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/001_vphzy5.webp"
+              class="d-block img-bt mx-auto img-border"
+              alt="img-escenario"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135990/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/002_emyeub.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135993/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/003_pmmncr.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-musicos"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135990/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/004_xddero.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-musicos1"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135988/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/005_myybv5.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-araceli"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136020/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/006_jlbpfh.webp"
+              class="d-block img-bt mx-auto img-border"
+              alt="img-musicos"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136021/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/007_sxbnde.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-musicos"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136021/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/008_zycfie.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-musicos"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136018/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/009_uvnpw4.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item contenedor-img">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136030/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/010_zpiqbt.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-escenario"
+            />
+          </div>
+
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136049/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/011_zmdj0e.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136045/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/012_vohn6i.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136044/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/013_fu6l3b.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item contenedor-img">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136044/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/014_ok4ya2.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136043/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/015_fjlsnb.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136069/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/016_mrcnaq.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136069/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/017_brjxc4.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item contenedor-img">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136070/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/018_jg9zci.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136071/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/019_txyehu.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136071/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/020_b3lybd.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136089/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/021_bfjz1v.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item contenedor-img">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136089/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/022_hjud6n.webp"
+              class="d-block mx-auto img-vertical img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136092/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/023_hlj9pd.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-presentacion-musicos"
+            />
+          </div>
+          <div class="carousel-item contenedor-img">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136088/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/024_w3u2bh.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-presentacion-musicos"
+            />
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev boton-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
         </button>
+        <button
+          class="carousel-control-next boton-next"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <h3 class="h3-gal">Presentación Del Disco • 2022 •</h3>
+      </div>
 
-        <div class="offcanvas offcanvas-end bg-bt" tabindex="-1" id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <a class="offcanvas-title araceli-bt" id="offcanvasNavbarLabel" href="">ARACELI BONFIGLI</a>
-            <button type="button" class="btn-close boton-close-bt" data-bs-dismiss="offcanvas" aria-label="Close">
-              <img class="img-close" src="../media/images/cerrar.webp" alt="img-cerrar">
-            </button>
+      <div
+        id="carouselExampleDark2"
+        class="carousel carousel-dark slide gal-container"
+      >
+        <h2 class="h2-galeria">Concierto en Pez Volcán</h2>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137009/Araceli%20Bonfigli/PezVolc%C3%A1n2021/01_rpdpiq.webp"
+              class="d-block img-bt mx-auto img-border"
+              alt="img-artista-guitarra"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137010/Araceli%20Bonfigli/PezVolc%C3%A1n2021/02_eemdtj.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137006/Araceli%20Bonfigli/PezVolc%C3%A1n2021/03_nigalv.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-musicos"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137002/Araceli%20Bonfigli/PezVolc%C3%A1n2021/04_odn1rn.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-musicos"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137004/Araceli%20Bonfigli/PezVolc%C3%A1n2021/05_j6yghv.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-musicos"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137011/Araceli%20Bonfigli/PezVolc%C3%A1n2021/06_kdeqv4.webp"
+              class="d-block img-vertical mx-auto img-border"
+              alt="img-artista"
+            />
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev boton-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark2"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next boton-next"
+          type="button"
+          data-bs-target="#carouselExampleDark2"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <h3 class="h3-gal">• 2021 •</h3>
+      </div>
+
+      <!-- 3er carousel -->
+      <div
+        id="carouselExampleDark3"
+        class="carousel carousel-dark slide gal-container"
+      >
+        <h2 class="h2-galeria">Concierto en villa maria</h2>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137168/Araceli%20Bonfigli/VillaMar%C3%ADa2019/01_qoedfi.jpg"
+              class="d-block img-bt mx-auto img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137179/Araceli%20Bonfigli/VillaMar%C3%ADa2019/02_qawumf.jpg"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137180/Araceli%20Bonfigli/VillaMar%C3%ADa2019/03_trtj6q.jpg"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137168/Araceli%20Bonfigli/VillaMar%C3%ADa2019/04_gqfotj.jpg"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-musicos"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137178/Araceli%20Bonfigli/VillaMar%C3%ADa2019/05_tnyceg.jpg"
+              class="d-block img-bt mx-auto img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137169/Araceli%20Bonfigli/VillaMar%C3%ADa2019/06_kibq0a.jpg"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137169/Araceli%20Bonfigli/VillaMar%C3%ADa2019/07_bo9k8k.jpg"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137173/Araceli%20Bonfigli/VillaMar%C3%ADa2019/08_fzjwjq.jpg"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137170/Araceli%20Bonfigli/VillaMar%C3%ADa2019/09_lwtdus.jpg"
+              class="d-block img-bt mx-auto img-border"
+              alt="img-artista"
+            />
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev boton-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark3"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next boton-next"
+          type="button"
+          data-bs-target="#carouselExampleDark3"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <h3 class="h3-gal">• 2019 •</h3>
+      </div>
+
+      <!-- 4to carousel -->
+      <div
+        id="carouselExampleDark4"
+        class="carousel carousel-dark slide gal-container"
+      >
+        <h2 class="h2-galeria">Griego Rock</h2>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137374/Araceli%20Bonfigli/GriegoRock2019/01_me5hbh.webp"
+              class="d-block img-bt mx-auto img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137376/Araceli%20Bonfigli/GriegoRock2019/02_vxfyiz.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137378/Araceli%20Bonfigli/GriegoRock2019/03_wotlx6.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-guitarrista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137376/Araceli%20Bonfigli/GriegoRock2019/04_owvidx.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137376/Araceli%20Bonfigli/GriegoRock2019/05_zg7ogi.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-publico"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137376/Araceli%20Bonfigli/GriegoRock2019/06_kghear.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-artista"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137378/Araceli%20Bonfigli/GriegoRock2019/07_evc1ig.webp"
+              class="d-block mx-auto img-bt img-border"
+              alt="img-musicos"
+            />
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev boton-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark4"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next boton-next"
+          type="button"
+          data-bs-target="#carouselExampleDark4"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <h3 class="h3-gal">• 2019 •</h3>
+      </div>
+    </main>
+
+    <footer class="footer bg-footer">
+      <div class="iconos-info">
+        <ul>
+          <li class="info num-pad">
+            <a
+              class="info num-pad"
+              href="https://wa.me/543572543468"
+              target="_blank"
+            >
+              <img
+                class="icon-dos"
+                src="../media/images/socialgris.webp"
+                alt=""
+              />
+              +54 9 3572 54 3468
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <nav>
+        <ul>
+          <div class="iconos-music">
+            <li>
+              <a
+                href="https://open.spotify.com/artist/6bj6JfRNNwpb3gpYDXEm2F?si=3SVL4trvQFaK5MLyZVpoAw"
+                target="_blank"
+              >
+                <img
+                  class="-icon-hover"
+                  src="../media/images/spotifygris.webp"
+                  alt="img-spoty"
+              /></a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.youtube.com/@AraceliBonfigli"
+                class="iconos-padding"
+                target="_blank"
+              >
+                <img src="../media/images/youtubegris.webp" alt="img-youtube"
+              /></a>
+            </li>
           </div>
 
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 lista-bt">
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/musica.html">Música</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/videos.html">Videos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/libros.html">Libros</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/galeria.html">Galería</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/sobre_mi.html">Biografía</a>
-              </li>
-            </ul>
+          <div class="iconos-redes">
+            <li>
+              <a
+                href="https://www.facebook.com/aracelibonfigli"
+                class="iconos-padding"
+                target="_blank"
+              >
+                <img src="../media/images/facebookgris.webp" alt="img-facebook"
+              /></a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.instagram.com/aracelibonfigli"
+                class="iconos-padding"
+                target="_blank"
+              >
+                <img
+                  src="../media/images/instagramgris.webp"
+                  alt="img-instagram"
+              /></a>
+            </li>
           </div>
-        </div>
-      </div>
-    </nav> <!-- ---- -->
-  </div>
+        </ul>
+      </nav>
+    </footer>
 
-  <!-- <div class="play-music">
-        <a href="https://www.instagram.com/aracelibonfigli?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-            target="_blank">
-            <img class="play-img play-ig" src="../media/images/instagram3.webp" alt="icono-instagram">
-        </a>
-    </div> -->
-
-  <main>
-    <h1>Galería de imágenes</h1>
-
-    <div id="carouselExampleDark" class="carousel carousel-dark slide gal-container">
-      <h2 class="h2-galeria">El degradé del atardecer</h2>
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135994/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/001_vphzy5.webp"
-            class="d-block img-bt mx-auto img-border" alt="img-escenario">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135990/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/002_emyeub.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135993/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/003_pmmncr.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-musicos">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135990/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/004_xddero.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-musicos1">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721135988/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/005_myybv5.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-araceli">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136020/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/006_jlbpfh.webp"
-            class="d-block img-bt mx-auto img-border" alt="img-musicos">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136021/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/007_sxbnde.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-musicos">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136021/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/008_zycfie.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-musicos">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136018/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/009_uvnpw4.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item  contenedor-img">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136030/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/010_zpiqbt.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-escenario">
-        </div>
-
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136049/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/011_zmdj0e.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136045/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/012_vohn6i.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136044/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/013_fu6l3b.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item  contenedor-img">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136044/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/014_ok4ya2.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136043/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/015_fjlsnb.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136069/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/016_mrcnaq.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136069/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/017_brjxc4.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item  contenedor-img">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136070/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/018_jg9zci.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136071/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/019_txyehu.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136071/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/020_b3lybd.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136089/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/021_bfjz1v.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item contenedor-img">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136089/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/022_hjud6n.webp"
-            class="d-block mx-auto img-vertical img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136092/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/023_hlj9pd.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-presentacion-musicos">
-        </div>
-        <div class="carousel-item contenedor-img">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721136088/Araceli%20Bonfigli/ElDegrad%C3%A9DelAtardecer/024_w3u2bh.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-presentacion-musicos">
-        </div>
-      </div>
-
-      <button class="carousel-control-prev boton-prev" type="button" data-bs-target="#carouselExampleDark"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next boton-next" type="button" data-bs-target="#carouselExampleDark"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <h3 class="h3-gal">Presentación Del Disco • 2022 •</h3>
-    </div>
-    </div>
-    </div>
-
-    <div id="carouselExampleDark2" class="carousel carousel-dark slide gal-container">
-      <h2 class="h2-galeria">Concierto en Pez Volcán</h2>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137009/Araceli%20Bonfigli/PezVolc%C3%A1n2021/01_rpdpiq.webp"
-            class="d-block img-bt mx-auto img-border" alt="img-artista-guitarra">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137010/Araceli%20Bonfigli/PezVolc%C3%A1n2021/02_eemdtj.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137006/Araceli%20Bonfigli/PezVolc%C3%A1n2021/03_nigalv.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-musicos">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137002/Araceli%20Bonfigli/PezVolc%C3%A1n2021/04_odn1rn.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-musicos">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137004/Araceli%20Bonfigli/PezVolc%C3%A1n2021/05_j6yghv.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-musicos">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137011/Araceli%20Bonfigli/PezVolc%C3%A1n2021/06_kdeqv4.webp"
-            class="d-block img-vertical mx-auto img-border" alt="img-artista">
-        </div>
-      </div>
-
-      <button class="carousel-control-prev boton-prev" type="button" data-bs-target="#carouselExampleDark2"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next boton-next" type="button" data-bs-target="#carouselExampleDark2"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <h3 class="h3-gal">• 2021 •</h3>
-    </div>
-    </div>
-    </div> <!-- ---- -->
-
-
-
-    <!-- 3er carousel -->
-    <div id="carouselExampleDark3" class="carousel carousel-dark slide gal-container">
-      <h2 class="h2-galeria">Concierto en villa maria</h2>
-
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137168/Araceli%20Bonfigli/VillaMar%C3%ADa2019/01_qoedfi.jpg"
-            class="d-block img-bt mx-auto img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137179/Araceli%20Bonfigli/VillaMar%C3%ADa2019/02_qawumf.jpg"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137180/Araceli%20Bonfigli/VillaMar%C3%ADa2019/03_trtj6q.jpg"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137168/Araceli%20Bonfigli/VillaMar%C3%ADa2019/04_gqfotj.jpg"
-            class="d-block mx-auto img-bt img-border" alt="img-musicos">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137178/Araceli%20Bonfigli/VillaMar%C3%ADa2019/05_tnyceg.jpg"
-            class="d-block img-bt mx-auto img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137169/Araceli%20Bonfigli/VillaMar%C3%ADa2019/06_kibq0a.jpg"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137169/Araceli%20Bonfigli/VillaMar%C3%ADa2019/07_bo9k8k.jpg"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137173/Araceli%20Bonfigli/VillaMar%C3%ADa2019/08_fzjwjq.jpg"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137170/Araceli%20Bonfigli/VillaMar%C3%ADa2019/09_lwtdus.jpg"
-            class="d-block img-bt mx-auto img-border" alt="img-artista">
-        </div>
-      </div>
-
-      <button class="carousel-control-prev boton-prev" type="button" data-bs-target="#carouselExampleDark3"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next boton-next" type="button" data-bs-target="#carouselExampleDark3"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <h3 class="h3-gal">• 2019 •</h3>
-    </div>
-    </div>
-    </div> <!-- ----- -->
-
-
-    <!-- 4to carousel -->
-    <div id="carouselExampleDark4" class="carousel carousel-dark slide gal-container">
-      <h2 class="h2-galeria">Griego Rock</h2>
-
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137374/Araceli%20Bonfigli/GriegoRock2019/01_me5hbh.webp"
-            class="d-block img-bt mx-auto img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137376/Araceli%20Bonfigli/GriegoRock2019/02_vxfyiz.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137378/Araceli%20Bonfigli/GriegoRock2019/03_wotlx6.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-guitarrista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137376/Araceli%20Bonfigli/GriegoRock2019/04_owvidx.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137376/Araceli%20Bonfigli/GriegoRock2019/05_zg7ogi.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-publico">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137376/Araceli%20Bonfigli/GriegoRock2019/06_kghear.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-artista">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://res.cloudinary.com/dit43qjpn/image/upload/v1721137378/Araceli%20Bonfigli/GriegoRock2019/07_evc1ig.webp"
-            class="d-block mx-auto img-bt img-border" alt="img-musicos">
-        </div>
-      </div>
-
-      <button class="carousel-control-prev boton-prev" type="button" data-bs-target="#carouselExampleDark4"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next boton-next" type="button" data-bs-target="#carouselExampleDark4"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <h3 class="h3-gal">• 2019 •</h3>
-    </div>
-    </div>
-    </div> <!-- ----- -->
-  </main>
-
-
-
-
-
-
-  <footer class="footer bg-footer">
-    <div class="iconos-info">
-      <ul>
-        <li class="info num-pad">
-          <a class="info num-pad" href="https://wa.me/543572543468" target="_blank">
-            <img class="icon-dos" src="../media/images/socialgris.webp" alt=""> +54 9 3572 54 3468
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <nav>
-      <ul>
-        <div class="iconos-music">
-          <li>
-            <a href="https://open.spotify.com/artist/6bj6JfRNNwpb3gpYDXEm2F?si=3SVL4trvQFaK5MLyZVpoAw" target="_blank">
-              <img class="-icon-hover" src="../media/images/spotifygris.webp" alt="img-spoty"></a>
-          </li>
-
-          <li>
-            <a href="https://www.youtube.com/@AraceliBonfigli" class="iconos-padding" target="_blank">
-              <img src="../media/images/youtubegris.webp" alt="img-youtube"></a>
-          </li>
-        </div>
-
-        <div class="iconos-redes">
-          <li><a href="https://www.facebook.com/aracelibonfigli" class="iconos-padding" target="_blank">
-              <img src="../media/images/facebookgris.webp" alt="img-facebook"></a>
-          </li>
-
-          <li><a href="https://www.instagram.com/aracelibonfigli" class="iconos-padding" target="_blank">
-              <img src="../media/images/instagramgris.webp" alt="img-instagram"></a>
-          </li>
-        </div>
-      </ul>
-    </nav>
-  </footer>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
