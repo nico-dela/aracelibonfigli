@@ -277,7 +277,11 @@ body .img-border {
 
 .bg-body {
   background: #f7dbc1;
-  background: linear-gradient(180deg, rgba(255, 228, 204, 0.947) 34%, rgba(206, 211, 255, 0.932) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 228, 204, 0.947) 34%,
+    rgba(206, 211, 255, 0.932) 100%
+  );
   background-attachment: fixed;
   color: #474544;
 }
@@ -369,7 +373,11 @@ main div p {
 
 #bootstrap nav .container-bt .bg-bt {
   background: #ffe9d6;
-  background: linear-gradient(180deg, rgba(253, 236, 221, 0.947) 34%, rgba(207, 226, 254, 0.932) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(253, 236, 221, 0.947) 34%,
+    rgba(207, 226, 254, 0.932) 100%
+  );
 }
 
 #bootstrap nav .container-bt .araceli-bt {
@@ -494,7 +502,6 @@ footer,
 }
 
 @media screen and (min-width: 320px) {
-
   footer nav ul,
   .footer nav ul {
     display: flex;
@@ -533,7 +540,6 @@ footer,
 }
 
 @media screen and (min-width: 600px) {
-
   footer nav ul div li img,
   .footer nav ul div li img {
     width: 40%;
@@ -546,7 +552,6 @@ footer,
 }
 
 @media screen and (min-width: 1024px) {
-
   footer,
   .index-footer,
   .footer {
@@ -606,7 +611,6 @@ header div a:hover {
 } */
 
 @media screen and (min-width: 320px) {
-
   header,
   .contenedor {
     display: flex;
@@ -766,7 +770,7 @@ header div a:hover {
 
 @media screen and (min-width: 1600px) {
   .imagen-body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../media/images/12.webp);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
   }
 }
 
@@ -1721,7 +1725,6 @@ main .contenedor-sm div ul .lista-sm {
 }
 
 @media screen and (min-width: 320px) {
-
   main article,
   main .contenedor-sm {
     display: flex;
@@ -1762,7 +1765,6 @@ main .contenedor-sm div ul .lista-sm {
 }
 
 @media screen and (min-width: 600px) {
-
   main article,
   main .contenedor-sm {
     display: flex;
@@ -1773,7 +1775,6 @@ main .contenedor-sm div ul .lista-sm {
 }
 
 @media screen and (min-width: 1024px) {
-
   main article,
   main .contenedor-sm {
     display: grid;
@@ -2590,5 +2591,121 @@ body {
     width: 100%;
     max-width: 280px;
     justify-content: center;
+  }
+}
+
+/* estilos para el modal de galería */
+.image-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-content-gallery {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 900px;
+  height: auto;
+  max-height: 85vh;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.modal-close:hover {
+  transform: scale(1.2);
+}
+
+.modal-prev,
+.modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  z-index: 10001;
+}
+
+.modal-prev:hover,
+.modal-next:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.modal-prev {
+  left: 10px;
+}
+
+.modal-next {
+  right: 10px;
+}
+
+.image-counter {
+  position: absolute;
+  bottom: -40px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+}
+
+#imageCounter {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-prev,
+  .modal-next {
+    padding: 8px 12px;
+    font-size: 24px;
+  }
+
+  .modal-close {
+    font-size: 28px;
+    top: -35px;
+  }
+
+  .image-counter {
+    bottom: -35px;
+    font-size: 12px;
   }
 }
