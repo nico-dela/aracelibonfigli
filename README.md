@@ -10,7 +10,7 @@ Este proyecto es un sitio web personal estático para Araceli Bonfigli, desarrol
   - `libros.html`: Publicaciones literarias.
   - `galeria.html`: Galería de imágenes.
   - `videos.html`: Obras audiovisuales.
-  - `sobre_mi.html`: Información personal y biografía.
+  - `bio.html`: Información personal y biografía.
 - `css/`: Estilos personalizados del sitio.
 - `javascript/MusicPlayer.js`: Script que implementa el reproductor de música.
 
