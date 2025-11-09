@@ -1,282 +1,287 @@
 class MusicPlayer {
   constructor() {
-    this.audio = document.getElementById("audio")
-    this.currentSongTitle = document.getElementById("currentSongTitle")
-    // this.currentSongAuthor = document.getElementById("currentSongAuthor")
-    this.currentSongAlbum = document.getElementById("currentSongAlbum")
-    this.currentAlbumArt = document.getElementById("currentAlbumArt")
-    this.playlistItems = document.querySelectorAll(".playlist-item")
-    this.progressBar = document.getElementById("progressBar")
-    this.progress = document.getElementById("progress")
-    this.volumeSlider = document.getElementById("volumeSlider")
-    // this.speedControl = document.getElementById("speedControl")
+    this.audio = document.getElementById("audio");
+    this.currentSongTitle = document.getElementById("currentSongTitle");
+    this.currentSongAlbum = document.getElementById("currentSongAlbum");
+    this.currentAlbumArt = document.getElementById("currentAlbumArt");
+    this.playlistItems = document.querySelectorAll(".playlist-item");
+    this.progressBar = document.getElementById("progressBar");
+    this.progress = document.getElementById("progress");
+    this.volumeSlider = document.getElementById("volumeSlider");
 
-    this.currentSongIndex = 0
-    this.isShuffled = false
-    this.isRepeating = false
+    this.currentSongIndex = 0;
+    this.isShuffled = false;
+    this.isRepeating = false;
 
-    this.initializePlayer()
-    this.setupEventListeners()
+    this.initializePlayer();
+    this.setupEventListeners();
   }
 
   initializePlayer() {
-    this.loadSong(this.currentSongIndex)
-    this.updateVolumeDisplay()
+    this.loadSong(this.currentSongIndex);
+    this.updateVolumeDisplay();
   }
 
   setupEventListeners() {
     // Audio events
     this.audio.addEventListener("loadedmetadata", () => {
-      document.getElementById("SongLength").textContent = this.calculateTime(this.audio.duration)
-    })
+      document.getElementById("SongLength").textContent = this.calculateTime(
+        this.audio.duration
+      );
+    });
 
     this.audio.addEventListener("timeupdate", () => {
-      this.updateProgress()
-    })
+      this.updateProgress();
+    });
 
     this.audio.addEventListener("ended", () => {
-      this.handleSongEnd()
-    })
+      this.handleSongEnd();
+    });
 
     this.audio.addEventListener("error", (e) => {
-      console.error("Error loading audio:", e)
-      this.showNotification("Error al cargar la canción", "error")
-    })
+      console.error("Error loading audio:", e);
+      this.showNotification("Error al cargar la canción", "error");
+    });
 
     // Control events
     document.getElementById("PlayPause").addEventListener("click", () => {
-      this.togglePlayPause()
-    })
+      this.togglePlayPause();
+    });
 
     document.getElementById("PreviousSong").addEventListener("click", () => {
-      this.playPrevious()
-    })
+      this.playPrevious();
+    });
 
     document.getElementById("NextSong").addEventListener("click", () => {
-      this.playNext()
-    })
+      this.playNext();
+    });
 
     // Progress bar click
     this.progressBar.addEventListener("click", (e) => {
-      this.seekToPosition(e)
-    })
+      this.seekToPosition(e);
+    });
 
     // Volume control
     this.volumeSlider.addEventListener("input", (e) => {
-      this.setVolume(e.target.value)
-    })
-
-    // Speed control
-    // this.speedControl.addEventListener("change", (e) => {
-    //   this.setPlaybackSpeed(e.target.value)
-    // })
+      this.setVolume(e.target.value);
+    });
 
     // Playlist items
     this.playlistItems.forEach((item) => {
       item.addEventListener("click", () => {
-        const index = Number.parseInt(item.getAttribute("data-index"))
-        this.playSongByIndex(index)
-      })
-    })
+        const index = Number.parseInt(item.getAttribute("data-index"));
+        this.playSongByIndex(index);
+      });
+    });
 
     // Keyboard shortcuts
     document.addEventListener("keydown", (e) => {
-      this.handleKeyboardShortcuts(e)
-    })
+      this.handleKeyboardShortcuts(e);
+    });
 
     // Expand button
-    const expandButton = document.getElementById("expandButton")
+    const expandButton = document.getElementById("expandButton");
     if (expandButton) {
       expandButton.addEventListener("click", () => {
-        this.toggleExpanded()
-      })
+        this.toggleExpanded();
+      });
+    }
+
+    const hideButton = document.getElementById("hidePlayerButton");
+    if (hideButton) {
+      hideButton.addEventListener("click", () => {
+        this.toggleHidePlayer();
+      });
     }
   }
 
   loadSong(index) {
-    if (index < 0 || index >= this.playlist.length) return
+    if (index < 0 || index >= this.playlist.length) return;
 
-    const currentSong = this.playlist[index]
-    this.audio.src = currentSong.src
-    this.currentSongTitle.textContent = currentSong.title
-    // this.currentSongAuthor.textContent = currentSong.author
-    this.currentSongAlbum.textContent = currentSong.album || "El Degradé Del Atardecer"
+    const currentSong = this.playlist[index];
+    this.audio.src = currentSong.src;
+    this.currentSongTitle.textContent = currentSong.title;
+
+    this.currentSongAlbum.textContent =
+      currentSong.album || "El Degradé Del Atardecer";
 
     // Update album art based on song
-    this.updateAlbumArt(currentSong)
+    this.updateAlbumArt(currentSong);
 
-    this.audio.load()
-    this.updatePlaylistHighlight(index)
-    this.currentSongIndex = index
+    this.audio.load();
+    this.updatePlaylistHighlight(index);
+    this.currentSongIndex = index;
 
     // Update document title
-    document.title = `${currentSong.title} - ${currentSong.author}`
+    document.title = `${currentSong.title} - ${currentSong.author}`;
   }
 
   updateAlbumArt(song) {
     const albumArtMap = {
-      "El Degradé Del Atardecer": "../media/images/eldegradedelatardecer.webp",
-      Fluir: "../media/images/fluir.webp",
-      "El Degradé Del Atardecer - Lado B": "../media/images/ladob.webp",
-      "El Degradé Del Atardecer - Lado A": "../media/images/ladoa.webp",
-    }
+      "El Degradé Del Atardecer":
+        "../media/images/webp/eldegradedelatardecer-portada.webp",
+      Fluir: "../media/images/webp/fluir-portada.webp",
+      "El Degradé Del Atardecer - Lado B":
+        "../media/images/webp/eldegradedelatardecer-lado-b.webp",
+      "El Degradé Del Atardecer - Lado A":
+        "../media/images/webp/eldegradedelatardecer-lado-a.webp",
+    };
 
-    const artSrc = albumArtMap[song.album] || "../media/images/eldegradedelatardecer.webp"
-    this.currentAlbumArt.src = artSrc
+    const artSrc =
+      albumArtMap[song.album] ||
+      "../media/images/webp/eldegradedelatardecer-portada.webp";
+    this.currentAlbumArt.src = artSrc;
   }
 
   togglePlayPause() {
-    const playPauseBtn = document.getElementById("PlayPause")
+    const playPauseBtn = document.getElementById("PlayPause");
 
     if (this.audio.paused) {
       this.audio
         .play()
         .then(() => {
-          playPauseBtn.src = "../media/images/pause.svg"
-          playPauseBtn.title = "Pausar"
-          this.showNotification(`Reproduciendo: ${this.currentSongTitle.textContent}`)
+          playPauseBtn.src = "../media/images/svg/pause.svg";
+          playPauseBtn.title = "Pausar";
+          this.showNotification(
+            `Reproduciendo: ${this.currentSongTitle.textContent}`
+          );
         })
         .catch((e) => {
-          console.error("Error playing audio:", e)
-          this.showNotification("Error al reproducir", "error")
-        })
+          console.error("Error playing audio:", e);
+          this.showNotification("Error al reproducir", "error");
+        });
     } else {
-      this.audio.pause()
-      playPauseBtn.src = "../media/images/Play.svg"
-      playPauseBtn.title = "Reproducir"
+      this.audio.pause();
+      playPauseBtn.src = "../media/images/svg/play.svg";
+      playPauseBtn.title = "Reproducir";
     }
   }
 
   updateProgress() {
-    const currentTime = this.audio.currentTime
-    const duration = this.audio.duration
+    const currentTime = this.audio.currentTime;
+    const duration = this.audio.duration;
 
     if (duration) {
-      const percentage = (currentTime / duration) * 100
-      this.progress.style.width = percentage + "%"
+      const percentage = (currentTime / duration) * 100;
+      this.progress.style.width = percentage + "%";
     }
 
-    document.getElementById("CurrentSongTime").textContent = this.calculateTime(currentTime)
+    document.getElementById("CurrentSongTime").textContent =
+      this.calculateTime(currentTime);
   }
 
   seekToPosition(e) {
-    const rect = this.progressBar.getBoundingClientRect()
-    const clickX = e.clientX - rect.left
-    const percentage = clickX / rect.width
-    this.audio.currentTime = percentage * this.audio.duration
+    const rect = this.progressBar.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const percentage = clickX / rect.width;
+    this.audio.currentTime = percentage * this.audio.duration;
   }
 
   setVolume(value) {
-    this.audio.volume = value / 100
-    this.updateVolumeDisplay()
+    this.audio.volume = value / 100;
+    this.updateVolumeDisplay();
   }
 
   updateVolumeDisplay() {
-    const volumeIcon = document.querySelector(".volume-icon")
-    const volume = this.audio.volume * 100
+    const volumeIcon = document.querySelector(".volume-icon");
+    const volume = this.audio.volume * 100;
 
     if (volume === 0) {
-      volumeIcon.src = "../media/images/Volume-Mute.svg"
+      volumeIcon.src = "../media/images/svg/volume-mute.svg";
     } else if (volume < 50) {
-      volumeIcon.src = "../media/images/Volume-Low.svg"
+      volumeIcon.src = "../media/images/svg/volume-low.svg";
     } else {
-      volumeIcon.src = "../media/images/Volume.svg"
+      volumeIcon.src = "../media/images/svg/volume.svg";
     }
   }
 
   setPlaybackSpeed(speed) {
-    this.audio.playbackRate = Number.parseFloat(speed)
-    this.showNotification(`Velocidad: ${speed}x`)
+    this.audio.playbackRate = Number.parseFloat(speed);
+    this.showNotification(`Velocidad: ${speed}x`);
   }
 
   handleSongEnd() {
     if (this.isRepeating) {
-      this.audio.currentTime = 0
-      this.audio.play()
+      this.audio.currentTime = 0;
+      this.audio.play();
     } else {
-      this.playNext()
+      this.playNext();
     }
   }
 
   playNext() {
-    let nextIndex
+    let nextIndex;
     if (this.isShuffled) {
-      nextIndex = Math.floor(Math.random() * this.playlist.length)
+      nextIndex = Math.floor(Math.random() * this.playlist.length);
     } else {
-      nextIndex = (this.currentSongIndex + 1) % this.playlist.length
+      nextIndex = (this.currentSongIndex + 1) % this.playlist.length;
     }
-    this.playSongByIndex(nextIndex)
+    this.playSongByIndex(nextIndex);
   }
 
   playPrevious() {
-    const prevIndex = this.currentSongIndex > 0 ? this.currentSongIndex - 1 : this.playlist.length - 1
-    this.playSongByIndex(prevIndex)
+    const prevIndex =
+      this.currentSongIndex > 0
+        ? this.currentSongIndex - 1
+        : this.playlist.length - 1;
+    this.playSongByIndex(prevIndex);
   }
 
   playSongByIndex(index) {
-    this.loadSong(index)
+    this.loadSong(index);
     this.audio.play().then(() => {
-      document.getElementById("PlayPause").src = "../media/images/pause.svg"
-    })
+      document.getElementById("PlayPause").src =
+        "../media/images/svg/pause.svg";
+    });
   }
 
   updatePlaylistHighlight(index) {
     this.playlistItems.forEach((item, i) => {
       if (i === index) {
-        item.classList.add("playing")
+        item.classList.add("playing");
       } else {
-        item.classList.remove("playing")
+        item.classList.remove("playing");
       }
-    })
+    });
   }
 
   toggleExpanded() {
-    const musicPlayer = document.getElementById("musicPlayer")
-    const expandButton = document.getElementById("expandButton")
+    const musicPlayer = document.getElementById("musicPlayer");
+    const expandButton = document.getElementById("expandButton");
 
-    musicPlayer.classList.toggle("expanded")
+    musicPlayer.classList.toggle("expanded");
 
     if (musicPlayer.classList.contains("expanded")) {
-      expandButton.textContent = "−"
-      expandButton.title = "Contraer controles"
+      expandButton.textContent = "−";
+      expandButton.title = "Contraer controles";
     } else {
-      expandButton.textContent = "⋯"
-      expandButton.title = "Expandir controles"
+      expandButton.textContent = "⋯";
+      expandButton.title = "Expandir controles";
     }
   }
 
-  handleKeyboardShortcuts(e) {
-    switch (e.code) {
-      case "Space":
-        e.preventDefault()
-        this.togglePlayPause()
-        break
-      case "ArrowRight":
-        e.preventDefault()
-        this.playNext()
-        break
-      case "ArrowLeft":
-        e.preventDefault()
-        this.playPrevious()
-        break
-      case "ArrowUp":
-        e.preventDefault()
-        this.setVolume(Math.min(100, this.audio.volume * 100 + 5))
-        this.volumeSlider.value = this.audio.volume * 100
-        break
-      case "ArrowDown":
-        e.preventDefault()
-        this.setVolume(Math.max(0, this.audio.volume * 100 - 5))
-        this.volumeSlider.value = this.audio.volume * 100
-        break
+  toggleHidePlayer() {
+    const musicPlayer = document.getElementById("musicPlayer");
+    const hideButton = document.getElementById("hidePlayerButton");
+
+    musicPlayer.classList.toggle("hidden-player");
+
+    if (musicPlayer.classList.contains("hidden-player")) {
+      hideButton.textContent = "▲";
+      hideButton.title = "Mostrar reproductor";
+      hideButton.style.opacity = "0.6";
+    } else {
+      hideButton.textContent = "▼";
+      hideButton.title = "Ocultar reproductor";
+      hideButton.style.opacity = "1";
     }
   }
 
   showNotification(message, type = "info") {
     // Create notification element
-    const notification = document.createElement("div")
-    notification.className = `notification notification-${type}`
-    notification.textContent = message
+    const notification = document.createElement("div");
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
 
     // Style the notification
     Object.assign(notification.style, {
@@ -293,29 +298,29 @@ class MusicPlayer {
       boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
       transform: "translateX(100%)",
       transition: "transform 0.3s ease",
-    })
+    });
 
-    document.body.appendChild(notification)
+    document.body.appendChild(notification);
 
     // Animate in
     setTimeout(() => {
-      notification.style.transform = "translateX(0)"
-    }, 100)
+      notification.style.transform = "translateX(0)";
+    }, 100);
 
     // Remove after 3 seconds
     setTimeout(() => {
-      notification.style.transform = "translateX(100%)"
+      notification.style.transform = "translateX(100%)";
       setTimeout(() => {
-        document.body.removeChild(notification)
-      }, 300)
-    }, 3000)
+        document.body.removeChild(notification);
+      }, 300);
+    }, 3000);
   }
 
   calculateTime(secs) {
-    if (isNaN(secs)) return "0:00"
-    const minutes = Math.floor(secs / 60)
-    const seconds = Math.floor(secs % 60)
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`
+    if (isNaN(secs)) return "0:00";
+    const minutes = Math.floor(secs / 60);
+    const seconds = Math.floor(secs % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   }
 
   // Playlist data
@@ -512,10 +517,10 @@ class MusicPlayer {
       src: "https://res.cloudinary.com/dit43qjpn/video/upload/v1721139713/Araceli%20Bonfigli/Canciones-mp3/ElDegrad%C3%A9-LadoA/31-SUELTOLOSTIENTOS_naidlp.mp3",
       album: "El Degradé Del Atardecer - Lado A",
     },
-  ]
+  ];
 }
 
 // Initialize the music player when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-  window.musicPlayer = new MusicPlayer()
-})
+  window.musicPlayer = new MusicPlayer();
+});
