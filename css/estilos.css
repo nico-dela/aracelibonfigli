@@ -1955,17 +1955,7 @@ svg {
   }
 }
 
-@media screen and (min-width: 1024px) {
-  /* .btn {
-    position: fixed;
-    bottom: 5%;
-  }
-  .btn_works {
-    left: 100px;
-  } */
-}
-
-/* REPRODUCTOR DE MÚSICA COMPACTO */
+/* REPRODUCTOR DE MÚSICA */
 .body {
   position: fixed;
   bottom: 20px;
@@ -2161,7 +2151,6 @@ svg {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 2px;
   outline: none;
-  -webkit-appearance: none;
   cursor: pointer;
 }
 
