@@ -530,14 +530,9 @@ footer,
   .footer nav ul .iconos-music {
     display: flex;
     flex-direction: row;
+
     padding-bottom: 1rem;
     justify-content: right;
-  }
-
-  footer nav ul .iconos-redes,
-  .footer nav ul .iconos-redes {
-    display: flex;
-    flex-direction: row;
   }
 
   footer nav ul div li a img,
