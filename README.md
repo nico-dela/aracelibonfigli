@@ -11,8 +11,8 @@ Este proyecto es un sitio web personal estático para Araceli Bonfigli, desarrol
   - `galeria.html`: Galería de imágenes.
   - `videos.html`: Obras audiovisuales.
   - `bio.html`: Información personal y biografía.
-- `css/`: Estilos personalizados del sitio.
-- `javascript/MusicPlayer.js`: Script que implementa el reproductor de música.
+- `styles/`: Estilos personalizados del sitio.
+- `js/MusicPlayer.js`: Script que implementa el reproductor de música.
 
 ## 🚀 Cómo usar
 
@@ -26,7 +26,7 @@ Este proyecto es un sitio web personal estático para Araceli Bonfigli, desarrol
 
 ## 🎵 Reproductor de música
 
-El reproductor fue desarrollado en JavaScript puro (`javascript/MusicPlayer.js`) y permite:
+El reproductor fue desarrollado en JavaScript puro (`js/MusicPlayer.js`) y permite:
 - Reproducción / pausa
 - Siguiente / anterior
 - Visualización de la canción actual
