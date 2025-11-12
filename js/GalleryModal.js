@@ -26,9 +26,18 @@ class GalleryModal {
   setupEventListeners() {
     // Agregar click listeners a las imágenes
     document.querySelectorAll(".gallery-image").forEach((img, index) => {
-      img.style.cursor = "pointer";
+      img.style.cursor = "zoom-in";
       img.addEventListener("click", () => {
         this.openModal(index);
+      });
+      
+      // Mejorar el feedback visual al pasar el mouse
+      img.addEventListener("mouseenter", () => {
+        img.style.filter = "brightness(1.1)";
+      });
+      
+      img.addEventListener("mouseleave", () => {
+        img.style.filter = "brightness(1)";
       });
     });
 
