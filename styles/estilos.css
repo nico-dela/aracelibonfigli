@@ -309,7 +309,7 @@ main div h3 {
 main div p {
   font-family: "Quicksand", sans-serif;
   font-size: 1.6rem;
-  color: #474544;
+  /* color: #474544; */
   letter-spacing: 0.2px;
   font-weight: 500;
   text-shadow: 0 0 0 #474544;
@@ -750,7 +750,6 @@ main div .canciones {
 }
 
 main div .canciones .h2-music {
-  padding: 2rem 0;
   font-size: 2rem;
   color: #46669c;
   padding-bottom: 0;
@@ -809,6 +808,18 @@ main div .canciones .lista-music .li-pad:hover {
     padding-bottom: 0;
   }
 
+  main div .img-position {
+    z-index: 0;
+  }
+
+  main div .descripcion {
+    padding-bottom: 9rem;
+  }
+
+  main div .descripcion .parrafo {
+    display: none;
+  }
+
   main div .img-album {
     text-align: center;
     position: relative;
@@ -840,9 +851,9 @@ main div .canciones .lista-music .li-pad:hover {
     display: grid;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: repeat(4, 1fr);
-    margin: 0 12rem;
-    row-gap: 25rem;
-    margin-bottom: 30rem;
+    padding: 2rem;
+    margin: 2rem 12rem;
+    row-gap: 12rem;
   }
 
   main div img {
@@ -866,7 +877,6 @@ main div .canciones .lista-music .li-pad:hover {
 
   main div .descripcion .descripcion-album,
   main div .descripcion .descripcion-ep {
-    padding-top: 2rem;
     font-size: 2rem;
   }
 
@@ -879,7 +889,6 @@ main div .canciones .lista-music .li-pad:hover {
   }
 
   main div .canciones .ep {
-    padding-top: 2rem;
     padding-left: 0;
   }
 
@@ -1203,11 +1212,93 @@ main div .img-bt {
   padding: 0;
 }
 
+/* Indicador visual para imágenes clickeables */
+.gallery-image {
+  position: relative;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Indicador para mobile - ícono en esquina superior derecha */
+.gallery-image::before {
+  content: "🔍";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+/* Tooltip para desktop - aparece al hover */
+.gallery-image::after {
+  content: "Click para ampliar";
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 100;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.gallery-image:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+  cursor: zoom-in;
+}
+
+.gallery-image:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* En mobile, el ícono siempre visible, cambia en hover */
+@media screen and (max-width: 768px) {
+  .gallery-image::before {
+    opacity: 0.8;
+  }
+
+  .gallery-image:active::before {
+    background: rgba(70, 102, 156, 0.9);
+    transform: scale(1.1);
+  }
+
+  /* Ocultar el tooltip en mobile */
+  .gallery-image::after {
+    display: none;
+  }
+}
+
+/* En desktop, el ícono desaparece, solo aparece tooltip */
+@media screen and (min-width: 769px) {
+  .gallery-image::before {
+    opacity: 0;
+  }
+}
+
 @media screen and (min-width: 320px) {
   main .gal-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 7rem;
+    margin-bottom: 3rem;
     gap: 0;
     padding: 1rem 2rem;
   }
@@ -1253,7 +1344,7 @@ main div .img-bt {
     display: flex;
     flex-direction: column;
     margin: 0;
-    margin-bottom: 15rem;
+    margin-bottom: 7rem;
   }
 
   main div .img-bt {
@@ -1338,10 +1429,13 @@ main .contenedor-sm div ul .lista-sm {
   }
 
   main article .img-right,
-  main article .mobile,
-  main .contenedor-sm .img-right,
-  main .contenedor-sm .mobile {
+  main .contenedor-sm .img-right {
     display: none;
+  }
+
+  main article .mobile,
+  main .contenedor-sm .mobile {
+    display: block;
   }
 
   main article .p-sm,
@@ -1420,7 +1514,7 @@ main .contenedor-sm div ul .lista-sm {
 
   main article .mobile,
   main .contenedor-sm .mobile {
-    display: grid;
+    display: none;
   }
 
   main article div span,
@@ -1654,6 +1748,10 @@ body {
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+input[type="range"] {
+  accent-color: transparent; /* Example: Green */
 }
 
 .speed-select {
@@ -2218,6 +2316,8 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+  color: white;
 }
 
 .video-title {
@@ -2236,7 +2336,6 @@ body {
 
 .video-details {
   font-size: 0.95rem;
-  color: #555;
   line-height: 1.8;
   margin-bottom: 15px;
 }
@@ -2252,7 +2351,6 @@ body {
 
 .video-details span {
   font-weight: 600;
-  color: #333;
 }
 
 .video-year {
