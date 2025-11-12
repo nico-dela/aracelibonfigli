@@ -1975,6 +1975,7 @@ body {
 
 .nav-description {
   font-size: 1.3rem;
+  text-align: center;
   color: #797979;
   margin: 0;
 }
