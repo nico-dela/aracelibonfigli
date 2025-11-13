@@ -26,7 +26,7 @@ class GalleryModal {
   setupEventListeners() {
     // Agregar click listeners a las imágenes
     document.querySelectorAll(".gallery-image").forEach((img, index) => {
-      img.style.cursor = "zoom-in";
+      img.style.cursor = "pointer";
       img.addEventListener("click", () => {
         this.openModal(index);
       });
