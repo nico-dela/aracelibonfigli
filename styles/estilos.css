@@ -1215,53 +1215,20 @@ main div .img-bt {
 /* Indicador visual para imágenes clickeables */
 .gallery-image {
   position: relative;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: none;
 }
 
 /* Indicador para mobile - ícono en esquina superior derecha */
 .gallery-image::before {
-  content: "🔍";
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(0, 0, 0, 0.7);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  z-index: 50;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  opacity: 1;
-  transition: all 0.3s ease;
+  display: none;
 }
 
 /* Tooltip para desktop - aparece al hover */
 .gallery-image::after {
-  content: "Click para ampliar";
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(30px);
-  background: rgba(0, 0, 0, 0.85);
-  color: white;
-  padding: 10px 15px;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 100;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  display: none;
 }
 
 .gallery-image:hover {
-  transform: scale(1.02);
-  filter: brightness(1.05);
   cursor: zoom-in;
 }
 
@@ -1553,7 +1520,6 @@ body {
 
 .body .music-player-container {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
-  backdrop-filter: blur(15px);
   border-radius: 12px;
   padding: 10px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -1561,11 +1527,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  will-change: auto;
 }
 
 .body .music-player-container:hover {
-  transform: translateY(-2px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -1859,6 +1825,36 @@ body {
 @media screen and (max-width: 768px) {
   body {
     padding-bottom: 120px;
+  }
+
+  /* Optimizar para rendimiento en mobile */
+  .gallery-image::before,
+  .gallery-image::after {
+    display: none !important;
+  }
+
+  .gallery-image:hover::after {
+    display: none !important;
+  }
+
+  .gallery-image:active::before {
+    display: none !important;
+  }
+
+  .main-song-controls .icon {
+    transition: none !important;
+  }
+
+  .main-song-controls .icon:hover {
+    transition: none !important;
+  }
+
+  .progress-bar {
+    transition: none !important;
+  }
+
+  .progress {
+    transition: none !important;
   }
 }
 
