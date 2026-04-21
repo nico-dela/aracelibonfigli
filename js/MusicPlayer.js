@@ -248,15 +248,22 @@ class MusicPlayer {
   toggleExpanded() {
     const musicPlayer = document.getElementById("musicPlayer");
     const expandButton = document.getElementById("expandButton");
+    const expandIcon = document.getElementById("expandIcon");
 
     musicPlayer.classList.toggle("expanded");
 
     if (musicPlayer.classList.contains("expanded")) {
-      expandButton.textContent = "−";
+      if (expandIcon) {
+        expandIcon.src = "../media/images/svg/chevron-up.svg";
+      }
       expandButton.title = "Contraer controles";
+      expandButton.setAttribute("aria-label", "Contraer controles de volumen");
     } else {
-      expandButton.textContent = "⋯";
+      if (expandIcon) {
+        expandIcon.src = "../media/images/svg/chevron-down.svg";
+      }
       expandButton.title = "Expandir controles";
+      expandButton.setAttribute("aria-label", "Expandir controles de volumen");
     }
   }
 

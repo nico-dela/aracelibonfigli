@@ -33,6 +33,7 @@
   </head>
 
   <body class="body-libros bg-body">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
     <header class="contenedor header-pag">
       <div class="index-nombre">
         <a class="index-pag araceli" href="../index.html">ARACELI BONFIGLI</a>
@@ -70,7 +71,7 @@
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
+            aria-label="Abrir menú de navegación"
           >
             <span class="navbar-toggler-icon navbar-icon-bt"></span>
           </button>
@@ -89,7 +90,7 @@
                 type="button"
                 class="btn-close boton-close-bt"
                 data-bs-dismiss="offcanvas"
-                aria-label="Close"
+                aria-label="Cerrar menú"
               >
                 <img
                   class="img-close"
@@ -125,7 +126,7 @@
       </nav>
     </div>
 
-    <main>
+    <main id="contenido-principal" tabindex="-1">
       <h1>LIBROS</h1>
 
       <div class="contenedor-libros">
@@ -235,7 +236,7 @@
             <a
               class="info num-pad"
               href="https://wa.me/543572543468"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
             >
               <img
                 class="icon-dos"
@@ -254,47 +255,42 @@
             <li>
               <a
                 href="https://open.spotify.com/artist/6bj6JfRNNwpb3gpYDXEm2F?si=3SVL4trvQFaK5MLyZVpoAw"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
               >
                 <img
                   class="-icon-hover"
                   src="../media/images/webp/icono-spotify.webp"
-                  alt="img-spoty"
+                  alt="Spotify"
               /></a>
             </li>
-            <li>
-              <a
-                href="https://www.youtube.com/@AraceliBonfigli"
-                class="iconos-padding"
-                target="_blank"
-              >
-                <img
-                  src="../media/images/webp/icono-youtube.webp"
-                  alt="img-youtube"
-              /></a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/aracelibonfigli"
-                class="iconos-padding"
-                target="_blank"
-              >
-                <img
-                  src="../media/images/webp/icono-facebook.webp"
-                  alt="img-facebook"
-              /></a>
-            </li>
-
             <li>
               <a
                 href="https://www.instagram.com/aracelibonfigli"
                 class="iconos-padding"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
               >
                 <img
                   src="../media/images/webp/icono-instagram.webp"
-                  alt="img-instagram"
+                  alt="Instagram"
               /></a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/araceli.bonfigli"
+                class="iconos-padding"
+                target="_blank" rel="noopener noreferrer"
+              >
+                <img src="../media/images/webp/icono-facebook.webp" alt="Facebook" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/@aracelibonfigli"
+                class="iconos-padding"
+                target="_blank" rel="noopener noreferrer"
+              >
+                <img src="../media/images/webp/icono-youtube.webp" alt="YouTube" />
+              </a>
             </li>
           </div>
         </ul>

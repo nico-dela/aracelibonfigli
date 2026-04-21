@@ -1,6 +1,39 @@
 @charset "UTF-8";
 
-.bg-body,
+/* --- UX: variables y base --- */
+:root {
+  --color-text: #474544;
+  --color-accent: #46669c;
+  --color-accent-soft: #6f5a96;
+  --focus-ring: 2px solid var(--color-accent);
+  --focus-offset: 3px;
+  --radius-sm: 8px;
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.4s ease;
+  --hover-lift-sm: translateY(-2px);
+  --hover-lift-md: translateY(-6px);
+  --press-scale: 0.98;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(70, 102, 156, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+::selection {
+  background: rgba(70, 102, 156, 0.28);
+  color: var(--color-text);
+}
+
+/* cover solo en páginas con imagen de fondo; en .bg-body rompe capas del degradado */
 .imagen-body {
   background-repeat: no-repeat;
   background-size: cover;
@@ -205,6 +238,23 @@ body ul li a {
   text-shadow: none;
 }
 
+/* Interacciones fluidas sin afectar layout (mobile-friendly) */
+a,
+button,
+.featured-card,
+.nav-card,
+.video-card,
+.main-song-controls .icon,
+.expand-button,
+.modal-close,
+.modal-prev,
+.modal-next,
+footer nav ul div li a img,
+.footer nav ul div li a img {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 body span {
   font-size: 1.5rem;
   font-weight: bold;
@@ -212,6 +262,7 @@ body span {
 
 body p {
   text-align: justify;
+  line-height: 1.65;
 }
 
 body strong {
@@ -224,39 +275,119 @@ body .img-border {
   border: #797979 solid 2px;
 }
 
-.bg-body {
-  background: linear-gradient(
-      180deg,
-      rgba(255, 228, 204, 0.95) 0%,
-      rgba(255, 228, 204, 0.95) 34%,
-      rgba(206, 211, 255, 0.93) 100%
-    ),
-    linear-gradient(135deg, rgba(255, 240, 220, 0.3) 0%, transparent 50%),
-    linear-gradient(45deg, rgba(220, 215, 255, 0.2) 0%, transparent 50%);
-  background-size: 100% 100%, 200% 200%, 200% 200%;
-  animation: layered-sunset 30s ease-in-out infinite;
-  background-attachment: fixed;
+/*
+ * Fondo atardecer en capas fijas:
+ * - ::before aporta la base cromatica estable
+ * - ::after agrega movimiento suave via transform/opacity (mas performante)
+ * Evita bugs de background-attachment en body y anula Bootstrap .bg-body.
+ */
+body.bg-body {
+  isolation: isolate;
+  position: relative;
+  min-height: 100%;
+  background: none !important;
+  background-color: transparent !important;
   color: #474544;
 }
 
-@keyframes layered-sunset {
+body.bg-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 234, 214, 0.97) 0%,
+      rgba(255, 220, 188, 0.95) 28%,
+      rgba(246, 202, 176, 0.92) 46%,
+      rgba(214, 198, 234, 0.9) 72%,
+      rgba(186, 196, 235, 0.9) 100%
+    ),
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(255, 191, 128, 0.28) 0%,
+      rgba(255, 191, 128, 0) 38%
+    ),
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 223, 188, 0.2) 0%,
+      rgba(255, 223, 188, 0) 44%
+    );
+  background-size: 100% 100%;
+}
+
+body.bg-body::after {
+  content: "";
+  position: fixed;
+  inset: -12%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+      circle at 72% 22%,
+      rgba(255, 176, 107, 0.28) 0%,
+      rgba(255, 176, 107, 0) 37%
+    ),
+    radial-gradient(
+      circle at 18% 70%,
+      rgba(171, 163, 224, 0.22) 0%,
+      rgba(171, 163, 224, 0) 42%
+    ),
+    radial-gradient(
+      circle at 50% 12%,
+      rgba(255, 235, 205, 0.2) 0%,
+      rgba(255, 235, 205, 0) 34%
+    );
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+  animation: sunset-drift 26s ease-in-out infinite;
+}
+
+@keyframes sunset-drift {
   0%,
   100% {
-    background-position: 0% 0%, 0% 0%, 100% 100%;
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.78;
   }
-  33% {
-    background-position: 0% 0%, 50% 25%, 50% 75%;
+  35% {
+    transform: translate3d(-1.5%, 0.8%, 0) scale(1.03) rotate(0.8deg);
+    opacity: 0.92;
   }
-  66% {
-    background-position: 0% 0%, 100% 50%, 0% 50%;
+  70% {
+    transform: translate3d(1.2%, -1.1%, 0) scale(1.04) rotate(-0.8deg);
+    opacity: 0.84;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.bg-body::before {
+    animation: none;
+  }
+
+  body.bg-body::after {
+    animation: none;
+    opacity: 0.7;
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body.bg-body::after {
+    inset: -8%;
+    animation-duration: 34s;
+    opacity: 0.64;
   }
 }
 
 .header-pag {
   padding: 3rem;
   border-bottom: #929292 solid 1.5px;
-  box-shadow: 0 0 5px 1px #797979;
-  background-color: #fcdfc4;
+  box-shadow: 0 2px 12px rgba(71, 69, 68, 0.12);
+  background-color: rgba(252, 223, 196, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   right: 0;
@@ -267,19 +398,21 @@ body .img-border {
 
 .header-pag div .index-pag {
   color: #474544;
+  transition: color var(--transition-fast);
 }
 
 .header-pag div .index-pag:hover {
-  color: #797979;
+  color: var(--color-accent);
 }
 
 .header-pag nav ul div .a-pag {
   color: #474544;
   font-size: 1.7rem;
+  transition: color var(--transition-fast);
 }
 
 .header-pag nav ul div .a-pag:hover {
-  color: #797979;
+  color: var(--color-accent);
 }
 
 main h1 {
@@ -330,11 +463,13 @@ main div p {
 /* propiedades bootstrap - header */
 #bootstrap nav .container-bt {
   padding: 2rem;
-  background-color: #fcdfc4;
+  background-color: rgba(252, 223, 196, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: fixed;
   top: 0;
   border-bottom: #929292 solid 0.5px;
-  box-shadow: 0 0 5px #929292;
+  box-shadow: 0 2px 12px rgba(71, 69, 68, 0.1);
 }
 
 #bootstrap nav .container-bt .bg-bt {
@@ -344,6 +479,51 @@ main div p {
     rgba(253, 236, 221, 0.947) 34%,
     rgba(207, 226, 254, 0.932) 100%
   );
+}
+
+/* Offcanvas mobile: fondo solido para evitar texto fantasma */
+#bootstrap .offcanvas.bg-bt {
+  --bs-offcanvas-width: min(88vw, 360px);
+  background: linear-gradient(
+    180deg,
+    rgba(253, 236, 221, 0.985) 0%,
+    rgba(232, 237, 255, 0.985) 100%
+  ) !important;
+  border-left: 1px solid rgba(121, 121, 121, 0.35);
+  height: 100dvh;
+  z-index: 1080;
+}
+
+#bootstrap .offcanvas .offcanvas-header {
+  background-color: rgba(253, 236, 221, 0.995);
+  border-bottom: 1px solid rgba(121, 121, 121, 0.25);
+}
+
+#bootstrap .offcanvas .offcanvas-title {
+  color: #474544;
+}
+
+#bootstrap .offcanvas .offcanvas-body {
+  background: transparent;
+  overflow-y: auto;
+  padding: 1.4rem 1.6rem 2rem;
+}
+
+#bootstrap .offcanvas .offcanvas-body .nav-link {
+  font-size: 2rem !important;
+  line-height: 1.2;
+  padding: 1rem 0;
+  color: #474544;
+}
+
+#bootstrap .offcanvas-backdrop.show {
+  opacity: 0.45;
+  z-index: 1070;
+}
+
+#bootstrap .header-bt,
+#bootstrap nav .container-bt {
+  z-index: 1060;
 }
 
 #bootstrap nav .container-bt .araceli-bt {
@@ -428,8 +608,9 @@ footer div ul .info,
 
 footer div ul .info:hover,
 .footer div ul .info:hover {
-  font-size: 1.5rem;
-  color: #797979;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 footer div ul .info .icon-dos,
@@ -487,11 +668,13 @@ footer,
   footer nav ul div li a img,
   .footer nav ul div li a img {
     width: 35%;
+    transition: transform var(--transition-fast);
+    transform-origin: center;
   }
 
   footer nav ul div li a img:hover,
   .footer nav ul div li a img:hover {
-    width: 45%;
+    transform: scale(1.12);
   }
 
   footer div ul .info,
@@ -994,11 +1177,43 @@ main .contenedor-libros .img-libros {
   position: relative;
 }
 
+/*
+ * Portadas / contraportadas: anula main div img { width:100%; object-fit:cover }
+ * en todas las resoluciones (incl. media queries de música).
+ */
+main .contenedor-libros .img-libros img {
+  width: auto !important;
+  max-width: min(88vw, 300px) !important;
+  max-height: min(44vh, 380px) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  padding: 0.75rem !important;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+@media screen and (max-width: 1023px) {
+  main .contenedor-libros .img-libros img {
+    max-width: min(80vw, 260px) !important;
+    max-height: min(36vh, 320px) !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main .contenedor-libros .img-libros img {
+    max-width: min(70vw, 220px) !important;
+    max-height: min(30vh, 260px) !important;
+    padding: 0.5rem !important;
+  }
+}
+
 main div .img-libros .libro-portada,
 main .contenedor-libros .img-libros .libro-portada {
   position: absolute;
   transition: opacity 1.8s;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 main div .img-libros .libro-portada:hover,
@@ -1081,7 +1296,7 @@ main .boton-libro-dos .boton-libro:hover {
 
   main .contenedor-libros .boton-libro-uno,
   main .contenedor-libros .boton-libro-dos {
-    padding: 0 0rem 13rem;
+    padding: 0 0 4rem;
     width: 21rem;
     text-align: center;
     margin-left: 0;
@@ -1111,12 +1326,12 @@ main .boton-libro-dos .boton-libro:hover {
 
 @media screen and (min-width: 1024px) {
   main .contenedor-libros {
-    height: 180rem;
+    height: auto;
     margin: 0 12rem;
     display: grid;
-    grid-template-columns: 40% 30% 30%;
-    grid-template-rows: 4% 12% 30% 4% 18% 20%;
-    row-gap: 2rem;
+    grid-template-columns: 36% 38% 26%;
+    grid-template-rows: auto auto auto auto auto auto;
+    row-gap: 1.25rem;
   }
 
   main .contenedor-libros .boton-libro-uno,
@@ -1141,35 +1356,43 @@ main .boton-libro-dos .boton-libro:hover {
   main .contenedor-libros .h2-libro-dos {
     grid-column: 2 / 4;
     grid-row-start: 4;
-    padding-top: 4rem;
+    padding-top: 0.5rem;
   }
 
   main .contenedor-libros .img-libros {
-    width: 93%;
+    width: 96%;
     background-size: cover;
     background-position: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+    align-self: start;
+    justify-self: center;
+  }
+
+  main .contenedor-libros .img-libros img {
+    max-width: min(100%, 380px) !important;
+    max-height: min(66vh, 560px) !important;
   }
 
   main .contenedor-libros .img-libro-uno {
     grid-column-start: 1;
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
   }
 
   main .contenedor-libros .img-libro-dos {
-    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-row: 4 / 7;
   }
 
   main .contenedor-libros .descripcion-libro-uno {
     grid-column: 2 / 4;
     grid-row-start: 2;
-    overflow: auto;
+    overflow: visible;
   }
 
   main .contenedor-libros .descripcion-libro-dos {
     grid-column: 2 / 4;
     grid-row-start: 5;
-    overflow: auto;
+    overflow: visible;
   }
 
   main .contenedor-libros .boton-libro-uno {
@@ -1183,7 +1406,7 @@ main .boton-libro-dos .boton-libro:hover {
   }
 
   main .contenedor-libros .lista-libros {
-    margin-top: 2rem;
+    margin-top: 0.25rem;
     grid-column: 2;
     grid-row: 3;
   }
@@ -1604,7 +1827,7 @@ body {
   height: 24px;
   opacity: 0.8;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
   filter: invert(0.4);
 }
 
@@ -1691,10 +1914,14 @@ body {
 }
 
 .volume-icon {
-  width: 24px;
-  height: 24px;
-  opacity: 0.7;
-  filter: invert(0.4);
+  width: 22px;
+  height: 22px;
+  opacity: 0.95;
+  filter: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  padding: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 .volume-slider {
@@ -1736,22 +1963,29 @@ input[type="range"] {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 20px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.16);
   border: none;
   border-radius: 50%;
-  color: white;
-  font-size: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: background-color var(--transition-fast),
+    transform var(--transition-fast);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
 }
 
 .expand-button:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.expand-button img {
+  width: 14px;
+  height: 14px;
+  display: block;
+  pointer-events: none;
 }
 
 /* Estado expandido */
@@ -1922,12 +2156,13 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 1.6rem;
-  transition: all 0.3s ease;
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    background var(--transition-base);
   box-shadow: 0 4px 15px rgba(70, 102, 156, 0.3);
 }
 
 .btn-primary-custom:hover {
-  transform: translateY(-2px);
+  transform: var(--hover-lift-sm);
   box-shadow: 0 6px 20px rgba(70, 102, 156, 0.4);
   color: white;
 }
@@ -1949,20 +2184,20 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 1.6rem;
-  transition: all 0.3s ease;
+  transition: transform var(--transition-base),
+    background-color var(--transition-base), color var(--transition-base);
 }
 
 .btn-secondary-custom:hover {
   background: #474544;
   color: white;
-  transform: translateY(-2px);
+  transform: var(--hover-lift-sm);
 }
 
-/* Featured Section */
+/* Featured: sin backdrop-filter (provocaba franja / dos tonos respecto al hero) */
 .featured-section {
   padding: 8rem 0;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: transparent;
 }
 
 .section-title {
@@ -1980,12 +2215,12 @@ body {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
   height: 100%;
 }
 
 .featured-card:hover {
-  transform: translateY(-10px);
+  transform: var(--hover-lift-md);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -2044,13 +2279,14 @@ body {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    background-color var(--transition-base);
   height: 100%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .nav-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   background: rgba(255, 255, 255, 0.95);
 }
@@ -2281,13 +2517,13 @@ body {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
   display: flex;
   flex-direction: column;
 }
 
 .video-card:hover {
-  transform: translateY(-10px);
+  transform: var(--hover-lift-md);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -2382,4 +2618,124 @@ body {
   width: 60px;
   color: #667eea;
   font-weight: 600;
+}
+
+/* --- Saltar al contenido (teclado / lectores) --- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100050;
+  padding: 0.85rem 1.35rem;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-sm) 0;
+  box-shadow: 0 4px 16px rgba(43, 77, 122, 0.35);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* --- Enfoque visible coherente --- */
+.a-pag:focus-visible,
+.index-pag:focus-visible,
+.araceli-bt:focus-visible,
+.nav-link:focus-visible,
+.info:focus-visible,
+.featured-link:focus-visible,
+.nav-card:focus-visible,
+.boton-libro:focus-visible,
+.modal-close:focus-visible,
+.modal-prev:focus-visible,
+.modal-next:focus-visible,
+.expand-button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: 4px;
+}
+
+.btn-primary-custom:focus-visible,
+.btn-secondary-custom:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+#contenido-principal:focus {
+  outline: 3px solid rgba(70, 102, 156, 0.4);
+  outline-offset: 4px;
+}
+
+footer a[href^="http"]:focus-visible img,
+.footer a[href^="http"]:focus-visible img {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .featured-card:hover,
+  .nav-card:hover,
+  .video-card:hover,
+  .btn-primary-custom:hover,
+  .btn-secondary-custom:hover {
+    transform: none;
+  }
+
+  .featured-card,
+  .nav-card,
+  .video-card,
+  .btn-primary-custom,
+  .btn-secondary-custom {
+    transition: none;
+  }
+}
+
+/* En touch, evitar hover "pegado" y efectos costosos */
+@media (hover: none), (pointer: coarse) {
+  .header-pag div .index-pag:hover,
+  .header-pag nav ul div .a-pag:hover,
+  #bootstrap nav .container-bt .araceli-bt:hover,
+  footer div ul .info:hover,
+  .footer div ul .info:hover,
+  .btn-primary-custom:hover,
+  .btn-secondary-custom:hover,
+  .featured-card:hover,
+  .nav-card:hover,
+  .video-card:hover,
+  .main-song-controls .icon:hover,
+  .expand-button:hover {
+    transform: none;
+    box-shadow: inherit;
+    color: inherit;
+    background: inherit;
+    text-decoration: none;
+  }
+
+  footer nav ul div li a img:hover,
+  .footer nav ul div li a img:hover {
+    transform: none;
+  }
+
+  .main-song-controls .icon:active,
+  .btn-primary-custom:active,
+  .btn-secondary-custom:active,
+  .expand-button:active {
+    transform: scale(var(--press-scale));
+  }
 }
