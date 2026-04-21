@@ -2750,7 +2750,6 @@ body ul li {
 
 /* Landing */
 .hero-title {
-  font-size: clamp(2.8rem, 3.2vw + 1.2rem, 4.8rem);
   letter-spacing: clamp(1px, 0.3vw + 0.5px, 3px);
 }
 
