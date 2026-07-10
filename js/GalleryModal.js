@@ -10,50 +10,51 @@ class GalleryModal {
     this.images = [];
     this.currentIndex = 0;
 
-    this.initializeGallery();
     this.setupEventListeners();
   }
 
-  initializeGallery() {
-    // Obtener todas las imágenes de la galería
-    const galleryImages = document.querySelectorAll(".gallery-image");
-    this.images = Array.from(galleryImages).map((img) => ({
-      src: img.src,
-      alt: img.alt,
-    }));
+  getAlbumImages(img) {
+    const albumContainer = img.closest(".carousel-inner");
+    if (!albumContainer) return [];
+
+    return Array.from(albumContainer.querySelectorAll(".gallery-image")).map(
+      (image) => ({
+        src: image.src,
+        alt: image.alt,
+      })
+    );
   }
 
   setupEventListeners() {
-    // Agregar click listeners a las imágenes
-    document.querySelectorAll(".gallery-image").forEach((img, index) => {
+    document.querySelectorAll(".gallery-image").forEach((img) => {
       img.style.cursor = "pointer";
       img.addEventListener("click", () => {
-        this.openModal(index);
+        const albumImages = this.getAlbumImages(img);
+        const localIndex = albumImages.findIndex(
+          (image) => image.src === img.src
+        );
+        this.openModal(albumImages, localIndex >= 0 ? localIndex : 0);
       });
-      
-      // Mejorar el feedback visual al pasar el mouse
+
       img.addEventListener("mouseenter", () => {
         img.style.filter = "brightness(1.1)";
       });
-      
+
       img.addEventListener("mouseleave", () => {
         img.style.filter = "brightness(1)";
       });
     });
 
-    // Controles del modal
     this.modalCloseBtn.addEventListener("click", () => this.closeModal());
     this.modalPrevBtn.addEventListener("click", () => this.previousImage());
     this.modalNextBtn.addEventListener("click", () => this.nextImage());
 
-    // Cerrar al clickear fuera de la imagen
     this.modal.addEventListener("click", (e) => {
       if (e.target === this.modal) {
         this.closeModal();
       }
     });
 
-    // Navegación con teclado
     document.addEventListener("keydown", (e) => {
       if (this.modal.style.display === "flex") {
         if (e.key === "ArrowLeft") this.previousImage();
@@ -63,7 +64,8 @@ class GalleryModal {
     });
   }
 
-  openModal(index) {
+  openModal(images, index) {
+    this.images = images;
     this.currentIndex = index;
     this.updateModalImage();
     this.modal.style.display = "flex";
@@ -76,12 +78,16 @@ class GalleryModal {
   }
 
   previousImage() {
+    if (!this.images.length) return;
+
     this.currentIndex =
       this.currentIndex > 0 ? this.currentIndex - 1 : this.images.length - 1;
     this.updateModalImage();
   }
 
   nextImage() {
+    if (!this.images.length) return;
+
     this.currentIndex =
       this.currentIndex < this.images.length - 1 ? this.currentIndex + 1 : 0;
     this.updateModalImage();
@@ -91,13 +97,10 @@ class GalleryModal {
     const image = this.images[this.currentIndex];
     this.modalImage.src = image.src;
     this.modalImage.alt = image.alt;
-    this.imageCounter.textContent = `${this.currentIndex + 1} / ${
-      this.images.length
-    }`;
+    this.imageCounter.textContent = `${this.currentIndex + 1} / ${this.images.length}`;
   }
 }
 
-// Inicializar cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
   window.galleryModal = new GalleryModal();
 });

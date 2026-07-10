@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Imagen pendiente">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dce8f8"/>
+      <stop offset="100%" stop-color="#e8ddf5"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="170" r="56" fill="none" stroke="#6f5a96" stroke-width="4" opacity="0.55"/>
+  <path d="M170 210 L200 150 L230 210 Z" fill="#46669c" opacity="0.35"/>
+  <text x="200" y="285" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#46669c" opacity="0.7">Portada próximamente</text>
+</svg>

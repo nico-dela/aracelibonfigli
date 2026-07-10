@@ -11,7 +11,7 @@
       name="keywords"
       content="libros, poesía, jugar, explorar, creatividad, paisajes, niñez, amor, el devenir de los días, los viajes del silencio."
     />
-    <title>Libros</title>
+    <title>Libros - Araceli Bonfigli</title>
     <link rel="shortcut icon" href="" type="image/x-icon" />
     <!-- Favicon (Imagen en la pestaña) -->
     <!-- link boot -->
@@ -45,6 +45,7 @@
           <!-- Lista no ordenada -->
           <div class="nav-uno">
             <li><a class="a-pag" href="../pages/musica.html">Música</a></li>
+            <li><a class="a-pag" href="../pages/producciones.html">Estudio</a></li>
             <li><a class="a-pag" href="../pages/videos.html">Videos</a></li>
             <li><a class="a-pag" href="../pages/libros.html">Libros</a></li>
           </div>
@@ -108,6 +109,9 @@
                   <a class="nav-link" href="../pages/musica.html">Música</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="../pages/producciones.html">Estudio</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../pages/videos.html">Videos</a>
                 </li>
                 <li class="nav-item">
@@ -160,6 +164,7 @@
         </div>
         <div class="lista-libros">
           <ul>
+            <li>Editorial: Universidad Nacional de Villa María</li>
             <li>Prólogo: Liliana Guillot</li>
             <li>Diseño: Laura Bonfigli</li>
             <li>Dibujos: Georgina Cittadini</li>
@@ -167,7 +172,16 @@
           <p class="fecha">Año: 2018</p>
         </div>
 
-        <div class="boton-libro-uno">
+        <div class="boton-libro-uno libro-buttons">
+          <button
+            type="button"
+            class="btn-secondary-custom pdf-preview-btn"
+            data-pdf-src="../media/books/LosViajesDelSilencio-2018.pdf"
+            data-pdf-title="Los Viajes del Silencio"
+            data-pdf-download="Los viajes del silencio.pdf"
+          >
+            VER
+          </button>
           <a
             class="btn-primary-custom"
             href="../media/books/LosViajesDelSilencio-2018.pdf"
@@ -212,13 +226,23 @@
         </div>
         <div class="lista-libros lista-libro-dos">
           <ul>
+            <li>Editorial: El Mensú Ediciones</li>
             <li>Prólogo: Omar Alejandro A. Cortés</li>
             <li>Diseño: Darío Falconi</li>
             <li>Dibujos: Georgina Cittadini</li>
           </ul>
           <p class="fecha fecha-dos">Año: 2016</p>
         </div>
-        <div class="boton-libro-dos">
+        <div class="boton-libro-dos libro-buttons">
+          <button
+            type="button"
+            class="btn-secondary-custom pdf-preview-btn"
+            data-pdf-src="../media/books/ElDevenirDeLosDias-2016.pdf"
+            data-pdf-title="El Devenir de los Días"
+            data-pdf-download="El devenir de los días.pdf"
+          >
+            VER
+          </button>
           <a
             class="btn-primary-custom"
             href="../media/books/ElDevenirDeLosDias-2016.pdf"
@@ -228,6 +252,49 @@
         </div>
       </div>
     </main>
+
+    <div
+      id="pdfModal"
+      class="pdf-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pdfModalTitle"
+    >
+      <div class="pdf-modal-content">
+        <div class="pdf-modal-header">
+          <h2 id="pdfModalTitle" class="pdf-modal-title"></h2>
+          <button
+            type="button"
+            id="pdfModalCloseBtn"
+            class="pdf-modal-close"
+            aria-label="Cerrar vista previa del libro"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="pdf-modal-body">
+          <p id="pdfLoading" class="pdf-loading" hidden>Cargando libro...</p>
+          <p id="pdfError" class="pdf-error" hidden></p>
+          <div id="pdfPagesContainer" class="pdf-pages-container"></div>
+          <iframe
+            id="pdfIframe"
+            class="pdf-iframe"
+            title="Vista previa del libro en PDF"
+            hidden
+          ></iframe>
+        </div>
+        <div class="pdf-modal-footer">
+          <span id="pdfPageCounter" class="pdf-page-counter">1 página</span>
+          <a
+            id="pdfDownloadLink"
+            class="btn-primary-custom pdf-download-link"
+            href="#"
+            download
+            >DESCARGAR</a
+          >
+        </div>
+      </div>
+    </div>
 
     <footer class="footer bg-footer">
       <div class="iconos-info">
@@ -297,6 +364,7 @@
       </nav>
     </footer>
 
+    <script src="../js/PdfViewer.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

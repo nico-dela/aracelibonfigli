@@ -13,7 +13,7 @@
       content="música, Araceli Bonfigli, discografía, álbumes, canciones, artista, música pop, jazz, rock, paisajes sonoros"
     />
 
-    <title>Música</title>
+    <title>Música - Araceli Bonfigli</title>
     <link rel="shortcut icon" href="" type="image/x-icon" />
     <!-- Favicon (Imagen en la pestaña) -->
     <!-- link boot -->
@@ -48,6 +48,7 @@
           <!-- Lista no ordenada -->
           <div class="nav-uno">
             <li><a class="a-pag" href="../pages/musica.html">Música</a></li>
+            <li><a class="a-pag" href="../pages/producciones.html">Estudio</a></li>
             <li><a class="a-pag" href="../pages/videos.html">Videos</a></li>
             <li><a class="a-pag" href="../pages/libros.html">Libros</a></li>
           </div>
@@ -111,6 +112,9 @@
                   <a class="nav-link" href="musica.html">Música</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="producciones.html">Estudio</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="../pages/videos.html">Videos</a>
                 </li>
                 <li class="nav-item">
@@ -150,17 +154,17 @@
           <div class="album-art-container">
             <img
               id="currentAlbumArt"
-              src="../media/images/webp/eldegradedelatardecer-portada.webp"
+              src="../media/images/webp/cielo-en-construccion-portada.png"
               alt="Album Art"
               class="album-art"
             />
           </div>
 
           <div class="title-music-container">
-            <h4 class="song-title" id="currentSongTitle">Mi Despertar</h4>
+            <h4 class="song-title" id="currentSongTitle">Sinfín</h4>
             <!-- <span class="song-author" id="currentSongAuthor">Araceli Bonfigli</span> -->
             <span class="song-album" id="currentSongAlbum"
-              >El Degradé Del Atardecer</span
+              >Cielo en Construcción</span
             >
           </div>
         </div>
@@ -220,36 +224,186 @@
         <audio
           controls
           preload="metadata"
-          src="../media/songs/00-MIDESPERTAR.mp3"
+          src="../media/songs/cielo-01-SINFIN.mp3"
           id="audio"
         ></audio>
       </div>
     </div>
 
     <main id="contenido-principal" tabindex="-1">
-      <h1>discos</h1>
+      <h1>música</h1>
       <div id="discos">
         <div class="canciones playlist-container">
+          <h2 class="h2-music">Cielo en Construcción</h2>
+          <ul id="playlist-cielo" class="lista-music">
+            <li data-index="0" class="li-pad playlist-item">Sinfín</li>
+            <li data-index="1" class="li-pad playlist-item">Grito Feroz</li>
+            <li data-index="2" class="li-pad playlist-item">Verde Azul</li>
+            <li data-index="3" class="li-pad playlist-item">Quedarán en vos</li>
+            <li data-index="4" class="li-pad playlist-item">Caleidoscopio</li>
+            <li data-index="5" class="li-pad playlist-item">Vida eterna</li>
+            <li data-index="6" class="li-pad playlist-item">Devendré</li>
+            <li data-index="7" class="li-pad playlist-item">Llueve</li>
+            <li data-index="8" class="li-pad playlist-item">Tierna Luz</li>
+            <li data-index="9" class="li-pad playlist-item">Millones de años luz</li>
+          </ul>
+        </div>
+        <div class="img-album img-position">
+          <img
+            class="img-border"
+            src="../media/images/webp/cielo-en-construccion-portada.png"
+            alt="Portada Cielo en Construcción"
+          />
+        </div>
+        <div class="descripcion">
+          <p class="descripcion-album">Álbum • 2026</p>
+          
+          <div class="accordion z-index" id="accordionCielo">
+            <div class="accordion-item border-accordion">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed boton-accordion bg-body"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseCieloOne"
+                  aria-expanded="false"
+                  aria-controls="collapseCieloOne"
+                >
+                  Músicos
+                </button>
+              </h2>
+              <div
+                id="collapseCieloOne"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionCielo"
+              >
+                <div class="accordion-body lista-accordion">
+                  <ul>
+                    <li>
+                      <strong>Araceli Bonfigli:</strong> Voz, guitarra acústica y
+                      guitarra eléctrica.
+                    </li>
+                    <li><strong>Coti Chávez:</strong> Coros.</li>
+                    <li><strong>Paula Emelí:</strong> Coros.</li>
+                    <li>
+                      <strong>Matías Danglada:</strong> Guitarra eléctrica.
+                    </li>
+                    <li>
+                      <strong>Martín Dalmasso Molas:</strong> Guitarra eléctrica.
+                    </li>
+                    <li><strong>Julián Gómez Cuello:</strong> Teclados.</li>
+                    <li><strong>Agustín Palacios:</strong> Bajo.</li>
+                    <li><strong>Amaro Ferraris:</strong> Batería.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border-accordion">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed boton-accordion bg-body"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseCieloTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseCieloTwo"
+                >
+                  Equipo Técnico
+                </button>
+              </h2>
+              <div
+                id="collapseCieloTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionCielo"
+              >
+                <div class="accordion-body lista-accordion">
+                  <ul>
+                    <li>
+                      <strong>Araceli Bonfigli:</strong> Producción y dirección
+                      musical y artística, producción ejecutiva y fonográfica,
+                      grabación y edición de audio en Piedra Lunar Estudio.
+                    </li>
+                    <li>
+                      <strong>Alfredo “Chinchu” Guerra:</strong> Grabación y
+                      edición de baterías, bajos y voces en Liverpool Estudio.
+                      Mix y máster.
+                    </li>
+                    <li>
+                      <strong>Lihuén Pierone:</strong> Fotografías, arte de tapa
+                      y visuales.
+                    </li>
+                    <li>
+                      <strong>Agencia EMME:</strong> Comunicación y prensa de
+                      lanzamientos.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border-accordion">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed boton-accordion bg-body"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseCieloThree"
+                  aria-expanded="false"
+                  aria-controls="collapseCieloThree"
+                >
+                  Descripción
+                </button>
+              </h2>
+              <div
+                id="collapseCieloThree"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionCielo"
+              >
+                <div class="accordion-body lista-accordion">
+                  <p>
+                    Cielo en Construcción es el quinto disco de estudio
+                    de Araceli Bonfigli: una obra conceptual de diez canciones
+                    con impronta de rock, pop, indie y neo groove. Se publicó de
+                    forma progresiva entre mayo de 2025 y junio de 2026,
+                    canción por canción, hasta completar un rompecabezas musical
+                    y visual.
+                  </p>
+                  <p>
+                    Inaugurado con “Sinfín”, el disco propone al cielo como
+                    espacio habitable, móvil y poético, y reúne a músicos de la
+                    escena cordobesa en un formato banda. Cada single conserva
+                    su propia identidad sonora y visual, articulando un mismo
+                    universo que dialoga con la nostalgia, la luminosidad y el
+                    eterno retorno.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="canciones playlist-container">
           <h2 class="h2-music">El Degradé Del Atardecer</h2>
-          <h3 class="h3-music h3-album">Full Album En Vivo</h3>
+          <h3 class="h3-music h3-album">En Vivo</h3>
 
           <ul id="playlist" class="lista-music">
-            <li data-index="0" class="li-pad playlist-item">Mi Despertar</li>
-            <li data-index="1" class="li-pad playlist-item">
+            <li data-index="10" class="li-pad playlist-item">Mi Despertar</li>
+            <li data-index="11" class="li-pad playlist-item">
               Si Querés la Verdad
             </li>
-            <li data-index="2" class="li-pad playlist-item">Desordenada</li>
-            <li data-index="3" class="li-pad playlist-item">
+            <li data-index="12" class="li-pad playlist-item">Desordenada</li>
+            <li data-index="13" class="li-pad playlist-item">
               Oda al Otoño Por Venir
             </li>
-            <li data-index="4" class="li-pad playlist-item">Tu Luz Sin Fin</li>
-            <li data-index="5" class="li-pad playlist-item">Levitar</li>
-            <li data-index="6" class="li-pad playlist-item">El Mar Volar</li>
-            <li data-index="7" class="li-pad playlist-item">
+            <li data-index="14" class="li-pad playlist-item">Tu Luz Sin Fin</li>
+            <li data-index="15" class="li-pad playlist-item">Levitar</li>
+            <li data-index="16" class="li-pad playlist-item">El Mar Volar</li>
+            <li data-index="17" class="li-pad playlist-item">
               Dibujando El Cielo
             </li>
-            <li data-index="8" class="li-pad playlist-item">Aire</li>
-            <li data-index="9" class="li-pad playlist-item">
+            <li data-index="18" class="li-pad playlist-item">Aire</li>
+            <li data-index="19" class="li-pad playlist-item">
               Suelto Los Tientos
             </li>
           </ul>
@@ -264,24 +418,24 @@
         <div class="descripcion">
           <p class="descripcion-album">Album • 2023</p>
 
-          <div class="accordion z-index" id="accordionExample">
+          <div class="accordion z-index" id="accordionDegradeVivo">
             <div class="accordion-item border-accordion">
               <h2 class="accordion-header">
                 <button
                   class="accordion-button collapsed boton-accordion bg-body"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne"
+                  data-bs-target="#collapseDegradeVivoOne"
                   aria-expanded="false"
-                  aria-controls="collapseOne"
+                  aria-controls="collapseDegradeVivoOne"
                 >
                   Músicos
                 </button>
               </h2>
               <div
-                id="collapseOne"
+                id="collapseDegradeVivoOne"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#accordionDegradeVivo"
               >
                 <div class="accordion-body lista-accordion">
                   <ul>
@@ -310,17 +464,17 @@
                   class="accordion-button collapsed boton-accordion bg-body"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo"
+                  data-bs-target="#collapseDegradeVivoTwo"
                   aria-expanded="false"
-                  aria-controls="collapseTwo"
+                  aria-controls="collapseDegradeVivoTwo"
                 >
                   Equipo Técnico
                 </button>
               </h2>
               <div
-                id="collapseTwo"
+                id="collapseDegradeVivoTwo"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#accordionDegradeVivo"
               >
                 <div class="accordion-body lista-accordion">
                   <ul>
@@ -368,26 +522,28 @@
                   class="accordion-button collapsed boton-accordion bg-body"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseThree"
+                  data-bs-target="#collapseDegradeVivoThree"
                   aria-expanded="false"
-                  aria-controls="collapseThree"
+                  aria-controls="collapseDegradeVivoThree"
                 >
                   Descripción
                 </button>
               </h2>
               <div
-                id="collapseThree"
+                id="collapseDegradeVivoThree"
                 class="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
+                data-bs-parent="#accordionDegradeVivo"
               >
                 <div class="accordion-body lista-accordion">
-                  El Degradé del Atardecer - Full Album - Full Banda fue grabado
-                  y filmado en vivo el sábado 5 de noviembre de 2022 en el
-                  Centro Cultural Graciela Carena de la Ciudad de Córdoba,
-                  Argentina. Este disco salió seleccionado por el INAMU
-                  (Instituto Nacional de la Música) en la "Convocatoria de
-                  Fomento Regional a la Música 2022" para llevar adelante su
-                  realización.
+                  <p>
+                    El Degradé del Atardecer - Full Album - Full Banda fue grabado
+                    y filmado en vivo el sábado 5 de noviembre de 2022 en el
+                    Centro Cultural Graciela Carena de la Ciudad de Córdoba,
+                    Argentina. Este disco salió seleccionado por el INAMU
+                    (Instituto Nacional de la Música) en la "Convocatoria de
+                    Fomento Regional a la Música 2022" para llevar adelante su
+                    realización.
+                  </p>
                 </div>
               </div>
             </div>
@@ -397,24 +553,24 @@
         <div class="canciones">
           <h2 class="h2-music">Fluir</h2>
           <ul class="lista-music">
-            <li data-index="10" class="li-pad playlist-item">Clara</li>
-            <li data-index="11" class="li-pad playlist-item">Andar</li>
-            <li data-index="12" class="li-pad playlist-item">
+            <li data-index="20" class="li-pad playlist-item">Clara</li>
+            <li data-index="21" class="li-pad playlist-item">Andar</li>
+            <li data-index="22" class="li-pad playlist-item">
               Anidar Primaveras
             </li>
-            <li data-index="13" class="li-pad playlist-item">Instante Fugaz</li>
-            <li data-index="14" class="li-pad playlist-item">Abre</li>
-            <li data-index="15" class="li-pad playlist-item">Bienvenida</li>
-            <li data-index="16" class="li-pad playlist-item">Mariposa</li>
-            <li data-index="17" class="li-pad playlist-item">
+            <li data-index="23" class="li-pad playlist-item">Instante Fugaz</li>
+            <li data-index="24" class="li-pad playlist-item">Abre</li>
+            <li data-index="25" class="li-pad playlist-item">Bienvenida</li>
+            <li data-index="26" class="li-pad playlist-item">Mariposa</li>
+            <li data-index="27" class="li-pad playlist-item">
               Sonrisa De Cristal
             </li>
-            <li data-index="18" class="li-pad playlist-item">
+            <li data-index="28" class="li-pad playlist-item">
               Cálido Invierno
             </li>
-            <li data-index="19" class="li-pad playlist-item">No Estés Acá</li>
-            <li data-index="20" class="li-pad playlist-item">Desprender</li>
-            <li data-index="21" class="li-pad playlist-item">Fluir</li>
+            <li data-index="29" class="li-pad playlist-item">No Estés Acá</li>
+            <li data-index="30" class="li-pad playlist-item">Desprender</li>
+            <li data-index="31" class="li-pad playlist-item">Fluir</li>
           </ul>
         </div>
         <div class="img-album img-position">
@@ -586,41 +742,43 @@
                 data-bs-parent="#accordionExample2"
               >
                 <div class="accordion-body lista-accordion">
-                  Fluir es un disco de doce canciones que intenta contar
-                  sensaciones y estados, ires y venires. La palabra Fluir
-                  significa lo que corre, lo que brota. De alguna manera ese
-                  movimiento en que transcurrimos, ese tiempo en el que devienen
-                  los días que habitamos atraviesan estas músicas. Los procesos
-                  creativos son tan únicos como los resultados que de ellos
-                  proceden. Es por medio de los aprendizajes que podemos lograr
-                  que eso que en algún momento nos resultara influencia, nos
-                  atravesara como una flecha; hoy pueda ser parte de nuestro
-                  marco referencial, al que podemos elegir, cuestionar, alterar,
-                  modificar, transformar y transmutar. De eso se trata la
-                  identidad, de construcciones, que vamos dialécticamente
-                  cuestionando y aceptando. En las canciones busqué reunir y
-                  encontrar músicas que desde concepciones teóricas pudiesen
-                  resultar disímiles, pero que fueron siempre entendidas desde
-                  la familiaridad con que se fueron volcando en mi mapa musical
-                  de viaje (con la melomanía característica de mi seno
-                  familiar); dichas música son cercanas entre sí por habitar la
-                  misma discoteca que ocupa cada vez más paredes en la
-                  habitación de los discos y libros de la casa donde me crié.
-                  Intenté sostener musicalmente esa visión integracionista en mi
-                  música. Entendí ese camino de continuidad, de hermandad entre
-                  las distintos géneros y estilos, que van trenzando caminos, y
-                  tendiendo redes entre sus lenguajes; en su devenir van
-                  mutando, y están en constante transformación, en su natural
-                  caótica y contradictoria manera de existir, en la que
-                  comprende en su conformación las dualidades contradictorias
-                  como parte de la unidad que las compone y les otorga entidad y
-                  unicidad; allí se encuentra también Fluir. Estas canciones no
-                  pretenden ser más que el soslayo de una forma de ver el mundo.
-                  Fluir pretende plasmar una forma de ser en el mundo. Este
-                  disco formó parte del Trabajo Final de Grado con el que se
-                  recibió de la Licenciatura en Composición musical con
-                  Orientación en Música Popular de LA Universidad Nacional de
-                  Villa María.
+                  <p>
+                    Fluir es un disco de doce canciones que intenta contar
+                    sensaciones y estados, ires y venires. La palabra Fluir
+                    significa lo que corre, lo que brota. De alguna manera ese
+                    movimiento en que transcurrimos, ese tiempo en el que devienen
+                    los días que habitamos atraviesan estas músicas. Los procesos
+                    creativos son tan únicos como los resultados que de ellos
+                    proceden. Es por medio de los aprendizajes que podemos lograr
+                    que eso que en algún momento nos resultara influencia, nos
+                    atravesara como una flecha; hoy pueda ser parte de nuestro
+                    marco referencial, al que podemos elegir, cuestionar, alterar,
+                    modificar, transformar y transmutar. De eso se trata la
+                    identidad, de construcciones, que vamos dialécticamente
+                    cuestionando y aceptando. En las canciones busqué reunir y
+                    encontrar músicas que desde concepciones teóricas pudiesen
+                    resultar disímiles, pero que fueron siempre entendidas desde
+                    la familiaridad con que se fueron volcando en mi mapa musical
+                    de viaje (con la melomanía característica de mi seno
+                    familiar); dichas música son cercanas entre sí por habitar la
+                    misma discoteca que ocupa cada vez más paredes en la
+                    habitación de los discos y libros de la casa donde me crié.
+                    Intenté sostener musicalmente esa visión integracionista en mi
+                    música. Entendí ese camino de continuidad, de hermandad entre
+                    las distintos géneros y estilos, que van trenzando caminos, y
+                    tendiendo redes entre sus lenguajes; en su devenir van
+                    mutando, y están en constante transformación, en su natural
+                    caótica y contradictoria manera de existir, en la que
+                    comprende en su conformación las dualidades contradictorias
+                    como parte de la unidad que las compone y les otorga entidad y
+                    unicidad; allí se encuentra también Fluir. Estas canciones no
+                    pretenden ser más que el soslayo de una forma de ver el mundo.
+                    Fluir pretende plasmar una forma de ser en el mundo. Este
+                    disco formó parte del Trabajo Final de Grado con el que se
+                    recibió de la Licenciatura en Composición musical con
+                    Orientación en Música Popular de LA Universidad Nacional de
+                    Villa María.
+                  </p>
                 </div>
               </div>
             </div>
@@ -631,13 +789,13 @@
           <h2 class="ep">El Degradé Del Atardecer</h2>
           <h3 class="h3-music">Lado B</h3>
           <ul class="lista-music">
-            <li data-index="22" class="li-pad playlist-item">
+            <li data-index="32" class="li-pad playlist-item">
               Si Querés La Verdad
             </li>
-            <li data-index="23" class="li-pad playlist-item">El Mar Volar</li>
-            <li data-index="24" class="li-pad playlist-item">Aire</li>
-            <li data-index="25" class="li-pad playlist-item">Levitar</li>
-            <li data-index="26" class="li-pad playlist-item">
+            <li data-index="33" class="li-pad playlist-item">El Mar Volar</li>
+            <li data-index="34" class="li-pad playlist-item">Aire</li>
+            <li data-index="35" class="li-pad playlist-item">Levitar</li>
+            <li data-index="36" class="li-pad playlist-item">
               Oda Al Otoño Por Venir
             </li>
           </ul>
@@ -767,13 +925,13 @@
           <h2 class="ep">El Degradé Del Atardecer</h2>
           <h3 class="h3-music">Lado A</h3>
           <ul class="lista-music">
-            <li data-index="27" class="li-pad playlist-item">Mi Despertar</li>
-            <li data-index="28" class="li-pad playlist-item">Tu Luz Sin Fin</li>
-            <li data-index="29" class="li-pad playlist-item">
+            <li data-index="37" class="li-pad playlist-item">Mi Despertar</li>
+            <li data-index="38" class="li-pad playlist-item">Tu Luz Sin Fin</li>
+            <li data-index="39" class="li-pad playlist-item">
               Dibujando El Cielo
             </li>
-            <li data-index="30" class="li-pad playlist-item">Desordenada</li>
-            <li data-index="31" class="li-pad playlist-item">
+            <li data-index="40" class="li-pad playlist-item">Desordenada</li>
+            <li data-index="41" class="li-pad playlist-item">
               Suelto Los Tientos
             </li>
           </ul>
@@ -787,6 +945,7 @@
         </div>
         <div class="descripcion">
           <p class="descripcion-ep">EP • 2021</p>
+
           <div class="accordion" id="accordionExample4">
             <div class="accordion-item border-accordion">
               <h2 class="accordion-header">
@@ -894,6 +1053,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </main>
 

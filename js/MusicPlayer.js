@@ -12,6 +12,7 @@ class MusicPlayer {
     this.currentSongIndex = 0;
     this.isShuffled = false;
     this.isRepeating = false;
+    this.pageTitle = document.title;
 
     this.initializePlayer();
     this.setupEventListeners();
@@ -112,12 +113,56 @@ class MusicPlayer {
     this.updatePlaylistHighlight(index);
     this.currentSongIndex = index;
 
-    // Update document title
-    document.title = `${currentSong.title} - ${currentSong.author}`;
+    this.updateDocumentTitle();
+  }
+
+  updateDocumentTitle() {
+    const song = this.playlist[this.currentSongIndex];
+    if (!song) {
+      document.title = this.pageTitle;
+      return;
+    }
+
+    const isPlaying = !this.audio.paused;
+    const hasStarted = this.audio.currentTime > 0;
+
+    if (isPlaying) {
+      document.title = `▶ ${song.title} · ${this.pageTitle}`;
+    } else if (hasStarted) {
+      document.title = `${song.title} · ${this.pageTitle}`;
+    } else {
+      document.title = this.pageTitle;
+    }
+  }
+
+  handleKeyboardShortcuts(e) {
+    const target = e.target;
+    if (
+      target.tagName === "INPUT" ||
+      target.tagName === "TEXTAREA" ||
+      target.isContentEditable
+    ) {
+      return;
+    }
+
+    if (e.code === "Space") {
+      e.preventDefault();
+      this.togglePlayPause();
+    }
+
+    if (e.code === "ArrowRight") {
+      this.playNext();
+    }
+
+    if (e.code === "ArrowLeft") {
+      this.playPrevious();
+    }
   }
 
   updateAlbumArt(song) {
     const albumArtMap = {
+      "Cielo en Construcción":
+        "../media/images/webp/cielo-en-construccion-portada.png",
       "El Degradé Del Atardecer":
         "../media/images/webp/eldegradedelatardecer-portada.webp",
       Fluir: "../media/images/webp/fluir-portada.webp",
@@ -142,6 +187,7 @@ class MusicPlayer {
         .then(() => {
           playPauseBtn.src = "../media/images/svg/pause.svg";
           playPauseBtn.title = "Pausar";
+          this.updateDocumentTitle();
           this.showNotification(
             `Reproduciendo: ${this.currentSongTitle.textContent}`
           );
@@ -154,6 +200,7 @@ class MusicPlayer {
       this.audio.pause();
       playPauseBtn.src = "../media/images/svg/play.svg";
       playPauseBtn.title = "Reproducir";
+      this.updateDocumentTitle();
     }
   }
 
@@ -232,6 +279,7 @@ class MusicPlayer {
     this.audio.play().then(() => {
       document.getElementById("PlayPause").src =
         "../media/images/svg/pause.svg";
+      this.updateDocumentTitle();
     });
   }
 
@@ -332,6 +380,66 @@ class MusicPlayer {
 
   // Playlist data
   playlist = [
+    {
+      title: "Sinfín",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-01-SINFIN.mp3",
+      album: "Cielo en Construcción",
+    },
+    {
+      title: "Grito Feroz",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-02-GRITOFEROZ.mp3",
+      album: "Cielo en Construcción",
+    },
+    {
+      title: "Verde Azul",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-03-VERDEAZUL.mp3",
+      album: "Cielo en Construcción",
+    },
+    {
+      title: "Quedarán en vos",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-04-QUEDARANENVOS.mp3",
+      album: "Cielo en Construcción",
+    },
+    {
+      title: "Caleidoscopio",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-05-CALEIDOSCOPIO.mp3",
+      album: "Cielo en Construcción",
+    },
+    {
+      title: "Vida eterna",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-06-VIDAETERNA.mp3",
+      album: "Cielo en Construcción",
+    },
+    {
+      title: "Devendré",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-07-DEVENDRE.mp3",
+      album: "Cielo en Construcción",
+    },
+    {
+      title: "Llueve",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-08-LLUEVE.mp3",
+      album: "Cielo en Construcción",
+    },
+    {
+      title: "Tierna Luz",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-09-TIERNALUZ.mp3",
+      album: "Cielo en Construcción",
+    },
+    {
+      title: "Millones de años luz",
+      author: "Araceli Bonfigli",
+      src: "../media/songs/cielo-10-MILLONESDEANIOSLUZ.mp3",
+      album: "Cielo en Construcción",
+    },
     {
       title: "Mi Despertar",
       author: "Araceli Bonfigli",

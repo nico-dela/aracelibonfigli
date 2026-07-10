@@ -909,6 +909,35 @@ main div .descripcion .lista-accordion li {
   font-size: 1.3rem;
 }
 
+main #discos .descripcion .lista-accordion,
+main #discos .descripcion .lista-accordion p,
+main #discos .descripcion .lista-accordion li,
+main #discos .descripcion .lista-accordion strong {
+  font-size: 1.3rem;
+  line-height: 1.55;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-shadow: 0 0 0 #474544;
+}
+
+main #discos .descripcion .lista-accordion strong {
+  font-weight: 700;
+}
+
+main #discos .descripcion .lista-accordion p {
+  margin: 0 0 0.75rem;
+}
+
+main #discos .descripcion .lista-accordion p:last-child {
+  margin-bottom: 0;
+}
+
+main #discos .descripcion .boton-accordion {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
 main div .descripcion .descripcion-album {
   color: #46669c;
   font-weight: bold;
@@ -921,6 +950,286 @@ main div .descripcion .descripcion-ep {
   color: #6f5a96;
   font-weight: bold;
   padding: 0 0 1rem;
+}
+
+.spotify-link-wrap {
+  padding-bottom: 1rem;
+}
+
+.spotify-album-link {
+  display: inline-block;
+  color: #1db954;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.1rem;
+}
+
+.spotify-album-link:hover {
+  color: #1ed760;
+  text-decoration: underline;
+}
+
+.h2-seccion-producciones {
+  width: 100%;
+  grid-column: 1 / -1;
+  font-size: 2.5rem;
+  color: #46669c;
+  padding: 4rem 6rem 2rem;
+  margin: 0;
+}
+
+.producciones-page {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.producciones-intro {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 2rem;
+  font-size: clamp(1.15rem, 0.5vw + 1rem, 1.45rem);
+  line-height: 1.6;
+}
+
+.producciones-seccion-titulo {
+  font-size: clamp(1.75rem, 1vw + 1.2rem, 2.25rem);
+  color: #46669c;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(70, 102, 156, 0.25);
+}
+
+.producciones-masonry {
+  column-count: 1;
+  column-gap: 1.1rem;
+}
+
+.producciones-masonry-full {
+  column-span: all;
+  margin-top: 2rem;
+}
+
+.producciones-masonry-full:first-child {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 720px) {
+  .producciones-masonry {
+    column-count: 2;
+    column-gap: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .producciones-masonry {
+    column-count: 3;
+  }
+}
+
+.produccion-card {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(121, 121, 121, 0.35);
+  border-radius: 8px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  break-inside: avoid;
+  margin-bottom: 1.1rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 720px) {
+  .produccion-card {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.produccion-card-media {
+  padding: 0.85rem 0.85rem 0;
+  background: rgba(255, 255, 255, 0.35);
+  line-height: 0;
+}
+
+.produccion-card-body {
+  padding: 1rem 1.15rem 1.1rem;
+  min-width: 0;
+}
+
+.produccion-card-media + .produccion-card-body {
+  padding-top: 0.5rem;
+}
+
+.produccion-embed {
+  width: 100%;
+  border-radius: 8px;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.produccion-embed--album {
+  height: 80px;
+}
+
+.produccion-embed--track {
+  height: 152px;
+}
+
+/* Anula main div iframe (videos) que rompía altura de Spotify */
+.producciones-page .produccion-embed iframe {
+  display: block;
+  width: 100% !important;
+  height: 152px !important;
+  max-height: 152px !important;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  position: static;
+  margin: 0;
+  vertical-align: top;
+}
+
+.producciones-page .produccion-embed--album iframe {
+  height: 80px !important;
+  max-height: 80px !important;
+}
+
+.produccion-youtube-preview {
+  display: block;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  aspect-ratio: 16 / 9;
+  background: #111;
+}
+
+.produccion-youtube-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.produccion-youtube-preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  transition: background 0.2s ease;
+}
+
+.produccion-youtube-preview:hover::before,
+.produccion-youtube-preview:focus-visible::before {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.produccion-youtube-play {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  width: 3.25rem;
+  height: 3.25rem;
+  background: rgba(255, 0, 0, 0.92);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.produccion-youtube-play::after {
+  content: "";
+  position: absolute;
+  left: 54%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 0.55rem 0 0.55rem 0.95rem;
+  border-color: transparent transparent transparent #fff;
+}
+
+.produccion-youtube-label {
+  position: absolute;
+  left: 50%;
+  bottom: 0.85rem;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
+  white-space: nowrap;
+}
+
+.produccion-embed-link {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1db954;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+}
+
+.produccion-embed-link:hover {
+  text-decoration: underline;
+}
+
+.produccion-embed-link[href*="youtube"] {
+  color: #c4302b;
+}
+
+.produccion-card-titulo {
+  font-size: clamp(1.35rem, 0.6vw + 1.1rem, 1.6rem);
+  color: #46669c;
+  margin: 0 0 0.35rem;
+  line-height: 1.25;
+}
+
+.produccion-card-meta {
+  font-size: clamp(1.05rem, 0.4vw + 0.95rem, 1.2rem);
+  color: #6f5a96;
+  font-weight: 600;
+  margin: 0 0 0.55rem;
+  line-height: 1.4;
+}
+
+.produccion-card-rol {
+  margin: 0 0 0.65rem;
+  line-height: 1.5;
+  font-size: clamp(1.1rem, 0.4vw + 1rem, 1.25rem);
+}
+
+.produccion-card-body .accordion {
+  margin-top: 0.35rem;
+}
+
+.produccion-card-body .boton-accordion {
+  font-size: 1.1rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+.produccion-card-body .lista-accordion {
+  font-size: 1.05rem;
+}
+
+.produccion-card-body .lista-accordion p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin-bottom: 0.55rem;
+}
+
+.video-tracklist {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.video-tracklist li {
+  padding: 0.15rem 0;
 }
 
 main div .descripcion .lista-padding {
@@ -981,6 +1290,7 @@ main div .canciones .lista-music .li-pad:hover {
     display: grid;
     grid-template-columns: 1fr;
     margin: 0 2rem;
+    row-gap: 4rem;
   }
 
   main div .canciones {
@@ -996,7 +1306,7 @@ main div .canciones .lista-music .li-pad:hover {
   }
 
   main div .descripcion {
-    padding-bottom: 9rem;
+    padding-bottom: 0;
   }
 
   main div .descripcion .parrafo {
@@ -1033,7 +1343,7 @@ main div .canciones .lista-music .li-pad:hover {
   main #discos {
     display: grid;
     grid-template-columns: 30% 40% 30%;
-    grid-template-rows: repeat(4, 1fr);
+    grid-auto-rows: auto;
     padding: 2rem;
     margin: 2rem 12rem;
     row-gap: 12rem;
@@ -1046,6 +1356,7 @@ main div .canciones .lista-music .li-pad:hover {
 
   main div .descripcion {
     padding-left: 2rem;
+    padding-bottom: 0;
     z-index: 2;
   }
 
@@ -1135,7 +1446,7 @@ main #contenedor-videos ul li .span-vid {
     margin-top: 0;
   }
 
-  main div iframe {
+  main #contenedor-videos iframe {
     width: 100%;
     height: 50vw;
     position: relative;
@@ -1164,7 +1475,7 @@ main #contenedor-videos ul li .span-vid {
     font-size: 2.6rem;
   }
 
-  main div iframe {
+  main #contenedor-videos iframe {
     width: 100%;
     height: 32vw;
     position: relative;
@@ -1602,7 +1913,7 @@ main .contenedor-sm div ul .lista-sm {
 }
 
 @media screen and (min-width: 320px) {
-  main article,
+  main article:not(.produccion-card),
   main .contenedor-sm {
     display: flex;
     flex-direction: column;
@@ -1645,7 +1956,7 @@ main .contenedor-sm div ul .lista-sm {
 }
 
 @media screen and (min-width: 600px) {
-  main article,
+  main article:not(.produccion-card),
   main .contenedor-sm {
     display: flex;
     flex-direction: column;
@@ -1655,7 +1966,7 @@ main .contenedor-sm div ul .lista-sm {
 }
 
 @media screen and (min-width: 1024px) {
-  main article,
+  main article:not(.produccion-card),
   main .contenedor-sm {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1742,6 +2053,7 @@ body {
 }
 
 .body .music-player-container {
+  position: relative;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
   border-radius: 12px;
   padding: 10px;
@@ -1763,6 +2075,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding-right: 30px;
 }
 
 .album-art-container {
@@ -1963,6 +2276,8 @@ input[type="range"] {
   position: absolute;
   top: 8px;
   right: 8px;
+  left: auto;
+  z-index: 5;
   width: 24px;
   height: 24px;
   background: rgba(255, 255, 255, 0.16);
@@ -2503,6 +2818,158 @@ body {
     font-size: 12px;
   }
 }
+
+.libro-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pdf-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.pdf-modal-content {
+  background: #1a1a1a;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pdf-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pdf-modal-title {
+  color: #fff;
+  font-size: clamp(1.25rem, 2vw + 0.75rem, 1.75rem);
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+  padding-right: 0.5rem;
+}
+
+.pdf-modal-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.pdf-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+  min-height: 200px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pdf-pages-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.pdf-page-wrap {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pdf-page-canvas {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  background: #fff;
+}
+
+.pdf-canvas {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.pdf-iframe {
+  width: 100%;
+  min-height: 70vh;
+  border: none;
+  background: #fff;
+}
+
+.pdf-loading,
+.pdf-error {
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+.pdf-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pdf-page-counter {
+  color: #fff;
+  font-size: clamp(0.95rem, 1vw + 0.7rem, 1.1rem);
+  text-align: left;
+}
+
+.pdf-download-link {
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .pdf-modal-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pdf-page-counter {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pdf-download-link {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pdf-modal-body {
+    padding: 12px;
+  }
+}
+
 .videos-container {
   max-width: 1400px;
   margin: 10px auto;
