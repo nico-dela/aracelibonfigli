@@ -3,8 +3,6 @@ title: "Biografía"
 images:
   - src: "/media/images/webp/foto-bio-1.webp"
     alt: "Araceli Bonfigli"
-  - src: "/media/images/webp/foto-bio-2.webp"
-    alt: "Araceli Bonfigli en escena"
 ---
 
 Compositora, multiinstrumentista, productora musical y poeta.
