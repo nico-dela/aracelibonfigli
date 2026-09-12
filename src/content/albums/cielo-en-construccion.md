@@ -2,7 +2,7 @@
 title: "Cielo en Construcción"
 year: 2026
 type: "Álbum"
-cover: "/media/images/webp/cielo-en-construccion-portada.png"
+cover: "/media/images/webp/cielo-en-construccion-portada.webp"
 order: 1
 summary: "Quinto disco de estudio: diez canciones con impronta de rock, pop, indie y neo groove, publicadas progresivamente entre 2025 y 2026."
 tracks:

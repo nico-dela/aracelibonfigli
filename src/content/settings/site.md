@@ -9,7 +9,7 @@ featured:
   - title: "Cielo en Construcción"
     subtitle: "Álbum • 2026"
     description: "Quinto disco de estudio: diez canciones con impronta de rock, pop, indie y neo groove."
-    image: "/media/images/webp/cielo-en-construccion-portada.png"
+    image: "/media/images/webp/cielo-en-construccion-portada.webp"
     href: "/musica/"
   - title: "El Degradé Del Atardecer"
     subtitle: "Full Album En Vivo • 2023"
