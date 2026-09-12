@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { getEntry, render } from 'astro:content';
+
+const bio = await getEntry('pages', 'bio');
+if (!bio) throw new Error('Missing bio content');
+const { Content } = await render(bio);
+---
+
+<BaseLayout title="Biografía" description="Biografía de Araceli Bonfigli">
+  <header class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">
+        <Icon name="person" size={14} />
+        Trayectoria
+      </p>
+      <h1>{bio.data.title}</h1>
+    </div>
+  </header>
+
+  <div class="container section bio">
+    <div class="bio-photos reveal">
+      {
+        bio.data.images?.map((image) => (
+          <Image
+            src={image.src}
+            alt={image.alt ?? 'Araceli Bonfigli'}
+            width={704}
+            height={880}
+            widths={[352, 704]}
+            sizes="(max-width: 800px) 90vw, 22rem"
+            loading="lazy"
+            decoding="async"
+          />
+        ))
+      }
+    </div>
+    <div class="bio-copy reveal">
+      <Content />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .bio {
+    display: grid;
+    grid-template-columns: minmax(14rem, 22rem) 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .bio-photos {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .bio-copy {
+    font-size: 1.08rem;
+    color: var(--color-ink-soft);
+  }
+
+  .bio-copy :global(p) {
+    margin-bottom: 1.1rem;
+  }
+
+  .bio-copy :global(strong) {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  @media (max-width: 800px) {
+    .bio {
+      grid-template-columns: 1fr;
+    }
+
+    .bio-photos {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

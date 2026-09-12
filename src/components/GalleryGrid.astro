@@ -1,0 +1,159 @@
+---
+import { Image } from 'astro:assets';
+import { cloudinaryThumb } from '../utils/cloudinary';
+
+interface ImageItem {
+  src: string;
+  alt?: string;
+}
+
+interface Props {
+  images: ImageItem[];
+  title: string;
+}
+
+const { images, title } = Astro.props;
+const items = images.map((image) => ({
+  ...image,
+  thumb: cloudinaryThumb(image.src, 480),
+}));
+---
+
+<div class="gallery-grid" data-gallery={title}>
+  {
+    items.map((image, index) => (
+      <button
+        type="button"
+        class="gallery-thumb"
+        data-gallery-open
+        data-index={index}
+        data-full-src={image.src}
+        aria-label={`Ver ${image.alt ?? title} (${index + 1})`}
+      >
+        <Image
+          src={image.thumb}
+          alt={image.alt ?? title}
+          width={480}
+          height={480}
+          widths={[240, 480]}
+          sizes="(max-width: 700px) 45vw, 10rem"
+          decoding="async"
+          loading={index < 8 ? 'eager' : 'lazy'}
+          fetchpriority={index < 4 ? 'high' : 'auto'}
+          data-gallery-thumb
+        />
+      </button>
+    ))
+  }
+</div>
+
+<dialog class="gallery-dialog" data-gallery-dialog>
+  <div class="gallery-dialog-inner">
+    <button type="button" class="gallery-close" data-gallery-close aria-label="Cerrar">
+      ×
+    </button>
+    <button type="button" class="gallery-nav prev" data-gallery-prev aria-label="Anterior">
+      ‹
+    </button>
+    <img data-gallery-image alt="" decoding="async" />
+    <button type="button" class="gallery-nav next" data-gallery-next aria-label="Siguiente">
+      ›
+    </button>
+    <p class="gallery-caption" data-gallery-caption></p>
+  </div>
+</dialog>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 0.65rem;
+  }
+
+  .gallery-thumb {
+    border: 0;
+    padding: 0;
+    background: var(--color-surface);
+    cursor: pointer;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s var(--ease);
+  }
+
+  .gallery-thumb:hover img {
+    transform: scale(1.04);
+  }
+
+  .gallery-dialog {
+    border: 0;
+    padding: 0;
+    width: min(92vw, 56rem);
+    max-width: 100%;
+    background: transparent;
+  }
+
+  .gallery-dialog::backdrop {
+    background: rgba(10, 14, 12, 0.82);
+  }
+
+  .gallery-dialog-inner {
+    position: relative;
+    display: grid;
+    place-items: center;
+    gap: 0.75rem;
+  }
+
+  .gallery-dialog img {
+    max-height: 78vh;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .gallery-close,
+  .gallery-nav {
+    position: absolute;
+    border: 0;
+    background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+    color: var(--color-ink);
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .gallery-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 2;
+  }
+
+  .gallery-nav.prev {
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .gallery-nav.next {
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .gallery-caption {
+    margin: 0;
+    color: #f7f4ef;
+    text-align: center;
+  }
+</style>
+
+<script>
+  import { initGallery } from '../scripts/gallery';
+  initGallery();
+</script>

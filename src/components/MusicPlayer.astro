@@ -1,0 +1,193 @@
+---
+interface Track {
+  title: string;
+  src: string;
+  album: string;
+  cover: string;
+}
+
+interface Props {
+  tracks: Track[];
+}
+
+const { tracks } = Astro.props;
+const playlistJson = JSON.stringify(tracks);
+---
+
+<section class="player" data-music-player aria-label="Reproductor de música">
+  <div class="player-now">
+    <img
+      class="player-cover"
+      data-player-cover
+      src={tracks[0]?.cover ?? ''}
+      alt=""
+      width="72"
+      height="72"
+      decoding="async"
+    />
+    <div>
+      <p class="player-label">Escuchando</p>
+      <p class="player-title" data-player-title>{tracks[0]?.title ?? '—'}</p>
+      <p class="player-album" data-player-album>{tracks[0]?.album ?? ''}</p>
+    </div>
+  </div>
+
+  <div class="player-controls">
+    <button type="button" data-player-prev aria-label="Anterior">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M6 6h2.2v12H6V6zm3.2 6 10.8 6.2V5.8L9.2 12z"
+        ></path>
+      </svg>
+    </button>
+    <button type="button" class="play" data-player-play aria-label="Reproducir">
+      <svg
+        data-player-play-icon
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+        aria-hidden="true"
+      >
+        <path fill="currentColor" d="M8 5.5v13l11-6.5L8 5.5z"></path>
+      </svg>
+    </button>
+    <button type="button" data-player-next aria-label="Siguiente">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M15.8 6H18v12h-2.2V6zM4 18.2 14.8 12 4 5.8v12.4z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="player-progress">
+    <span data-player-current>0:00</span>
+    <input
+      type="range"
+      min="0"
+      max="100"
+      value="0"
+      data-player-seek
+      aria-label="Progreso"
+    />
+    <span data-player-duration>0:00</span>
+  </div>
+
+  <audio data-player-audio preload="metadata"></audio>
+  <script type="application/json" data-player-playlist set:html={playlistJson} />
+</section>
+
+<style>
+  .player {
+    position: sticky;
+    bottom: 0;
+    z-index: 40;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) auto minmax(0, 1fr);
+    gap: 1rem 1.5rem;
+    align-items: center;
+    padding: 0.85rem 1.25rem;
+    background: rgba(26, 31, 28, 0.94);
+    color: #f7f4ef;
+    border-top: 1px solid rgba(247, 244, 239, 0.12);
+  }
+
+  .player-now {
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .player-cover {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .player-label {
+    margin: 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+
+  .player-title,
+  .player-album {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .player-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+  }
+
+  .player-album {
+    font-size: 0.85rem;
+    opacity: 0.75;
+  }
+
+  .player-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .player-controls button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    background: transparent;
+    color: #f7f4ef;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+  }
+
+  .player-controls .play {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgba(247, 244, 239, 0.35);
+  }
+
+  .player-controls svg {
+    display: block;
+  }
+
+  .player-progress {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.65rem;
+    align-items: center;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .player-progress input {
+    width: 100%;
+    accent-color: #7eb8b2;
+  }
+
+  @media (max-width: 860px) {
+    .player {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .player-controls {
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  import { initMusicPlayer } from '../scripts/music-player';
+  initMusicPlayer();
+</script>

@@ -1,0 +1,281 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+
+const productions = (await getCollection('productions')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const produced = productions.filter((p) => p.data.category === 'produccion');
+const sessions = productions.filter((p) => p.data.category === 'sesionista');
+---
+
+<BaseLayout title="Estudio" description="Producciones y sesiones de Araceli Bonfigli">
+  <header class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">
+        <Icon name="studio" size={14} />
+        Estudio
+      </p>
+      <h1>Producciones</h1>
+      <p>Arreglos, dirección y grabaciones como sesionista.</p>
+    </div>
+  </header>
+
+  <div class="producciones-page section">
+    <div class="producciones-masonry" aria-label="Trabajo en estudio: producción y sesiones">
+      <h2 class="seccion-titulo masonry-full">Producciones musicales</h2>
+      {
+        produced.map((item) => (
+          <article class="prod-card reveal" id={item.id}>
+            {(item.data.spotifyId && item.data.spotifyType) || item.data.youtubeId ? (
+              <div class="prod-media">
+                {item.data.spotifyId && item.data.spotifyType ? (
+                  <div
+                    class:list={[
+                      'prod-embed',
+                      item.data.spotifyType === 'album'
+                        ? 'prod-embed--album'
+                        : 'prod-embed--track',
+                    ]}
+                  >
+                    <iframe
+                      src={`https://open.spotify.com/embed/${item.data.spotifyType}/${item.data.spotifyId}`}
+                      title={`Spotify: ${item.data.title}`}
+                      loading="lazy"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    />
+                  </div>
+                ) : (
+                  <a
+                    class="yt-preview"
+                    href={`https://www.youtube.com/watch?v=${item.data.youtubeId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src={`https://img.youtube.com/vi/${item.data.youtubeId}/hqdefault.jpg`}
+                      alt={`YouTube: ${item.data.title}`}
+                      width={480}
+                      height={360}
+                      widths={[320, 480]}
+                      sizes="(max-width: 700px) 100vw, 33vw"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span class="yt-play" aria-hidden="true" />
+                  </a>
+                )}
+              </div>
+            ) : null}
+            <div class="prod-body">
+              <h3>“{item.data.title}”</h3>
+              {item.data.meta && <p class="meta">{item.data.meta}</p>}
+              {item.data.role && <p class="role">{item.data.role}</p>}
+            </div>
+          </article>
+        ))
+      }
+
+      <h2 class="seccion-titulo masonry-full">Grabaciones como sesionista</h2>
+      {
+        sessions.map((item) => (
+          <article class="prod-card reveal" id={item.id}>
+            {(item.data.spotifyId && item.data.spotifyType) || item.data.youtubeId ? (
+              <div class="prod-media">
+                {item.data.spotifyId && item.data.spotifyType ? (
+                  <div
+                    class:list={[
+                      'prod-embed',
+                      item.data.spotifyType === 'album'
+                        ? 'prod-embed--album'
+                        : 'prod-embed--track',
+                    ]}
+                  >
+                    <iframe
+                      src={`https://open.spotify.com/embed/${item.data.spotifyType}/${item.data.spotifyId}`}
+                      title={`Spotify: ${item.data.title}`}
+                      loading="lazy"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    />
+                  </div>
+                ) : (
+                  <a
+                    class="yt-preview"
+                    href={`https://www.youtube.com/watch?v=${item.data.youtubeId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src={`https://img.youtube.com/vi/${item.data.youtubeId}/hqdefault.jpg`}
+                      alt={`YouTube: ${item.data.title}`}
+                      width={480}
+                      height={360}
+                      widths={[320, 480]}
+                      sizes="(max-width: 700px) 100vw, 33vw"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span class="yt-play" aria-hidden="true" />
+                  </a>
+                )}
+              </div>
+            ) : null}
+            <div class="prod-body">
+              <h3>“{item.data.title}”</h3>
+              {item.data.meta && <p class="meta">{item.data.meta}</p>}
+              {item.data.role && <p class="role">{item.data.role}</p>}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .producciones-page {
+    width: min(100% - 2rem, 82rem);
+    margin-inline: auto;
+    padding-top: 0;
+  }
+
+  .producciones-masonry {
+    column-count: 1;
+    column-gap: 1.15rem;
+  }
+
+  .seccion-titulo {
+    column-span: all;
+    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+    margin: 0 0 1.15rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-line);
+    color: var(--color-accent);
+  }
+
+  .masonry-full {
+    margin-top: 2.25rem;
+  }
+
+  .masonry-full:first-child {
+    margin-top: 0;
+  }
+
+  .prod-card {
+    break-inside: avoid;
+    margin-bottom: 1.15rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .prod-media {
+    padding: 0.85rem 0.85rem 0;
+    line-height: 0;
+  }
+
+  .prod-embed {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .prod-embed iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+
+  .prod-embed--album iframe {
+    height: 80px;
+  }
+
+  .prod-embed--track iframe {
+    height: 152px;
+  }
+
+  .yt-preview {
+    display: block;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #111;
+  }
+
+  .yt-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .yt-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.28);
+  }
+
+  .yt-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 3rem;
+    height: 3rem;
+    transform: translate(-50%, -50%);
+    background: rgba(200, 30, 30, 0.92);
+    border-radius: 10px;
+  }
+
+  .yt-play::after {
+    content: '';
+    position: absolute;
+    left: 54%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 0.5rem 0 0.5rem 0.85rem;
+    border-color: transparent transparent transparent #fff;
+  }
+
+  .prod-body {
+    padding: 0.85rem 1.05rem 1.05rem;
+  }
+
+  .prod-body h3 {
+    font-size: clamp(1.2rem, 1.5vw, 1.45rem);
+    margin: 0 0 0.35rem;
+    color: var(--color-accent);
+  }
+
+  .meta {
+    margin: 0 0 0.45rem;
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    font-size: 0.98rem;
+  }
+
+  .role {
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 720px) {
+    .producciones-masonry {
+      column-count: 2;
+      column-gap: 1.25rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .producciones-masonry {
+      column-count: 3;
+    }
+  }
+</style>

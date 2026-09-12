@@ -1,0 +1,159 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  pdf: string;
+  title: string;
+}
+
+const { pdf, title } = Astro.props;
+---
+
+<div class="pdf-actions">
+  <button
+    type="button"
+    class="btn btn-outline"
+    data-pdf-open
+    data-pdf={pdf}
+    data-pdf-title={title}
+  >
+    <Icon name="book" size={16} />
+    Vista previa
+  </button>
+  <a class="btn btn-primary" href={pdf} download>
+    <Icon name="download" size={16} />
+    Descargar PDF
+  </a>
+</div>
+
+<dialog class="pdf-dialog" data-pdf-dialog>
+  <div class="pdf-dialog-bar">
+    <strong data-pdf-dialog-title></strong>
+    <button type="button" data-pdf-close aria-label="Cerrar">×</button>
+  </div>
+  <div class="pdf-stage">
+    <div class="pdf-spinner" data-pdf-spinner hidden>
+      <span class="pdf-spinner-ring" aria-hidden="true"></span>
+      <span>Cargando PDF…</span>
+    </div>
+    <canvas data-pdf-canvas></canvas>
+  </div>
+  <div class="pdf-dialog-nav">
+    <button type="button" data-pdf-prev>Anterior</button>
+    <span data-pdf-page></span>
+    <button type="button" data-pdf-next>Siguiente</button>
+  </div>
+</dialog>
+
+<style>
+  .pdf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .pdf-dialog {
+    width: min(92vw, 52rem);
+    max-height: 92vh;
+    border: 0;
+    padding: 0;
+    background: var(--color-paper);
+  }
+
+  .pdf-dialog::backdrop {
+    background: rgba(10, 14, 12, 0.75);
+  }
+
+  .pdf-dialog-bar,
+  .pdf-dialog-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .pdf-dialog-nav {
+    border-bottom: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .pdf-dialog-bar button,
+  .pdf-dialog-nav button {
+    border: 1px solid var(--color-line);
+    background: transparent;
+    color: var(--color-ink);
+    padding: 0.4rem 0.75rem;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .pdf-stage {
+    position: relative;
+    min-height: 12rem;
+    background: #f7f4ef;
+  }
+
+  :global(html[data-theme='dark']) .pdf-stage {
+    background: #1a1f1c;
+  }
+
+  .pdf-spinner {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 0.85rem;
+    background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .pdf-spinner[hidden] {
+    display: none;
+  }
+
+  .pdf-spinner-ring {
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 2px solid var(--color-line);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: pdf-spin 0.75s linear infinite;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    background: #f7f4ef;
+  }
+
+  :global(html[data-theme='dark']) canvas {
+    background: #1a1f1c;
+  }
+
+  @keyframes pdf-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pdf-spinner-ring {
+      animation: none;
+      border-top-color: var(--color-line);
+      opacity: 0.7;
+    }
+  }
+</style>
+
+<script>
+  import { initPdfViewer } from '../scripts/pdf-viewer';
+  initPdfViewer();
+</script>

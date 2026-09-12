@@ -1,0 +1,65 @@
+---
+import Icon from './Icon.astro';
+---
+
+<button
+  type="button"
+  class="theme-toggle"
+  data-theme-toggle
+  aria-label="Cambiar tema"
+  title="Cambiar tema"
+>
+  <span class="theme-toggle-icon theme-toggle-icon--moon" aria-hidden="true">
+    <Icon name="moon" size={18} />
+  </span>
+  <span class="theme-toggle-icon theme-toggle-icon--sun" aria-hidden="true">
+    <Icon name="sun" size={18} />
+  </span>
+</button>
+
+<style>
+  .theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--color-line);
+    background: transparent;
+    color: var(--color-ink);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .theme-toggle-icon {
+    grid-area: 1 / 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .theme-toggle-icon--sun {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  :global([data-theme='dark']) .theme-toggle-icon--moon {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  :global([data-theme='dark']) .theme-toggle-icon--sun {
+    opacity: 1;
+    transform: none;
+  }
+
+  .theme-toggle-icon--moon,
+  .theme-toggle-icon--sun {
+    transition:
+      opacity 0.25s var(--ease),
+      transform 0.25s var(--ease);
+  }
+</style>

@@ -1,43 +1,39 @@
-# Araceli Bonfigli - Sitio Web Personal
+# Araceli Bonfigli
 
-Este proyecto es un sitio web personal estático para Araceli Bonfigli, desarrollado con HTML, CSS y JavaScript. Presenta información sobre su obra artística, incluyendo música, libros, videos, y una galería de imágenes.
+Sitio editorial con **Astro**. Contenido en Markdown (`src/content/`). Deploy gratis en GitHub Pages; solo se paga el dominio.
 
-## 🌐 Estructura del sitio
+## Desarrollo local
 
-- `index.html`: Página principal del sitio.
-- `pages/`
-  - `musica.html`: Sección de música con un reproductor integrado.
-  - `libros.html`: Publicaciones literarias.
-  - `galeria.html`: Galería de imágenes.
-  - `videos.html`: Obras audiovisuales.
-  - `bio.html`: Información personal y biografía.
-- `styles/`: Estilos personalizados del sitio.
-- `js/`:
-  - `MusicPlayer.js`: Script que implementa el reproductor de música.
-  - `GalleryModal.js`: Script que implementa el modal con un carrousel de imágenes.
+```bash
+npm install
+npm run dev
+```
 
-## 🚀 Cómo usar
+Abrí [http://localhost:4321](http://localhost:4321).
 
-1. Cloná el repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/aracelibonfigli.git
-   ```
-2. Abrí `index.html` con tu navegador.
+## Cómo actualizar contenido
 
-> No requiere dependencias externas ni servidor. Todo el contenido es estático.
+Editá los archivos en `src/content/`:
 
-## 🎵 Reproductor de música
+| Qué querés cambiar | Dónde |
+| --- | --- |
+| Hero, Linktree, cantidad de recientes | `src/content/settings/site.md` |
+| Biografía | `src/content/pages/bio.md` |
+| Álbum / tracks | `src/content/albums/` |
+| Poemario / PDF | `src/content/books/` |
+| Video de YouTube | `src/content/videos/` |
+| Crédito de estudio | `src/content/productions/` |
+| Set de fotos | `src/content/gallery/` |
 
-El reproductor fue desarrollado en JavaScript puro (`js/MusicPlayer.js`) y permite:
+Media (audio, imágenes, PDFs) en `public/media/`.
 
-- Reproducción / pausa
-- Siguiente / anterior
-- Visualización de la canción actual
+## Estructura
 
-## ✨ Autoría y créditos
+- `src/content/` — fuente de verdad del contenido
+- `src/pages/` — rutas
+- `src/components/` — UI (player, galería, PDF)
+- `public/media/` — audio, imágenes, PDFs
 
-Este sitio fue diseñado para representar el trabajo de **Araceli Bonfigli**, con foco en su obra artística.
+## Deploy
 
----
-
-¡Gracias por visitar!
+Push a `main` dispara el build y publica en **GitHub Pages**. El dominio `aracelibonfigli.com.ar` se mantiene vía `public/CNAME`.

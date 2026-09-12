@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GalleryGrid from '../../components/GalleryGrid.astro';
+import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+
+const sets = (await getCollection('gallery')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout title="Galería" description="Galería de conciertos de Araceli Bonfigli">
+  <header class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">
+        <Icon name="gallery" size={14} />
+        Imágenes
+      </p>
+      <h1>Galería</h1>
+      <p>Fotos de conciertos y presentaciones.</p>
+    </div>
+  </header>
+
+  <div class="container section gallery-sets">
+    {
+      sets.map((set) => (
+        <section class="gallery-set">
+          <div class="set-head reveal">
+            <h2>{set.data.title}</h2>
+            <p>{set.data.year}</p>
+          </div>
+          <GalleryGrid images={set.data.images} title={set.data.title} />
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .gallery-sets {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .set-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-line);
+    padding-bottom: 0.75rem;
+  }
+
+  .set-head h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .set-head p {
+    margin: 0;
+    color: var(--color-muted);
+    letter-spacing: 0.08em;
+  }
+</style>
