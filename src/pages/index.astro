@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const site = (await getEntry('settings', 'site'))!.data;
+const explore = [
+  { href: '/musica/', label: 'Música', text: 'Discografía completa' },
+  { href: '/estudio/', label: 'Estudio', text: 'Arreglos y sesiones' },
+  { href: '/videos/', label: 'Videos', text: 'Actuaciones en vivo' },
+  { href: '/libros/', label: 'Libros', text: 'Poemarios publicados' },
+  { href: '/galeria/', label: 'Galería', text: 'Fotos de conciertos' },
+  { href: '/bio/', label: 'Biografía', text: 'Historia y trayectoria' },
+];
+---
+
+<BaseLayout bodyClass="page-home">
+  <section class="home-hero">
+    <div class="home-hero-media" aria-hidden="true">
+      <img src={site.heroImage} alt="" />
+    </div>
+    <div class="home-hero-overlay"></div>
+    <div class="container home-hero-content">
+      <p class="home-kicker reveal">{site.tagline}</p>
+      <h1 class="home-brand reveal">{site.title}</h1>
+      <p class="home-lead reveal">{site.description}</p>
+      <div class="home-cta reveal">
+        <a class="btn btn-primary" href="/musica/">Escuchar música</a>
+        <a class="btn btn-ghost" href="/bio/">Conocer más</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">Obra reciente</p>
+        <h2 class="section-title">Últimos trabajos</h2>
+      </div>
+      <div class="featured-list">
+        {
+          site.featured.map((item) => (
+            <a class="featured-item reveal" href={item.href}>
+              <img src={item.image} alt={item.title} loading="lazy" />
+              <div>
+                <p class="featured-meta">{item.subtitle}</p>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section explore-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">Navegar</p>
+        <h2 class="section-title">Explorar</h2>
+      </div>
+      <ul class="explore-list">
+        {
+          explore.map((item) => (
+            <li class="reveal">
+              <a href={item.href}>
+                <span>{item.label}</span>
+                <em>{item.text}</em>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    align-items: center;
+    justify-items: start;
+    color: #f7f4ef;
+    overflow: hidden;
+  }
+
+  .home-hero-media,
+  .home-hero-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .home-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.04);
+    animation: hero-drift 18s var(--ease) infinite alternate;
+  }
+
+  .home-hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(12, 18, 16, 0.28) 0%, rgba(12, 18, 16, 0.62) 55%, rgba(12, 18, 16, 0.82) 100%),
+      linear-gradient(90deg, rgba(12, 18, 16, 0.55), transparent 58%);
+  }
+
+  .home-hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 2rem, 40rem);
+    margin-left: max(1rem, calc((100vw - var(--max-width)) / 2));
+    margin-right: 1rem;
+    padding: calc(var(--header-h) + var(--space-md)) 0 var(--space-lg);
+    text-align: left;
+  }
+
+  .home-kicker {
+    margin: 0 0 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    opacity: 0.85;
+  }
+
+  .home-brand {
+    margin: 0 0 1rem;
+    font-size: clamp(3rem, 9vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  .home-lead {
+    margin: 0 0 1.75rem;
+    max-width: 34rem;
+    font-size: 1.08rem;
+    color: rgba(247, 244, 239, 0.88);
+  }
+
+  .home-cta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .featured-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .featured-item {
+    display: grid;
+    grid-template-columns: minmax(7rem, 12rem) 1fr;
+    gap: 1.25rem 1.75rem;
+    align-items: center;
+    padding: 1.35rem 0;
+    border-top: 1px solid var(--color-line);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.25s var(--ease);
+  }
+
+  .featured-item:last-child {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .featured-item:hover {
+    background: rgba(31, 92, 87, 0.05);
+    color: inherit;
+  }
+
+  .featured-item img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .featured-meta {
+    margin: 0 0 0.35rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .featured-item h3 {
+    margin-bottom: 0.4rem;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  }
+
+  .featured-item p:last-child {
+    margin: 0;
+    color: var(--color-ink-soft);
+  }
+
+  .explore-section {
+    padding-top: 0;
+  }
+
+  .explore-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+  }
+
+  .explore-list a {
+    display: block;
+    background: var(--color-paper);
+    padding: 1.5rem 1.25rem;
+    text-decoration: none;
+    min-height: 8rem;
+    transition: background 0.25s var(--ease);
+  }
+
+  .explore-list a:hover {
+    background: rgba(31, 92, 87, 0.06);
+  }
+
+  .explore-list span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .explore-list em {
+    font-style: normal;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+
+  @keyframes hero-drift {
+    from {
+      transform: scale(1.04) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.08) translate3d(-1.5%, -1%, 0);
+    }
+  }
+
+  @media (max-width: 800px) {
+    .featured-item {
+      grid-template-columns: 6.5rem 1fr;
+    }
+
+    .explore-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .explore-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-hero-media img {
+      animation: none;
+    }
+  }
+
+  :global(body.page-home) .site-header {
+    background: transparent;
+    border-bottom-color: transparent;
+    position: absolute;
+    width: 100%;
+  }
+
+  :global(body.page-home) .brand,
+  :global(body.page-home) .site-nav a,
+  :global(body.page-home) .nav-toggle span {
+    color: #f7f4ef;
+  }
+
+  :global(body.page-home) .site-nav a {
+    color: rgba(247, 244, 239, 0.82);
+  }
+
+  :global(body.page-home) .site-nav a:hover,
+  :global(body.page-home) .site-nav a[aria-current='page'] {
+    color: #fff;
+  }
+
+  :global(body.page-home) .site-nav.is-open {
+    background: var(--color-paper);
+  }
+
+  :global(body.page-home) .site-nav.is-open a {
+    color: var(--color-ink-soft);
+  }
+
+  :global(body.page-home) .site-nav.is-open a:hover,
+  :global(body.page-home) .site-nav.is-open a[aria-current='page'] {
+    color: var(--color-accent);
+  }
+
+  :global(body.page-home) .nav-toggle span {
+    background: #f7f4ef;
+  }
+</style>

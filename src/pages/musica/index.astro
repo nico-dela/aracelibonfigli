@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MusicPlayer from '../../components/MusicPlayer.astro';
+import { getCollection, render } from 'astro:content';
+
+const albums = (await getCollection('albums')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const playlist = albums.flatMap((album) =>
+  album.data.tracks.map((track) => ({
+    title: track.title,
+    src: track.src,
+    album: album.data.title,
+    cover: album.data.cover,
+  })),
+);
+
+let trackOffset = 0;
+---
+
+<BaseLayout title="Música" description="Discografía de Araceli Bonfigli">
+  <header class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">Discografía</p>
+      <h1>Música</h1>
+      <p>Álbumes y EPs para escuchar en el sitio.</p>
+    </div>
+  </header>
+
+  <div class="container section albums">
+    {
+      albums.map(async (album) => {
+        const { Content } = await render(album);
+        const start = trackOffset;
+        trackOffset += album.data.tracks.length;
+        return (
+          <article class="album reveal" id={album.id}>
+            <div class="album-cover">
+              <img src={album.data.cover} alt={`Portada de ${album.data.title}`} />
+            </div>
+            <div class="album-body">
+              <p class="album-meta">
+                {album.data.type} · {album.data.year}
+              </p>
+              <h2>{album.data.title}</h2>
+              <p class="album-summary">{album.data.summary}</p>
+              <div class="album-copy">
+                <Content />
+              </div>
+              <ol class="tracklist">
+                {album.data.tracks.map((track, i) => (
+                  <li>
+                    <button type="button" data-play-track={start + i}>
+                      <span>{String(i + 1).padStart(2, '0')}</span>
+                      {track.title}
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+
+  {playlist.length > 0 && <MusicPlayer tracks={playlist} />}
+</BaseLayout>
+
+<style>
+  .albums {
+    display: grid;
+    gap: var(--space-xl);
+    padding-bottom: 7rem;
+  }
+
+  .album {
+    display: grid;
+    grid-template-columns: minmax(12rem, 18rem) 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .album-cover img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .album-meta {
+    margin: 0 0 0.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .album h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+  }
+
+  .album-summary,
+  .album-copy {
+    color: var(--color-ink-soft);
+  }
+
+  .tracklist {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .tracklist li {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .tracklist button {
+    width: 100%;
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+    padding: 0.8rem 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .tracklist button:hover {
+    color: var(--color-accent);
+  }
+
+  .tracklist span {
+    font-variant-numeric: tabular-nums;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 800px) {
+    .album {
+      grid-template-columns: 1fr;
+    }
+
+    .album-cover {
+      max-width: 18rem;
+    }
+  }
+</style>

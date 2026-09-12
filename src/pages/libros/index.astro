@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PdfViewer from '../../components/PdfViewer.astro';
+import { getCollection, render } from 'astro:content';
+
+const books = (await getCollection('books')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout title="Libros" description="Poemarios de Araceli Bonfigli">
+  <header class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">Escritura</p>
+      <h1>Libros</h1>
+      <p>Poemarios publicados, con vista previa y descarga.</p>
+    </div>
+  </header>
+
+  <div class="container section books">
+    {
+      books.map(async (book) => {
+        const { Content } = await render(book);
+        return (
+          <article class="book reveal">
+            <div class="book-covers">
+              <img src={book.data.cover} alt={`Portada de ${book.data.title}`} />
+              {book.data.backCover && (
+                <img
+                  src={book.data.backCover}
+                  alt={`Contratapa de ${book.data.title}`}
+                />
+              )}
+            </div>
+            <div>
+              <p class="meta">{book.data.year}</p>
+              <h2>{book.data.title}</h2>
+              <p class="summary">{book.data.summary}</p>
+              <div class="copy">
+                <Content />
+              </div>
+              <PdfViewer pdf={book.data.pdf} title={book.data.title} />
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .books {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .book {
+    display: grid;
+    grid-template-columns: minmax(12rem, 20rem) 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .book-covers {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .meta {
+    margin: 0 0 0.35rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--color-accent);
+  }
+
+  .book h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+  }
+
+  .summary,
+  .copy {
+    color: var(--color-ink-soft);
+  }
+
+  @media (max-width: 800px) {
+    .book {
+      grid-template-columns: 1fr;
+    }
+
+    .book-covers {
+      grid-template-columns: 1fr 1fr;
+      max-width: 28rem;
+    }
+  }
+</style>
