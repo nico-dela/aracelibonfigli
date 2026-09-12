@@ -1,6 +1,7 @@
 ---
 title: "El Devenir de los Días"
 year: 2016
+month: 12
 cover: "/media/images/webp/eldevenirdelosdias-portada.webp"
 backCover: "/media/images/webp/eldevenirdelosdias-contra.webp"
 pdf: "/media/books/ElDevenirDeLosDias-2016.pdf"

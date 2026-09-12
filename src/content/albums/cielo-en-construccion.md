@@ -1,6 +1,7 @@
 ---
 title: "Cielo en Construcción"
 year: 2026
+month: 12
 type: "Álbum"
 cover: "/media/images/webp/cielo-en-construccion-portada.webp"
 order: 1

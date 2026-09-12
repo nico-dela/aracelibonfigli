@@ -1,22 +1,36 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
 import { getEntry } from 'astro:content';
+import { getRecentWorks } from '../utils/recent-works';
 
 const site = (await getEntry('settings', 'site'))!.data;
+const recentWorks = await getRecentWorks(site.featuredLimit ?? 6);
 const explore = [
-  { href: '/musica/', label: 'Música', text: 'Discografía completa' },
-  { href: '/estudio/', label: 'Estudio', text: 'Arreglos y sesiones' },
-  { href: '/videos/', label: 'Videos', text: 'Actuaciones en vivo' },
-  { href: '/libros/', label: 'Libros', text: 'Poemarios publicados' },
-  { href: '/galeria/', label: 'Galería', text: 'Fotos de conciertos' },
-  { href: '/bio/', label: 'Biografía', text: 'Historia y trayectoria' },
+  { href: '/musica/', label: 'Música', text: 'Discografía completa', icon: 'music' as const },
+  { href: '/estudio/', label: 'Estudio', text: 'Arreglos y sesiones', icon: 'studio' as const },
+  { href: '/videos/', label: 'Videos', text: 'Actuaciones en vivo', icon: 'video' as const },
+  { href: '/libros/', label: 'Libros', text: 'Poemarios publicados', icon: 'book' as const },
+  { href: '/galeria/', label: 'Galería', text: 'Fotos de conciertos', icon: 'gallery' as const },
+  { href: '/bio/', label: 'Biografía', text: 'Historia y trayectoria', icon: 'person' as const },
 ];
 ---
 
 <BaseLayout bodyClass="page-home">
   <section class="home-hero">
     <div class="home-hero-media" aria-hidden="true">
-      <img src={site.heroImage} alt="" />
+      <Image
+        src={site.heroImage}
+        alt=""
+        width={1600}
+        height={2000}
+        widths={[800, 1200, 1600]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
     </div>
     <div class="home-hero-overlay"></div>
     <div class="container home-hero-content">
@@ -24,8 +38,14 @@ const explore = [
       <h1 class="home-brand reveal">{site.title}</h1>
       <p class="home-lead reveal">{site.description}</p>
       <div class="home-cta reveal">
-        <a class="btn btn-primary" href="/musica/">Escuchar música</a>
-        <a class="btn btn-ghost" href="/bio/">Conocer más</a>
+        <a class="btn btn-primary" href="/musica/">
+          <Icon name="play" size={16} />
+          Escuchar música
+        </a>
+        <a class="btn btn-ghost" href="/bio/">
+          <Icon name="person" size={16} />
+          Conocer más
+        </a>
       </div>
     </div>
   </section>
@@ -33,14 +53,29 @@ const explore = [
   <section class="section">
     <div class="container">
       <div class="section-head reveal">
-        <p class="section-eyebrow">Obra reciente</p>
+        <p class="section-eyebrow">
+          <Icon name="arrow" size={14} />
+          Obra reciente
+        </p>
         <h2 class="section-title">Últimos trabajos</h2>
+        <p class="section-lead">
+          Publicaciones más recientes de música, estudio, videos y libros.
+        </p>
       </div>
       <div class="featured-list">
         {
-          site.featured.map((item) => (
+          recentWorks.map((item) => (
             <a class="featured-item reveal" href={item.href}>
-              <img src={item.image} alt={item.title} loading="lazy" />
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={240}
+                height={240}
+                widths={[240, 480]}
+                sizes="(max-width: 800px) 30vw, 12rem"
+                loading="lazy"
+                decoding="async"
+              />
               <div>
                 <p class="featured-meta">{item.subtitle}</p>
                 <h3>{item.title}</h3>
@@ -64,7 +99,10 @@ const explore = [
           explore.map((item) => (
             <li class="reveal">
               <a href={item.href}>
-                <span>{item.label}</span>
+                <span class="explore-label">
+                  <Icon name={item.icon} size={22} />
+                  {item.label}
+                </span>
                 <em>{item.text}</em>
               </a>
             </li>
@@ -169,7 +207,7 @@ const explore = [
   }
 
   .featured-item:hover {
-    background: rgba(31, 92, 87, 0.05);
+    background: color-mix(in srgb, var(--color-accent) 8%, transparent);
     color: inherit;
   }
 
@@ -213,29 +251,44 @@ const explore = [
   }
 
   .explore-list a {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.45rem;
     background: var(--color-paper);
-    padding: 1.5rem 1.25rem;
+    padding: 1.6rem 1.35rem;
     text-decoration: none;
-    min-height: 8rem;
-    transition: background 0.25s var(--ease);
+    min-height: 8.5rem;
+    color: inherit;
+    transition:
+      background 0.25s var(--ease),
+      color 0.25s var(--ease);
   }
 
   .explore-list a:hover {
-    background: rgba(31, 92, 87, 0.06);
+    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-paper));
+    color: var(--color-accent);
   }
 
-  .explore-list span {
-    display: block;
+  .explore-label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
     font-family: var(--font-display);
     font-size: 1.5rem;
-    margin-bottom: 0.35rem;
+    line-height: 1.2;
   }
 
   .explore-list em {
+    display: block;
     font-style: normal;
     color: var(--color-muted);
     font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .explore-list a:hover em {
+    color: var(--color-ink-soft);
   }
 
   @keyframes hero-drift {
@@ -278,8 +331,18 @@ const explore = [
 
   :global(body.page-home) .brand,
   :global(body.page-home) .site-nav a,
-  :global(body.page-home) .nav-toggle span {
+  :global(body.page-home) .nav-toggle span,
+  :global(body.page-home) .theme-toggle {
     color: #f7f4ef;
+  }
+
+  :global(body.page-home) .theme-toggle {
+    border-color: rgba(247, 244, 239, 0.35);
+  }
+
+  :global(body.page-home) .theme-toggle:hover {
+    border-color: #fff;
+    color: #fff;
   }
 
   :global(body.page-home) .site-nav a {

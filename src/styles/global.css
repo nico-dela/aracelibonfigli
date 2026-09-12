@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --color-paper: #f7f4ef;
   --color-ink: #1a1f1c;
   --color-ink-soft: #3d4540;
@@ -7,6 +8,9 @@
   --color-accent-hover: #164742;
   --color-line: rgba(26, 31, 28, 0.12);
   --color-overlay: rgba(12, 18, 16, 0.55);
+  --color-header: rgba(247, 244, 239, 0.88);
+  --color-surface: rgba(255, 255, 255, 0.45);
+  --color-hero-text: #f7f4ef;
 
   --font-display: "Fraunces", "Times New Roman", serif;
   --font-body: "Figtree", "Helvetica Neue", sans-serif;
@@ -22,6 +26,20 @@
   --header-h: 4.25rem;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --color-paper: #121614;
+  --color-ink: #e8ebe7;
+  --color-ink-soft: #b5bbb6;
+  --color-muted: #8a918c;
+  --color-accent: #7eb8b2;
+  --color-accent-hover: #9ccfc9;
+  --color-line: rgba(232, 235, 231, 0.12);
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-header: rgba(18, 22, 20, 0.9);
+  --color-surface: rgba(255, 255, 255, 0.04);
 }
 
 *,
@@ -44,6 +62,16 @@ body {
   background:
     radial-gradient(ellipse 80% 50% at 10% -10%, rgba(31, 92, 87, 0.08), transparent 55%),
     radial-gradient(ellipse 60% 40% at 100% 0%, rgba(26, 31, 28, 0.05), transparent 50%),
+    var(--color-paper);
+  transition:
+    background-color 0.3s var(--ease),
+    color 0.3s var(--ease);
+}
+
+html[data-theme='dark'] body {
+  background:
+    radial-gradient(ellipse 70% 45% at 15% -5%, rgba(126, 184, 178, 0.1), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 100% 0%, rgba(255, 255, 255, 0.03), transparent 50%),
     var(--color-paper);
 }
 
@@ -118,6 +146,9 @@ p {
 }
 
 .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -165,9 +196,17 @@ p {
   color: #f4faf8;
 }
 
+html[data-theme='dark'] .btn-primary {
+  color: #0f1412;
+}
+
 .btn-primary:hover {
   background: var(--color-accent-hover);
   color: #fff;
+}
+
+html[data-theme='dark'] .btn-primary:hover {
+  color: #0f1412;
 }
 
 .btn-ghost {
@@ -196,6 +235,13 @@ p {
 .page-hero {
   padding: calc(var(--header-h) + var(--space-lg)) 0 var(--space-lg);
   border-bottom: 1px solid var(--color-line);
+}
+
+.album,
+.book,
+.video-card,
+.prod-card {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
 }
 
 .page-hero h1 {

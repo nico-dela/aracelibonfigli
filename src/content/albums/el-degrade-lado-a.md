@@ -1,6 +1,7 @@
 ---
 title: "El Degradé Del Atardecer — Lado A"
 year: 2021
+month: 12
 type: "EP"
 cover: "/media/images/webp/eldegradedelatardecer-lado-a.webp"
 order: 5

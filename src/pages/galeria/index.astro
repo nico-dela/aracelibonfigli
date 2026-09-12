@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GalleryGrid from '../../components/GalleryGrid.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
 
 const sets = (await getCollection('gallery')).sort(
@@ -11,7 +12,10 @@ const sets = (await getCollection('gallery')).sort(
 <BaseLayout title="Galería" description="Galería de conciertos de Araceli Bonfigli">
   <header class="page-hero">
     <div class="container">
-      <p class="section-eyebrow">Imágenes</p>
+      <p class="section-eyebrow">
+        <Icon name="gallery" size={14} />
+        Imágenes
+      </p>
       <h1>Galería</h1>
       <p>Fotos de conciertos y presentaciones.</p>
     </div>

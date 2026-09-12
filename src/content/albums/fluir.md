@@ -1,6 +1,7 @@
 ---
 title: "Fluir"
 year: 2017
+month: 12
 type: "Álbum"
 cover: "/media/images/webp/fluir-portada.webp"
 order: 3

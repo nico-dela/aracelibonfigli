@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MusicPlayer from '../../components/MusicPlayer.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection, render } from 'astro:content';
 
 const albums = (await getCollection('albums')).sort(
@@ -22,7 +24,10 @@ let trackOffset = 0;
 <BaseLayout title="Música" description="Discografía de Araceli Bonfigli">
   <header class="page-hero">
     <div class="container">
-      <p class="section-eyebrow">Discografía</p>
+      <p class="section-eyebrow">
+        <Icon name="music" size={14} />
+        Discografía
+      </p>
       <h1>Música</h1>
       <p>Álbumes y EPs para escuchar en el sitio.</p>
     </div>
@@ -37,7 +42,16 @@ let trackOffset = 0;
         return (
           <article class="album reveal" id={album.id}>
             <div class="album-cover">
-              <img src={album.data.cover} alt={`Portada de ${album.data.title}`} />
+              <Image
+                src={album.data.cover}
+                alt={`Portada de ${album.data.title}`}
+                width={576}
+                height={576}
+                widths={[288, 576]}
+                sizes="(max-width: 800px) 70vw, 18rem"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="album-body">
               <p class="album-meta">
@@ -53,7 +67,8 @@ let trackOffset = 0;
                   <li>
                     <button type="button" data-play-track={start + i}>
                       <span>{String(i + 1).padStart(2, '0')}</span>
-                      {track.title}
+                      <span class="track-title">{track.title}</span>
+                      <Icon name="play" size={14} class="track-play" />
                     </button>
                   </li>
                 ))}
@@ -134,10 +149,26 @@ let trackOffset = 0;
     color: var(--color-accent);
   }
 
-  .tracklist span {
+  .tracklist button > span:first-child {
     font-variant-numeric: tabular-nums;
     color: var(--color-muted);
     font-size: 0.85rem;
+    min-width: 1.5rem;
+  }
+
+  .track-title {
+    flex: 1;
+  }
+
+  .track-play {
+    opacity: 0;
+    color: var(--color-accent);
+    transition: opacity 0.2s ease;
+  }
+
+  .tracklist button:hover .track-play,
+  .tracklist button:focus-visible .track-play {
+    opacity: 1;
   }
 
   @media (max-width: 800px) {

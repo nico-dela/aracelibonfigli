@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 import { getEntry, render } from 'astro:content';
 
 const bio = await getEntry('pages', 'bio');
@@ -10,7 +12,10 @@ const { Content } = await render(bio);
 <BaseLayout title="Biografía" description="Biografía de Araceli Bonfigli">
   <header class="page-hero">
     <div class="container">
-      <p class="section-eyebrow">Trayectoria</p>
+      <p class="section-eyebrow">
+        <Icon name="person" size={14} />
+        Trayectoria
+      </p>
       <h1>{bio.data.title}</h1>
     </div>
   </header>
@@ -19,7 +24,16 @@ const { Content } = await render(bio);
     <div class="bio-photos reveal">
       {
         bio.data.images?.map((image) => (
-          <img src={image.src} alt={image.alt ?? 'Araceli Bonfigli'} loading="lazy" />
+          <Image
+            src={image.src}
+            alt={image.alt ?? 'Araceli Bonfigli'}
+            width={704}
+            height={880}
+            widths={[352, 704]}
+            sizes="(max-width: 800px) 90vw, 22rem"
+            loading="lazy"
+            decoding="async"
+          />
         ))
       }
     </div>

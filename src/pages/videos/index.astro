@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
 
 const videos = (await getCollection('videos')).sort(
@@ -10,7 +11,10 @@ const videos = (await getCollection('videos')).sort(
 <BaseLayout title="Videos" description="Videos de Araceli Bonfigli">
   <header class="page-hero">
     <div class="container">
-      <p class="section-eyebrow">Audiovisual</p>
+      <p class="section-eyebrow">
+        <Icon name="video" size={14} />
+        Audiovisual
+      </p>
       <h1>Videos</h1>
       <p>Presentaciones, sesiones y obras en vivo.</p>
     </div>
@@ -19,7 +23,7 @@ const videos = (await getCollection('videos')).sort(
   <div class="container section video-grid">
     {
       videos.map((video) => (
-        <article class="video-card reveal">
+        <article class="video-card reveal" id={video.id}>
           <div class="video-frame">
             <iframe
               src={`https://www.youtube.com/embed/${video.data.youtubeId}`}

@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   linktree: string;
 }
@@ -14,6 +16,7 @@ const { linktree } = Astro.props;
       target="_blank"
       rel="noopener noreferrer"
     >
+      <Icon name="external" size={16} />
       linktr.ee/aracelibonfigli
     </a>
   </div>
@@ -33,6 +36,9 @@ const { linktree } = Astro.props;
   }
 
   .footer-linktree {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;

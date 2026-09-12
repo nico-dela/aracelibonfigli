@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { cloudinaryThumb } from '../utils/cloudinary';
 
 interface ImageItem {
@@ -29,11 +30,13 @@ const items = images.map((image) => ({
         data-full-src={image.src}
         aria-label={`Ver ${image.alt ?? title} (${index + 1})`}
       >
-        <img
+        <Image
           src={image.thumb}
           alt={image.alt ?? title}
-          width="480"
-          height="480"
+          width={480}
+          height={480}
+          widths={[240, 480]}
+          sizes="(max-width: 700px) 45vw, 10rem"
           decoding="async"
           loading={index < 8 ? 'eager' : 'lazy'}
           fetchpriority={index < 4 ? 'high' : 'auto'}
@@ -70,7 +73,7 @@ const items = images.map((image) => ({
   .gallery-thumb {
     border: 0;
     padding: 0;
-    background: rgba(26, 31, 28, 0.06);
+    background: var(--color-surface);
     cursor: pointer;
     aspect-ratio: 1;
     overflow: hidden;
@@ -116,7 +119,7 @@ const items = images.map((image) => ({
   .gallery-nav {
     position: absolute;
     border: 0;
-    background: rgba(247, 244, 239, 0.92);
+    background: color-mix(in srgb, var(--color-paper) 92%, transparent);
     color: var(--color-ink);
     width: 2.5rem;
     height: 2.5rem;

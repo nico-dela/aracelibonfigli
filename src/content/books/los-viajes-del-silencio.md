@@ -1,6 +1,7 @@
 ---
 title: "Los Viajes del Silencio"
 year: 2018
+month: 12
 cover: "/media/images/webp/losviajesdelsilencio-portada.webp"
 backCover: "/media/images/webp/losviajesdelsilencio-contra.webp"
 pdf: "/media/books/LosViajesDelSilencio-2018.pdf"

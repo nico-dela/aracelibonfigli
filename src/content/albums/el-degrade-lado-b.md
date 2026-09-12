@@ -1,6 +1,7 @@
 ---
 title: "El Degradé Del Atardecer — Lado B"
 year: 2022
+month: 12
 type: "EP"
 cover: "/media/images/webp/eldegradedelatardecer-lado-b.webp"
 order: 4

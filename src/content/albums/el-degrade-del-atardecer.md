@@ -1,6 +1,7 @@
 ---
 title: "El Degradé Del Atardecer"
 year: 2023
+month: 12
 type: "Full Album En Vivo"
 cover: "/media/images/webp/eldegradedelatardecer-portada.webp"
 order: 2

@@ -11,6 +11,7 @@ const albums = defineCollection({
   schema: z.object({
     title: z.string(),
     year: z.number(),
+    month: z.number().min(1).max(12).default(12),
     type: z.string(),
     cover: z.string(),
     order: z.number(),
@@ -24,6 +25,7 @@ const books = defineCollection({
   schema: z.object({
     title: z.string(),
     year: z.number(),
+    month: z.number().min(1).max(12).default(12),
     cover: z.string(),
     backCover: z.string().optional(),
     pdf: z.string(),
@@ -38,6 +40,8 @@ const videos = defineCollection({
     title: z.string(),
     subtitle: z.string().optional(),
     youtubeId: z.string(),
+    year: z.number(),
+    month: z.number().min(1).max(12).default(12),
     order: z.number(),
   }),
 });
@@ -49,6 +53,8 @@ const productions = defineCollection({
     meta: z.string().optional(),
     role: z.string().optional(),
     category: z.enum(['produccion', 'sesionista']),
+    year: z.number(),
+    month: z.number().min(1).max(12).default(12),
     order: z.number(),
     spotifyType: z.enum(['album', 'track']).optional(),
     spotifyId: z.string().optional(),
@@ -95,15 +101,7 @@ const settings = defineCollection({
     heroImage: z.string(),
     metaDescription: z.string(),
     linktree: z.string(),
-    featured: z.array(
-      z.object({
-        title: z.string(),
-        subtitle: z.string(),
-        description: z.string(),
-        image: z.string(),
-        href: z.string(),
-      }),
-    ),
+    featuredLimit: z.number().int().positive().default(6),
   }),
 });
 

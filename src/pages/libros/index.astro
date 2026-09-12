@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PdfViewer from '../../components/PdfViewer.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection, render } from 'astro:content';
 
 const books = (await getCollection('books')).sort(
@@ -11,7 +13,10 @@ const books = (await getCollection('books')).sort(
 <BaseLayout title="Libros" description="Poemarios de Araceli Bonfigli">
   <header class="page-hero">
     <div class="container">
-      <p class="section-eyebrow">Escritura</p>
+      <p class="section-eyebrow">
+        <Icon name="book" size={14} />
+        Escritura
+      </p>
       <h1>Libros</h1>
       <p>Poemarios publicados, con vista previa y descarga.</p>
     </div>
@@ -22,13 +27,28 @@ const books = (await getCollection('books')).sort(
       books.map(async (book) => {
         const { Content } = await render(book);
         return (
-          <article class="book reveal">
+          <article class="book reveal" id={book.id}>
             <div class="book-covers">
-              <img src={book.data.cover} alt={`Portada de ${book.data.title}`} />
+              <Image
+                src={book.data.cover}
+                alt={`Portada de ${book.data.title}`}
+                width={640}
+                height={900}
+                widths={[320, 640]}
+                sizes="(max-width: 800px) 70vw, 20rem"
+                loading="lazy"
+                decoding="async"
+              />
               {book.data.backCover && (
-                <img
+                <Image
                   src={book.data.backCover}
                   alt={`Contratapa de ${book.data.title}`}
+                  width={640}
+                  height={900}
+                  widths={[320, 640]}
+                  sizes="(max-width: 800px) 70vw, 20rem"
+                  loading="lazy"
+                  decoding="async"
                 />
               )}
             </div>

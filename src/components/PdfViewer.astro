@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   pdf: string;
   title: string;
@@ -15,9 +17,11 @@ const { pdf, title } = Astro.props;
     data-pdf={pdf}
     data-pdf-title={title}
   >
+    <Icon name="book" size={16} />
     Vista previa
   </button>
   <a class="btn btn-primary" href={pdf} download>
+    <Icon name="download" size={16} />
     Descargar PDF
   </a>
 </div>
@@ -80,6 +84,7 @@ const { pdf, title } = Astro.props;
   .pdf-dialog-nav button {
     border: 1px solid var(--color-line);
     background: transparent;
+    color: var(--color-ink);
     padding: 0.4rem 0.75rem;
     cursor: pointer;
     font: inherit;
@@ -88,7 +93,11 @@ const { pdf, title } = Astro.props;
   .pdf-stage {
     position: relative;
     min-height: 12rem;
-    background: #fff;
+    background: #f7f4ef;
+  }
+
+  :global(html[data-theme='dark']) .pdf-stage {
+    background: #1a1f1c;
   }
 
   .pdf-spinner {
@@ -99,7 +108,7 @@ const { pdf, title } = Astro.props;
     place-content: center;
     justify-items: center;
     gap: 0.85rem;
-    background: rgba(247, 244, 239, 0.92);
+    background: color-mix(in srgb, var(--color-paper) 92%, transparent);
     color: var(--color-ink-soft);
     font-size: 0.95rem;
   }
@@ -122,7 +131,11 @@ const { pdf, title } = Astro.props;
     width: 100%;
     max-height: 70vh;
     object-fit: contain;
-    background: #fff;
+    background: #f7f4ef;
+  }
+
+  :global(html[data-theme='dark']) canvas {
+    background: #1a1f1c;
   }
 
   @keyframes pdf-spin {
