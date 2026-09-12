@@ -69,6 +69,8 @@ Sí: el plan gratuito de Cloudflare Pages alcanza para mostrar esta propuesta si
    - **Node version:** `22` (o superior)
 5. Deploy → te dan una URL `*.pages.dev` para mostrar la propuesta.
 
+**Límite de assets:** Cloudflare Workers/Pages admite archivos de hasta **25 MiB**. Los PDFs del sitio están por debajo de ese tope.
+
 El dominio `aracelibonfigli.com.ar` puede seguir apuntando a GitHub Pages con la web actual hasta que decidas migrar.
 
 > Mientras esta propuesta no se mergee a `main`, la web actual en producción no cambia.
