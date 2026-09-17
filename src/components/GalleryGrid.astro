@@ -55,7 +55,10 @@ const items = images.map((image) => ({
     <button type="button" class="gallery-nav prev" data-gallery-prev aria-label="Anterior">
       ‹
     </button>
-    <img data-gallery-image alt="" decoding="async" />
+    <div class="gallery-stage" data-gallery-stage aria-live="polite">
+      <div class="gallery-spinner" data-gallery-spinner hidden aria-hidden="true"></div>
+      <img data-gallery-image alt="" decoding="async" />
+    </div>
     <button type="button" class="gallery-nav next" data-gallery-next aria-label="Siguiente">
       ›
     </button>
@@ -109,10 +112,44 @@ const items = images.map((image) => ({
     gap: 0.75rem;
   }
 
-  .gallery-dialog img {
+  .gallery-stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: min(78vh, 40rem);
+    width: 100%;
+  }
+
+  .gallery-stage.is-loading img {
+    opacity: 0.35;
+  }
+
+  .gallery-stage img {
     max-height: 78vh;
     width: auto;
     max-width: 100%;
+    transition: opacity 0.25s var(--ease);
+  }
+
+  .gallery-spinner {
+    position: absolute;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 2px solid color-mix(in srgb, #f7f4ef 35%, transparent);
+    border-top-color: #f7f4ef;
+    border-radius: 50%;
+    animation: gallery-spin 0.7s linear infinite;
+    z-index: 1;
+  }
+
+  .gallery-spinner[hidden] {
+    display: none;
+  }
+
+  @keyframes gallery-spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .gallery-close,
