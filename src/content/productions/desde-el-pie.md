@@ -5,7 +5,7 @@ role: "Composición, arreglos y producción compartidas con Veco Sánchez."
 category: "produccion"
 year: 2013
 month: 11
-order: 11
+order: 19
 spotifyType: "album"
 spotifyId: "5cPTk2l4lUuGqHICRYSPYQ"
 ---

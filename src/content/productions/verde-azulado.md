@@ -5,7 +5,7 @@ role: "Feat. como cantante en el disco Espiral de Mery Paz."
 category: "sesionista"
 year: 2020
 month: 10
-order: 20
+order: 29
 spotifyType: "track"
 spotifyId: "0FPRYLs6KLaV13cUSFiZ8v"
 ---

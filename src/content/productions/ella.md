@@ -5,7 +5,7 @@ role: "Baterista, percusión y accesorios en todos los temas excepto el 8."
 category: "sesionista"
 year: 2018
 month: 10
-order: 21
+order: 30
 spotifyType: "album"
 spotifyId: "20a9iOl8sXma8KTGWJhZqU"
 ---
