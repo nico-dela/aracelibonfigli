@@ -8,6 +8,8 @@ interface Props {
 
 const { siteTitle } = Astro.props;
 const path = Astro.url.pathname;
+const isHome = path === '/' || path === '/index.html';
+const brandLabel = isHome ? 'Inicio' : siteTitle;
 
 const links = [
   { href: '/musica/', label: 'Música', icon: 'music' as const },
@@ -25,7 +27,7 @@ function isActive(href: string) {
 
 <header class="site-header" data-header>
   <div class="container header-inner">
-    <a class="brand" href="/">{siteTitle}</a>
+    <a class="brand" href="/">{brandLabel}</a>
     <div class="header-actions">
       <ThemeToggle />
       <button
