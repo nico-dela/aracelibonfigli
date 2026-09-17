@@ -25,6 +25,7 @@ export function initMusicPlayer() {
   const audio = root.querySelector<HTMLAudioElement>('[data-player-audio]');
   const titleEl = root.querySelector('[data-player-title]');
   const albumEl = root.querySelector('[data-player-album]');
+  const labelEl = root.querySelector('[data-player-label]');
   const coverEl = root.querySelector<HTMLImageElement>('[data-player-cover]');
   const playBtn = root.querySelector<HTMLButtonElement>('[data-player-play]');
   const playIcon = root.querySelector<SVGElement>('[data-player-play-icon]');
@@ -55,6 +56,7 @@ export function initMusicPlayer() {
 
   const setPlaying = (playing: boolean) => {
     playBtn.setAttribute('aria-label', playing ? 'Pausar' : 'Reproducir');
+    if (labelEl) labelEl.textContent = playing ? 'Reproduciendo' : 'Escucha';
     const path = playIcon?.querySelector('path');
     if (path) path.setAttribute('d', playing ? PAUSE_PATH : PLAY_PATH);
   };
