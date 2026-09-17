@@ -5,5 +5,5 @@ role: "Baterista en “Amaranto”, “Comer con las manos”, “Piedra sobre p
 category: "sesionista"
 year: 2024
 month: 8
-order: 14
+order: 23
 ---

@@ -5,7 +5,7 @@ role: "Baterista para Cci Kiu."
 category: "sesionista"
 year: 2018
 month: 7
-order: 22
+order: 31
 spotifyType: "album"
 spotifyId: "39WZxD6UFQjNFUfR3rfjxZ"
 ---

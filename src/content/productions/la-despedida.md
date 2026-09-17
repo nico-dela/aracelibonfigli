@@ -5,7 +5,7 @@ role: "Guitarra acústica y coros. Co-producción de coros."
 category: "sesionista"
 year: 2023
 month: 11
-order: 16
+order: 25
 spotifyType: "track"
 spotifyId: "7K6rTlesQaMHzrlhpw7TWL"
 ---
