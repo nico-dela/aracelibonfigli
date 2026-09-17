@@ -6,4 +6,6 @@ category: "produccion"
 year: 2026
 month: 5
 order: 1
+spotifyType: "album"
+spotifyId: "1Ze8ryEhvVrJdMYvF434uP"
 ---

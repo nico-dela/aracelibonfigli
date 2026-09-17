@@ -27,12 +27,14 @@ async function productionImage(entry: {
   data: {
     youtubeId?: string;
     spotifyId?: string;
+    spotifyIds?: string[];
     spotifyType?: 'album' | 'track';
   };
 }): Promise<string> {
   if (entry.data.youtubeId) return youtubeThumb(entry.data.youtubeId);
-  if (entry.data.spotifyId && entry.data.spotifyType) {
-    const thumb = await spotifyThumb(entry.data.spotifyType, entry.data.spotifyId);
+  const id = entry.data.spotifyId ?? entry.data.spotifyIds?.[0];
+  if (id && entry.data.spotifyType) {
+    const thumb = await spotifyThumb(entry.data.spotifyType, id);
     if (thumb) return thumb;
   }
   return PLACEHOLDER;

@@ -58,6 +58,8 @@ const productions = defineCollection({
     order: z.number(),
     spotifyType: z.enum(['album', 'track']).optional(),
     spotifyId: z.string().optional(),
+    /** Varios tracks bajo una misma ficha (p. ej. sesiones en temas sueltos). */
+    spotifyIds: z.array(z.string()).optional(),
     youtubeId: z.string().optional(),
   }),
 });

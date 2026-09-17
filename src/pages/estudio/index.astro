@@ -9,6 +9,16 @@ const productions = (await getCollection('productions')).sort(
 );
 const produced = productions.filter((p) => p.data.category === 'produccion');
 const sessions = productions.filter((p) => p.data.category === 'sesionista');
+
+function spotifyEmbedIds(item: (typeof productions)[number]): string[] {
+  if (item.data.spotifyIds?.length) return item.data.spotifyIds;
+  if (item.data.spotifyId) return [item.data.spotifyId];
+  return [];
+}
+
+function hasMedia(item: (typeof productions)[number]): boolean {
+  return spotifyEmbedIds(item).length > 0 || !!item.data.youtubeId;
+}
 ---
 
 <BaseLayout title="Estudio" description="Producciones y sesiones de Araceli Bonfigli">
@@ -27,26 +37,31 @@ const sessions = productions.filter((p) => p.data.category === 'sesionista');
     <div class="producciones-masonry" aria-label="Trabajo en estudio: producción y sesiones">
       <h2 class="seccion-titulo masonry-full">Producciones musicales</h2>
       {
-        produced.map((item) => (
+        produced.map((item) => {
+          const embeds = spotifyEmbedIds(item);
+          const embedType = item.data.spotifyType ?? 'track';
+          return (
           <article class="prod-card reveal" id={item.id}>
-            {(item.data.spotifyId && item.data.spotifyType) || item.data.youtubeId ? (
+            {hasMedia(item) ? (
               <div class="prod-media">
-                {item.data.spotifyId && item.data.spotifyType ? (
-                  <div
-                    class:list={[
-                      'prod-embed',
-                      item.data.spotifyType === 'album'
-                        ? 'prod-embed--album'
-                        : 'prod-embed--track',
-                    ]}
-                  >
-                    <iframe
-                      src={`https://open.spotify.com/embed/${item.data.spotifyType}/${item.data.spotifyId}`}
-                      title={`Spotify: ${item.data.title}`}
-                      loading="lazy"
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    />
-                  </div>
+                {embeds.length ? (
+                  embeds.map((id) => (
+                    <div
+                      class:list={[
+                        'prod-embed',
+                        embedType === 'album'
+                          ? 'prod-embed--album'
+                          : 'prod-embed--track',
+                      ]}
+                    >
+                      <iframe
+                        src={`https://open.spotify.com/embed/${embedType}/${id}`}
+                        title={`Spotify: ${item.data.title}`}
+                        loading="lazy"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      />
+                    </div>
+                  ))
                 ) : (
                   <a
                     class="yt-preview"
@@ -75,31 +90,37 @@ const sessions = productions.filter((p) => p.data.category === 'sesionista');
               {item.data.role && <p class="role">{item.data.role}</p>}
             </div>
           </article>
-        ))
+          );
+        })
       }
 
       <h2 class="seccion-titulo masonry-full">Grabaciones como sesionista</h2>
       {
-        sessions.map((item) => (
+        sessions.map((item) => {
+          const embeds = spotifyEmbedIds(item);
+          const embedType = item.data.spotifyType ?? 'track';
+          return (
           <article class="prod-card reveal" id={item.id}>
-            {(item.data.spotifyId && item.data.spotifyType) || item.data.youtubeId ? (
+            {hasMedia(item) ? (
               <div class="prod-media">
-                {item.data.spotifyId && item.data.spotifyType ? (
-                  <div
-                    class:list={[
-                      'prod-embed',
-                      item.data.spotifyType === 'album'
-                        ? 'prod-embed--album'
-                        : 'prod-embed--track',
-                    ]}
-                  >
-                    <iframe
-                      src={`https://open.spotify.com/embed/${item.data.spotifyType}/${item.data.spotifyId}`}
-                      title={`Spotify: ${item.data.title}`}
-                      loading="lazy"
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    />
-                  </div>
+                {embeds.length ? (
+                  embeds.map((id) => (
+                    <div
+                      class:list={[
+                        'prod-embed',
+                        embedType === 'album'
+                          ? 'prod-embed--album'
+                          : 'prod-embed--track',
+                      ]}
+                    >
+                      <iframe
+                        src={`https://open.spotify.com/embed/${embedType}/${id}`}
+                        title={`Spotify: ${item.data.title}`}
+                        loading="lazy"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      />
+                    </div>
+                  ))
                 ) : (
                   <a
                     class="yt-preview"
@@ -128,7 +149,8 @@ const sessions = productions.filter((p) => p.data.category === 'sesionista');
               {item.data.role && <p class="role">{item.data.role}</p>}
             </div>
           </article>
-        ))
+          );
+        })
       }
     </div>
   </div>
@@ -175,6 +197,9 @@ const sessions = productions.filter((p) => p.data.category === 'sesionista');
   .prod-media {
     padding: 0.85rem 0.85rem 0;
     line-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
   }
 
   .prod-embed {
