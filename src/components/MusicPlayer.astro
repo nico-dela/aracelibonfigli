@@ -26,7 +26,7 @@ const playlistJson = JSON.stringify(tracks);
       decoding="async"
     />
     <div>
-      <p class="player-label">Escuchando</p>
+      <p class="player-label" data-player-label>Escucha</p>
       <p class="player-title" data-player-title>{tracks[0]?.title ?? '—'}</p>
       <p class="player-album" data-player-album>{tracks[0]?.album ?? ''}</p>
     </div>
