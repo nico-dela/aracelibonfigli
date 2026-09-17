@@ -155,31 +155,57 @@ const items = images.map((image) => ({
   .gallery-close,
   .gallery-nav {
     position: absolute;
-    border: 0;
-    background: color-mix(in srgb, var(--color-paper) 92%, transparent);
-    color: var(--color-ink);
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-    font-size: 1.4rem;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgba(247, 244, 239, 0.28);
+    border-radius: 999px;
+    padding: 0;
+    background: rgba(12, 18, 16, 0.55);
+    color: #f7f4ef;
+    font-size: 1.35rem;
     line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition:
+      background 0.25s var(--ease),
+      border-color 0.25s var(--ease),
+      transform 0.25s var(--ease);
+  }
+
+  .gallery-close:hover,
+  .gallery-nav:hover {
+    background: rgba(12, 18, 16, 0.78);
+    border-color: rgba(247, 244, 239, 0.5);
+  }
+
+  .gallery-close:focus-visible,
+  .gallery-nav:focus-visible {
+    outline: 2px solid #f7f4ef;
+    outline-offset: 2px;
   }
 
   .gallery-close {
-    top: 0.5rem;
-    right: 0.5rem;
-    z-index: 2;
+    top: 0.65rem;
+    right: 0.65rem;
   }
 
   .gallery-nav.prev {
-    left: 0.5rem;
+    left: 0.65rem;
     top: 50%;
     transform: translateY(-50%);
   }
 
   .gallery-nav.next {
-    right: 0.5rem;
+    right: 0.65rem;
     top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .gallery-nav.prev:hover,
+  .gallery-nav.next:hover {
     transform: translateY(-50%);
   }
 
