@@ -51,6 +51,8 @@ export function initGallery() {
     if (!dialog) return;
 
     const imageEl = dialog.querySelector<HTMLImageElement>('[data-gallery-image]');
+    const stageEl = dialog.querySelector<HTMLElement>('[data-gallery-stage]');
+    const spinnerEl = dialog.querySelector<HTMLElement>('[data-gallery-spinner]');
     const captionEl = dialog.querySelector('[data-gallery-caption]');
     const thumbs = [...grid.querySelectorAll<HTMLElement>('[data-gallery-open]')];
     const images: ImageItem[] = thumbs.map((thumb) => {
@@ -60,16 +62,46 @@ export function initGallery() {
     });
 
     let index = 0;
+    let loadGeneration = 0;
+
+    const setLoading = (loading: boolean) => {
+      stageEl?.classList.toggle('is-loading', loading);
+      imageEl?.toggleAttribute('aria-busy', loading);
+      if (spinnerEl) {
+        spinnerEl.hidden = !loading;
+        spinnerEl.setAttribute('aria-hidden', loading ? 'false' : 'true');
+      }
+    };
 
     const show = (i: number) => {
       index = (i + images.length) % images.length;
       const item = images[index];
       if (!item || !imageEl) return;
+
+      const gen = ++loadGeneration;
+      setLoading(true);
+
+      const finish = () => {
+        if (gen !== loadGeneration) return;
+        setLoading(false);
+      };
+
+      imageEl.addEventListener('load', finish, { once: true });
+      imageEl.addEventListener('error', finish, { once: true });
+
       imageEl.src = item.src;
       imageEl.alt = item.alt ?? '';
       pinInMemory(item.src);
       void pinInCacheStorage(item.src);
       if (captionEl) captionEl.textContent = `${index + 1} / ${images.length}`;
+
+      if (imageEl.complete && imageEl.naturalWidth > 0) finish();
+
+      const next = images[(index + 1) % images.length];
+      if (next) {
+        pinInMemory(next.src);
+        void pinInCacheStorage(next.src);
+      }
     };
 
     thumbs.forEach((thumb) => {
